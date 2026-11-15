@@ -13,6 +13,20 @@
   - Searches returned nothing useful on Cyber Aero, acid graphics, weirdcore, dithering, ASCII, plasma, moiré or CRT. Those entries rest on my knowledge, not on fetched sources.
 - **To do real Pinterest analysis:** allow `pinterest.com` in the environment network settings. Even then it likely needs a login or API key, and image content still needs vision analysis. An alternative is for you to export a few boards' images into the repo, and I'll analyse those.
 
+## Round 2 (before building Phase 2)
+- **Crawling:** a Playwright crawl of Pinterest, Behance, Dribbble, ArtStation and other image sites was not possible. The sandbox network blocks those hosts, and the request to allow them was declined. Research stayed on web search.
+- **More Pinterest Predicts 2026 aesthetics:**
+  - **Wilderkind:** nature, bugs, deer, earthy.
+  - **Neo Deco:** Art Deco geometry, metals, deep tones.
+  - **Vamp Romantic:** glossy goth.
+  - **Gimme Gummy.**
+  - **Opera/Circus:** theatrical, masquerade.
+- **Platform facts that shaped the engine:**
+  - **WebCodecs:** now in Safari 26, but MP4 needs a muxer. `MediaRecorder` with MP4 (H.264) is available in Chromium and Safari, so it's the zero-dependency choice, with WebM as a fallback.
+  - **`backdrop-filter`:** cost grows with blur radius and the number of blurred layers, and it's janky on low-end Android and iOS. Keep it at ≤18px on a few small surfaces and fall back to solid based on measured FPS.
+  - **View Transitions:** same-document support is broad, but transitions are done with a canvas snapshot plus CSS, so they work everywhere.
+  - **OffscreenCanvas WebGL in workers:** unreliable in Safari, so the engine renders on the main thread with parallel shader compile.
+
 ## Pinterest Predicts 2026 signals (from press coverage)
 - Pinterest is moving away from minimalism toward maximalism and experimentation, with faster micro-trends.
 - **Alien-core / Extra Celestial:** searches +80%.

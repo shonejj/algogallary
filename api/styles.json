@@ -1,0 +1,1385 @@
+{
+ "name": "AlgoGallery",
+ "license": "CC0-1.0",
+ "endpoint": "render.html",
+ "viewer": "index.html",
+ "params": {
+  "mode": "image|video",
+  "style": "id or comma list",
+  "cat": "category ids",
+  "seed": "uint32",
+  "palette": "auto|random|<name>",
+  "fx": "auto|none|film|crt|vhs|glitch|bitmap|dither|gameboy|pixel|halftone|cmyk|ascii|matrix|stipple|duotone|paper",
+  "w": "px",
+  "h": "px",
+  "aspect": "1:1|4:5|9:16|16:9",
+  "dur": "seconds (video)",
+  "download": "1 = auto-save file"
+ },
+ "categories": {
+  "ui": "Interface",
+  "retro": "Retro & Nostalgia",
+  "futurism": "Futurism",
+  "nature": "Nature & Eco",
+  "mood": "Mood & Core",
+  "analog": "Analog & Glitch",
+  "print": "Print",
+  "ink": "Ink & Paint",
+  "text": "Text Art",
+  "pixel": "Pixel & Dither",
+  "geometry": "Geometry",
+  "math": "Math Art",
+  "shader": "Shader Art",
+  "illustration": "Illustration",
+  "typography": "Typography",
+  "webdesign": "Web Design"
+ },
+ "styles": [
+  {
+   "id": "glassmorphism",
+   "name": "Glassmorphism",
+   "category": "ui",
+   "engine": "webgl",
+   "palettes": [
+    "aurora",
+    "candy",
+    "dusk",
+    "ocean",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "liquid-glass",
+   "name": "Liquid Glass",
+   "category": "ui",
+   "engine": "webgl",
+   "palettes": [
+    "candy",
+    "pastel",
+    "gummy",
+    "citrus",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "aurora-gradient",
+   "name": "Aurora Gradient",
+   "category": "ui",
+   "engine": "webgl",
+   "palettes": [
+    "aurora",
+    "dusk",
+    "ocean",
+    "alien"
+   ],
+   "tags": []
+  },
+  {
+   "id": "mesh-gradient",
+   "name": "Mesh Gradient",
+   "category": "ui",
+   "engine": "webgl",
+   "palettes": [
+    "candy",
+    "sunset",
+    "pastel",
+    "mint",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "grainy-gradient",
+   "name": "Grainy Gradient",
+   "category": "ui",
+   "engine": "webgl",
+   "palettes": [
+    "dusk",
+    "sunset",
+    "wine",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "neumorphism",
+   "name": "Neumorphism",
+   "category": "ui",
+   "engine": "webgl",
+   "palettes": [
+    "clay",
+    "pastel",
+    "mint",
+    "ice"
+   ],
+   "tags": []
+  },
+  {
+   "id": "neubrutalism",
+   "name": "Neubrutalism",
+   "category": "ui",
+   "engine": "canvas2d",
+   "palettes": [
+    "brutal",
+    "memphis",
+    "citrus"
+   ],
+   "tags": []
+  },
+  {
+   "id": "bento-grid",
+   "name": "Bento Grid",
+   "category": "ui",
+   "engine": "canvas2d",
+   "palettes": [
+    "aurora",
+    "neon",
+    "candy",
+    "ocean",
+    "synth"
+   ],
+   "tags": []
+  },
+  {
+   "id": "claymorphism",
+   "name": "Claymorphism",
+   "category": "ui",
+   "engine": "webgl",
+   "palettes": [
+    "clay",
+    "pastel",
+    "gummy"
+   ],
+   "tags": []
+  },
+  {
+   "id": "gummy-jelly",
+   "name": "Gummy Jelly",
+   "category": "ui",
+   "engine": "webgl",
+   "palettes": [
+    "gummy",
+    "candy",
+    "citrus"
+   ],
+   "tags": [
+    "pinterest-2026"
+   ]
+  },
+  {
+   "id": "y2k-chrome",
+   "name": "Y2K Chrome",
+   "category": "retro",
+   "engine": "webgl",
+   "palettes": [
+    "chrome",
+    "ice",
+    "candy"
+   ],
+   "tags": []
+  },
+  {
+   "id": "frutiger-aero",
+   "name": "Frutiger Aero",
+   "category": "retro",
+   "engine": "webgl",
+   "palettes": [
+    "aero"
+   ],
+   "tags": []
+  },
+  {
+   "id": "dark-aero",
+   "name": "Dark Aero",
+   "category": "retro",
+   "engine": "webgl",
+   "palettes": [
+    "darkaero"
+   ],
+   "tags": []
+  },
+  {
+   "id": "vaporwave",
+   "name": "Vaporwave",
+   "category": "retro",
+   "engine": "webgl",
+   "palettes": [
+    "vapor",
+    "candy"
+   ],
+   "tags": []
+  },
+  {
+   "id": "synthwave",
+   "name": "Synthwave / Outrun",
+   "category": "retro",
+   "engine": "webgl",
+   "palettes": [
+    "synth",
+    "neon",
+    "sunset"
+   ],
+   "tags": []
+  },
+  {
+   "id": "memphis",
+   "name": "Memphis Design",
+   "category": "retro",
+   "engine": "canvas2d",
+   "palettes": [
+    "memphis",
+    "brutal",
+    "pastel"
+   ],
+   "tags": []
+  },
+  {
+   "id": "bauhaus",
+   "name": "Bauhaus Tiles",
+   "category": "retro",
+   "engine": "canvas2d",
+   "palettes": [
+    "bauhaus",
+    "risoB",
+    "memphis"
+   ],
+   "tags": []
+  },
+  {
+   "id": "swiss-poster",
+   "name": "Swiss International",
+   "category": "retro",
+   "engine": "canvas2d",
+   "palettes": [
+    "bauhaus",
+    "mono",
+    "brutal"
+   ],
+   "tags": []
+  },
+  {
+   "id": "art-deco",
+   "name": "Art Deco",
+   "category": "retro",
+   "engine": "webgl",
+   "palettes": [
+    "deco",
+    "goth"
+   ],
+   "tags": []
+  },
+  {
+   "id": "neo-deco",
+   "name": "Neo Deco",
+   "category": "retro",
+   "engine": "webgl",
+   "palettes": [
+    "wine",
+    "ocean",
+    "deco"
+   ],
+   "tags": [
+    "pinterest-2026"
+   ]
+  },
+  {
+   "id": "retro-sunburst",
+   "name": "70s Sunburst",
+   "category": "retro",
+   "engine": "webgl",
+   "palettes": [
+    "sunset",
+    "earth",
+    "citrus"
+   ],
+   "tags": []
+  },
+  {
+   "id": "cyberpunk-city",
+   "name": "Cyberpunk City",
+   "category": "futurism",
+   "engine": "webgl",
+   "palettes": [
+    "neon",
+    "synth",
+    "vapor"
+   ],
+   "tags": []
+  },
+  {
+   "id": "holographic",
+   "name": "Holographic Foil",
+   "category": "futurism",
+   "engine": "webgl",
+   "palettes": [
+    "opal",
+    "candy",
+    "pastel"
+   ],
+   "tags": [
+    "pinterest-2026"
+   ]
+  },
+  {
+   "id": "alien-core",
+   "name": "Alien-core",
+   "category": "futurism",
+   "engine": "webgl",
+   "palettes": [
+    "alien",
+    "opal",
+    "neon"
+   ],
+   "tags": [
+    "pinterest-2026"
+   ]
+  },
+  {
+   "id": "sdf-sculpture",
+   "name": "SDF Sculpture",
+   "category": "futurism",
+   "engine": "webgl",
+   "palettes": [
+    "candy",
+    "aurora",
+    "chrome",
+    "gummy"
+   ],
+   "tags": []
+  },
+  {
+   "id": "solarpunk",
+   "name": "Solarpunk",
+   "category": "nature",
+   "engine": "webgl",
+   "palettes": [
+    "solar",
+    "citrus",
+    "forest"
+   ],
+   "tags": []
+  },
+  {
+   "id": "wilderkind",
+   "name": "Wilderkind Mist",
+   "category": "nature",
+   "engine": "webgl",
+   "palettes": [
+    "forest",
+    "earth"
+   ],
+   "tags": [
+    "pinterest-2026"
+   ]
+  },
+  {
+   "id": "glacier",
+   "name": "Glacier Crystal",
+   "category": "nature",
+   "engine": "webgl",
+   "palettes": [
+    "glacier",
+    "ice"
+   ],
+   "tags": [
+    "pinterest-2026"
+   ]
+  },
+  {
+   "id": "bioluminescent",
+   "name": "Bioluminescent Cells",
+   "category": "nature",
+   "engine": "webgl",
+   "palettes": [
+    "alien",
+    "neon",
+    "mint"
+   ],
+   "tags": []
+  },
+  {
+   "id": "caustics",
+   "name": "Water Caustics",
+   "category": "nature",
+   "engine": "webgl",
+   "palettes": [
+    "ocean",
+    "cyan",
+    "mint"
+   ],
+   "tags": []
+  },
+  {
+   "id": "dreamcore",
+   "name": "Dreamcore",
+   "category": "mood",
+   "engine": "webgl",
+   "palettes": [
+    "pastel",
+    "candy"
+   ],
+   "tags": []
+  },
+  {
+   "id": "vamp-gothic",
+   "name": "Vamp Romantic Lace",
+   "category": "mood",
+   "engine": "webgl",
+   "palettes": [
+    "goth",
+    "wine"
+   ],
+   "tags": [
+    "pinterest-2026"
+   ]
+  },
+  {
+   "id": "poetcore",
+   "name": "Poetcore Card",
+   "category": "mood",
+   "engine": "canvas2d",
+   "palettes": [
+    "poet",
+    "sepia",
+    "paper"
+   ],
+   "tags": [
+    "pinterest-2026"
+   ]
+  },
+  {
+   "id": "vhs-tape",
+   "name": "VHS Tape",
+   "category": "analog",
+   "engine": "webgl",
+   "palettes": [
+    "vapor",
+    "dusk",
+    "sunset"
+   ],
+   "tags": []
+  },
+  {
+   "id": "crt-terminal",
+   "name": "CRT Terminal",
+   "category": "analog",
+   "engine": "webgl",
+   "palettes": [
+    "amber",
+    "matrix"
+   ],
+   "tags": []
+  },
+  {
+   "id": "glitch-art",
+   "name": "Glitch Art",
+   "category": "analog",
+   "engine": "webgl",
+   "palettes": [
+    "neon",
+    "synth",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "film-35mm",
+   "name": "35mm Film",
+   "category": "analog",
+   "engine": "webgl",
+   "palettes": [
+    "sunset",
+    "dusk",
+    "earth"
+   ],
+   "tags": []
+  },
+  {
+   "id": "risograph",
+   "name": "Risograph",
+   "category": "print",
+   "engine": "webgl",
+   "palettes": [
+    "riso",
+    "risoB"
+   ],
+   "tags": []
+  },
+  {
+   "id": "halftone-pop",
+   "name": "Pop Art Halftone",
+   "category": "print",
+   "engine": "webgl",
+   "palettes": [
+    "memphis",
+    "brutal",
+    "pico"
+   ],
+   "tags": []
+  },
+  {
+   "id": "cmyk-halftone",
+   "name": "CMYK Halftone",
+   "category": "print",
+   "engine": "webgl",
+   "palettes": [
+    "sunset",
+    "candy",
+    "aurora"
+   ],
+   "tags": []
+  },
+  {
+   "id": "blueprint",
+   "name": "Blueprint",
+   "category": "print",
+   "engine": "webgl",
+   "palettes": [
+    "blueprint"
+   ],
+   "tags": []
+  },
+  {
+   "id": "screenprint",
+   "name": "Screenprint Landscape",
+   "category": "print",
+   "engine": "webgl",
+   "palettes": [
+    "sunset",
+    "citrus",
+    "risoB",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ink-enso",
+   "name": "Ensō Ink",
+   "category": "ink",
+   "engine": "webgl",
+   "palettes": [
+    "ink"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ink-mountains",
+   "name": "Ink Wash Mountains",
+   "category": "ink",
+   "engine": "webgl",
+   "palettes": [
+    "ink",
+    "sepia"
+   ],
+   "tags": []
+  },
+  {
+   "id": "marbling",
+   "name": "Paper Marbling",
+   "category": "ink",
+   "engine": "webgl",
+   "palettes": [
+    "ocean",
+    "wine",
+    "deco",
+    "sunset",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "watercolor",
+   "name": "Watercolor Wash",
+   "category": "ink",
+   "engine": "webgl",
+   "palettes": [
+    "pastel",
+    "clay",
+    "citrus",
+    "mint"
+   ],
+   "tags": []
+  },
+  {
+   "id": "stipple",
+   "name": "Stipple Sculpture",
+   "category": "ink",
+   "engine": "webgl",
+   "palettes": [
+    "paper",
+    "sepia"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ascii-plasma",
+   "name": "ASCII Plasma",
+   "category": "text",
+   "engine": "webgl",
+   "palettes": [
+    "matrix",
+    "amber",
+    "neon",
+    "aurora"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ascii-3d",
+   "name": "ASCII 3D",
+   "category": "text",
+   "engine": "webgl",
+   "palettes": [
+    "mono",
+    "amber",
+    "cyan"
+   ],
+   "tags": []
+  },
+  {
+   "id": "matrix-rain",
+   "name": "Digital Rain",
+   "category": "text",
+   "engine": "webgl",
+   "palettes": [
+    "matrix"
+   ],
+   "tags": []
+  },
+  {
+   "id": "bitmap-1bit",
+   "name": "1-bit Bitmap",
+   "category": "pixel",
+   "engine": "webgl",
+   "palettes": [
+    "mono",
+    "paper",
+    "noir"
+   ],
+   "tags": []
+  },
+  {
+   "id": "bayer-dither",
+   "name": "Bayer Dither",
+   "category": "pixel",
+   "engine": "webgl",
+   "palettes": [
+    "pico",
+    "cga",
+    "synth"
+   ],
+   "tags": []
+  },
+  {
+   "id": "gameboy",
+   "name": "Game Boy",
+   "category": "pixel",
+   "engine": "webgl",
+   "palettes": [
+    "gameboy"
+   ],
+   "tags": []
+  },
+  {
+   "id": "pixel-art",
+   "name": "Pixel Art Landscape",
+   "category": "pixel",
+   "engine": "webgl",
+   "palettes": [
+    "pico",
+    "sunset",
+    "dusk"
+   ],
+   "tags": []
+  },
+  {
+   "id": "color-dither",
+   "name": "Ordered Colour Dither",
+   "category": "pixel",
+   "engine": "webgl",
+   "palettes": [
+    "aurora",
+    "candy",
+    "dusk"
+   ],
+   "tags": []
+  },
+  {
+   "id": "op-art",
+   "name": "Op Art",
+   "category": "geometry",
+   "engine": "webgl",
+   "palettes": [
+    "mono",
+    "noir",
+    "bauhaus"
+   ],
+   "tags": []
+  },
+  {
+   "id": "moire",
+   "name": "Moiré Interference",
+   "category": "geometry",
+   "engine": "webgl",
+   "palettes": [
+    "noir",
+    "mono",
+    "deco"
+   ],
+   "tags": []
+  },
+  {
+   "id": "op-lines",
+   "name": "Line Interference",
+   "category": "geometry",
+   "engine": "webgl",
+   "palettes": [
+    "mono",
+    "riso"
+   ],
+   "tags": []
+  },
+  {
+   "id": "truchet",
+   "name": "Truchet Weave",
+   "category": "geometry",
+   "engine": "webgl",
+   "palettes": [
+    "candy",
+    "deco",
+    "aurora",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "truchet-maze",
+   "name": "Truchet Maze",
+   "category": "geometry",
+   "engine": "webgl",
+   "palettes": [
+    "noir",
+    "riso",
+    "gameboy"
+   ],
+   "tags": []
+  },
+  {
+   "id": "kaleidoscope",
+   "name": "Kaleidoscope Mandala",
+   "category": "geometry",
+   "engine": "webgl",
+   "palettes": [
+    "sunset",
+    "deco",
+    "opal",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "low-poly",
+   "name": "Low Poly",
+   "category": "geometry",
+   "engine": "webgl",
+   "palettes": [
+    "sunset",
+    "ocean",
+    "forest",
+    "dusk"
+   ],
+   "tags": []
+  },
+  {
+   "id": "stained-glass",
+   "name": "Stained Glass",
+   "category": "geometry",
+   "engine": "webgl",
+   "palettes": [
+    "sunset",
+    "deco",
+    "candy",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "julia-fractal",
+   "name": "Julia Fractal",
+   "category": "math",
+   "engine": "webgl",
+   "palettes": [
+    "aurora",
+    "sunset",
+    "neon",
+    "ocean",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "turing-pattern",
+   "name": "Turing Pattern",
+   "category": "math",
+   "engine": "webgl",
+   "palettes": [
+    "mono",
+    "ink",
+    "mint",
+    "wine"
+   ],
+   "tags": []
+  },
+  {
+   "id": "flow-field",
+   "name": "Flow Field",
+   "category": "math",
+   "engine": "canvas2d",
+   "palettes": [
+    "aurora",
+    "sunset",
+    "ocean",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "circle-packing",
+   "name": "Circle Packing",
+   "category": "math",
+   "engine": "canvas2d",
+   "palettes": [
+    "memphis",
+    "bauhaus",
+    "citrus",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "strange-attractor",
+   "name": "Strange Attractor",
+   "category": "math",
+   "engine": "canvas2d",
+   "palettes": [
+    "aurora",
+    "lava",
+    "ice",
+    "neon"
+   ],
+   "tags": []
+  },
+  {
+   "id": "topographic",
+   "name": "Topographic Lines",
+   "category": "math",
+   "engine": "webgl",
+   "palettes": [
+    "mono",
+    "blueprint",
+    "earth"
+   ],
+   "tags": []
+  },
+  {
+   "id": "contour-map",
+   "name": "Contour Map",
+   "category": "math",
+   "engine": "webgl",
+   "palettes": [
+    "forest",
+    "earth",
+    "glacier"
+   ],
+   "tags": []
+  },
+  {
+   "id": "spirograph",
+   "name": "Spirograph",
+   "category": "math",
+   "engine": "canvas2d",
+   "palettes": [
+    "neon",
+    "aurora",
+    "synth"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ridgelines",
+   "name": "Ridgelines",
+   "category": "math",
+   "engine": "webgl",
+   "palettes": [
+    "noir",
+    "mono",
+    "ink"
+   ],
+   "tags": []
+  },
+  {
+   "id": "domain-warp",
+   "name": "Domain Warp",
+   "category": "shader",
+   "engine": "webgl",
+   "palettes": [
+    "lava",
+    "ocean",
+    "wine",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "plasma",
+   "name": "Demoscene Plasma",
+   "category": "shader",
+   "engine": "webgl",
+   "palettes": [
+    "synth",
+    "neon",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "lava-lamp",
+   "name": "Lava Lamp",
+   "category": "shader",
+   "engine": "webgl",
+   "palettes": [
+    "lava",
+    "sunset",
+    "candy"
+   ],
+   "tags": []
+  },
+  {
+   "id": "nebula",
+   "name": "Nebula",
+   "category": "shader",
+   "engine": "webgl",
+   "palettes": [
+    "aurora",
+    "dusk",
+    "alien"
+   ],
+   "tags": []
+  },
+  {
+   "id": "flat-landscape",
+   "name": "Flat Landscape",
+   "category": "illustration",
+   "engine": "webgl",
+   "palettes": [
+    "sunset",
+    "dusk",
+    "ocean",
+    "forest",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "kinetic-type",
+   "name": "Kinetic Type",
+   "category": "typography",
+   "engine": "canvas2d",
+   "palettes": [
+    "noir",
+    "brutal",
+    "synth",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "web-hero",
+   "name": "Web Hero Section",
+   "category": "webdesign",
+   "engine": "canvas2d",
+   "palettes": [
+    "aurora",
+    "candy",
+    "synth",
+    "ocean",
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "ui-kit",
+   "name": "UI Component Sheet",
+   "category": "webdesign",
+   "engine": "canvas2d",
+   "palettes": [
+    "candy",
+    "aurora",
+    "brutal",
+    "pastel"
+   ],
+   "tags": []
+  },
+  {
+   "id": "palette-card",
+   "name": "Palette Card",
+   "category": "webdesign",
+   "engine": "canvas2d",
+   "palettes": [
+    "random"
+   ],
+   "tags": []
+  },
+  {
+   "id": "seamless-pattern",
+   "name": "Seamless Pattern",
+   "category": "webdesign",
+   "engine": "canvas2d",
+   "palettes": [
+    "memphis",
+    "bauhaus",
+    "riso",
+    "random"
+   ],
+   "tags": []
+  }
+ ],
+ "palettes": {
+  "aurora": [
+   "#070b1f",
+   "#1b3a6b",
+   "#16c2b8",
+   "#c552e0",
+   "#f0f4ff"
+  ],
+  "dusk": [
+   "#140a26",
+   "#4a1d5e",
+   "#e0457b",
+   "#ff9e64",
+   "#ffe5c4"
+  ],
+  "candy": [
+   "#2b1055",
+   "#7f5af0",
+   "#ff6ec7",
+   "#7ef9ff",
+   "#fffbe6"
+  ],
+  "ocean": [
+   "#03121f",
+   "#0b3c5d",
+   "#1d8cb5",
+   "#5ce1e6",
+   "#e6fbff"
+  ],
+  "sunset": [
+   "#1d0b2d",
+   "#6a0f49",
+   "#e8505b",
+   "#f9a826",
+   "#fdf1c7"
+  ],
+  "vapor": [
+   "#120025",
+   "#2d1b69",
+   "#ff3cac",
+   "#ffb86b",
+   "#7fffd4"
+  ],
+  "synth": [
+   "#0a0014",
+   "#24005a",
+   "#ff2a6d",
+   "#ffcc00",
+   "#05d9e8"
+  ],
+  "aero": [
+   "#0e5a2a",
+   "#46b94a",
+   "#47a8f5",
+   "#b6f06a",
+   "#ffffff"
+  ],
+  "darkaero": [
+   "#020a1c",
+   "#08305c",
+   "#1a7bd1",
+   "#5ef2ff",
+   "#d6f5ff"
+  ],
+  "chrome": [
+   "#0d0f1a",
+   "#3b4a6b",
+   "#ff7bd5",
+   "#9fd8ff",
+   "#f4f6ff"
+  ],
+  "opal": [
+   "#1b1530",
+   "#8e7dbe",
+   "#f5b3d6",
+   "#a8f0e0",
+   "#fbf8ff"
+  ],
+  "alien": [
+   "#04030d",
+   "#16123a",
+   "#6c3ff0",
+   "#3ff0b5",
+   "#e9fff8"
+  ],
+  "neon": [
+   "#05010d",
+   "#1a0b3b",
+   "#ff00a0",
+   "#00f0ff",
+   "#f9f871"
+  ],
+  "solar": [
+   "#163b20",
+   "#3f8f3a",
+   "#9ccc45",
+   "#ffd166",
+   "#fff6d8"
+  ],
+  "forest": [
+   "#0f1a12",
+   "#2c4a2e",
+   "#6b8f4e",
+   "#c9b77d",
+   "#f2ead3"
+  ],
+  "glacier": [
+   "#0a1a2f",
+   "#2d5d8a",
+   "#7fb6e3",
+   "#c9e8ff",
+   "#f7fcff"
+  ],
+  "goth": [
+   "#060406",
+   "#2a0a12",
+   "#7a0f24",
+   "#b3b3c2",
+   "#f2f0f5"
+  ],
+  "riso": [
+   "#1a1a1a",
+   "#ff48b0",
+   "#0078bf",
+   "#ffe800",
+   "#f5efe0"
+  ],
+  "risoB": [
+   "#202020",
+   "#ff6c2f",
+   "#00a95c",
+   "#765ba7",
+   "#f7f1e3"
+  ],
+  "ink": [
+   "#121212",
+   "#b22a2a",
+   "#555555",
+   "#a39e93",
+   "#f3eee2"
+  ],
+  "sepia": [
+   "#2b1d0e",
+   "#6b4a2b",
+   "#a67c52",
+   "#d9b88f",
+   "#f7ead3"
+  ],
+  "pastel": [
+   "#5a4e7c",
+   "#f7a6c3",
+   "#a6d8f7",
+   "#c9f2c7",
+   "#fff8f0"
+  ],
+  "gummy": [
+   "#2a0e3d",
+   "#ff3d6e",
+   "#ff9f1c",
+   "#2ec4b6",
+   "#fdf0ff"
+  ],
+  "clay": [
+   "#3d3a4b",
+   "#f4a79d",
+   "#9fd3c7",
+   "#ffd8a8",
+   "#f6efe9"
+  ],
+  "bauhaus": [
+   "#111111",
+   "#d62828",
+   "#f7b538",
+   "#1d4e89",
+   "#f1ece2"
+  ],
+  "memphis": [
+   "#1b1b1b",
+   "#ff5fa2",
+   "#25c2a0",
+   "#ffd23f",
+   "#f8f4e3"
+  ],
+  "brutal": [
+   "#111111",
+   "#ff6b6b",
+   "#ffd93d",
+   "#6bcbef",
+   "#fffbe6"
+  ],
+  "deco": [
+   "#07120f",
+   "#0f3b2e",
+   "#1b6b55",
+   "#c9a14a",
+   "#f3e2b3"
+  ],
+  "mono": [
+   "#0b0b0b",
+   "#3a3a3a",
+   "#7a7a7a",
+   "#bdbdbd",
+   "#f4f4f4"
+  ],
+  "paper": [
+   "#1c1c1c",
+   "#4d4d4d",
+   "#8c8c8c",
+   "#d8d2c4",
+   "#f6f1e6"
+  ],
+  "gameboy": [
+   "#0f380f",
+   "#306230",
+   "#5c8a2a",
+   "#8bac0f",
+   "#9bbc0f"
+  ],
+  "pico": [
+   "#1d2b53",
+   "#7e2553",
+   "#ff004d",
+   "#ffa300",
+   "#fff1e8"
+  ],
+  "cga": [
+   "#000000",
+   "#aa00aa",
+   "#ff55ff",
+   "#55ffff",
+   "#ffffff"
+  ],
+  "matrix": [
+   "#000000",
+   "#003b00",
+   "#008f11",
+   "#00ff41",
+   "#d5ffd9"
+  ],
+  "amber": [
+   "#0a0500",
+   "#3d1f00",
+   "#a35200",
+   "#ffb000",
+   "#ffe6b0"
+  ],
+  "blueprint": [
+   "#0b2a5b",
+   "#123f80",
+   "#3f6fb5",
+   "#9cc0f0",
+   "#eaf2ff"
+  ],
+  "cyan": [
+   "#062035",
+   "#0b4f6c",
+   "#01baef",
+   "#a3f7ff",
+   "#fbfbff"
+  ],
+  "lava": [
+   "#12020a",
+   "#5c0b25",
+   "#e63946",
+   "#ff9f1c",
+   "#ffe8a3"
+  ],
+  "mint": [
+   "#0d2b2b",
+   "#1f6f6a",
+   "#4fd1c5",
+   "#b8f2e6",
+   "#f7fffd"
+  ],
+  "earth": [
+   "#2a1f14",
+   "#5e4b35",
+   "#a1825f",
+   "#d9c3a0",
+   "#f4ecdd"
+  ],
+  "ice": [
+   "#0b1020",
+   "#283a6b",
+   "#9db4ff",
+   "#e0e8ff",
+   "#ffffff"
+  ],
+  "wine": [
+   "#160812",
+   "#4b1238",
+   "#a3245c",
+   "#e88aa8",
+   "#fbe3ea"
+  ],
+  "citrus": [
+   "#1e2a14",
+   "#3f7d20",
+   "#a7d129",
+   "#ffd23f",
+   "#fffbea"
+  ],
+  "noir": [
+   "#000000",
+   "#141414",
+   "#2b2b2b",
+   "#e5e5e5",
+   "#ffffff"
+  ],
+  "poet": [
+   "#1f1a17",
+   "#4a3b33",
+   "#8a6f5c",
+   "#d8c8b4",
+   "#f7f1e8"
+  ]
+ },
+ "fx": [
+  "auto",
+  "none",
+  "film",
+  "crt",
+  "vhs",
+  "glitch",
+  "bitmap",
+  "dither",
+  "gameboy",
+  "pixel",
+  "halftone",
+  "cmyk",
+  "ascii",
+  "matrix",
+  "stipple",
+  "duotone",
+  "paper"
+ ]
+}

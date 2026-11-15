@@ -1,0 +1,1 @@
+{ "name": "algogallary", "private": true, "type": "module", "scripts": { "styles": "node tools/export-styles.mjs" } }

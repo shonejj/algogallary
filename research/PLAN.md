@@ -22,10 +22,10 @@ GitHub Pages site with a landing screen offering **Image** or **Video**.
 
 ## Phases
 1. **Research:** done (this folder).
-2. **Engine core:** RNG, noise, palettes, WebGL harness, FX stack, UI shell (Image/Video, Next, settings).
-3. **Styles v1 (~30):** one per major family, covering glass, aurora, bitmap and dither, ASCII, halftone, riso, ink, vaporwave, synthwave, Frutiger, solarpunk, holographic, flow fields, Truchet, etc.
-4. **Video mode and export.**
-5. **Web-design generators** (palette, pattern, UI, type, section).
+2. **Engine core (DONE):** RNG, noise, palettes, WebGL harness, FX stack, UI shell (Image/Video, Next, settings).
+3. **Styles v1 (DONE, 82 styles):** one per major family, covering glass, aurora, bitmap and dither, ASCII, halftone, riso, ink, vaporwave, synthwave, Frutiger, solarpunk, holographic, flow fields, Truchet, etc.
+4. **Video mode and export (DONE):** MediaRecorder MP4 or WebM, seamless loops.
+5. **Web-design generators (DONE: hero, UI kit, palette card, pattern, bento)** (palette, pattern, UI, type, section).
 6. **Styles v2:** expand toward all 139.
 7. **GitHub Action** for pre-rendered API, docs page and CC0 licence.
 
