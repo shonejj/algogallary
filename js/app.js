@@ -113,7 +113,7 @@ function loop(ts) {
   if (!cur || paused) return;
   const el = (ts - t0) / 1000;
   frame((el / S.dur) % 1, el);
-  if (lastTs && !recording && S.quality === 'auto') {
+  if (lastTs && !recording && S.quality === 'auto' && cur.prog) {
     const dt = ts - lastTs; if (dt < 250) { acc += dt; n++; }
     if (n >= 24) {
       const avg = acc / n; acc = n = 0;
@@ -136,7 +136,7 @@ async function show(id, seed, opts = {}) {
   const my = ++token, st = STYLE_MAP[id];
   const lt = setTimeout(() => loader(true, 'Generating · ' + st.name), 140);
   let job;
-  try { job = await build(id, seed); } catch (e) {
+  try { job = await Promise.race([build(id, seed), new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 8000))]); } catch (e) {
     clearTimeout(lt); loader(false); console.error(e);
     if (my === token) { toast('Skipped ' + st.name + ' (not supported here)'); if (!opts.noRetry) return next(); }
     return;
@@ -417,5 +417,10 @@ app.classList.toggle('video', S.mode === 'video');
     if (autoDl) setTimeout(download, 300);
   }
   requestAnimationFrame(() => app.classList.remove('boot'));
+  // warm every shader in the background, one at a time, so Next is instant
+  const gens = [...new Set(STYLES.filter((s) => s.gen.startsWith('s:')).map((s) => s.gen.slice(2)))];
+  const idle = window.requestIdleCallback || ((f) => setTimeout(f, 50));
+  const warm = () => { const g = gens.shift(); if (!g) return; R.load(g).catch(() => {}).finally(() => idle(warm)); };
+  setTimeout(() => idle(warm), 400);
   window.__algogallery = { ready: true, get current() { return cur && { id: cur.id, seed: cur.seed, palette: cur.palName }; }, show, next, styles: STYLES.map((s) => s.id) };
 })();

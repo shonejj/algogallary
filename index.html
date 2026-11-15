@@ -82,5 +82,13 @@
 </div>
 <noscript><p style="color:#fff;padding:24px">AlgoGallery needs JavaScript and WebGL.</p></noscript>
 <script type="module" src="js/app.js"></script>
+<script>
+  // Show a helpful message if the app could not start (blocked module scripts, very old browser, opened as a local file)
+  setTimeout(function () {
+    if (window.__algogallery) return;
+    var p = document.querySelector('.hero p'); if (!p) return;
+    p.textContent = location.protocol === 'file:' ? 'Open this through a web server or the GitHub Pages URL; browsers block the scripts from local files.' : 'Still starting… If nothing appears, your browser may be blocking JavaScript modules or WebGL. Try a recent Chrome, Safari, Edge or Firefox.';
+  }, 7000);
+</script>
 </body>
 </html>

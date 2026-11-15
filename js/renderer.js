@@ -63,9 +63,11 @@ export class Renderer {
     if (this.progs.has(name)) return this.progs.get(name);
     const src = SHADER_GENS[name]; if (!src) return Promise.reject(new Error('Unknown generator ' + name));
     const e = this._link(GEN_HEADER + src + GEN_MAIN, GEN_U, false);
+    const t0 = performance.now();
     const pr = new Promise((res, rej) => {
       const check = () => {
-        if (this.par && !this.gl.getProgramParameter(e.prog, this.par.COMPLETION_STATUS_KHR)) { setTimeout(check, 16); return; }
+        // poll the async compile, but never wait more than 1.2s (some drivers never report completion)
+        if (this.par && performance.now() - t0 < 1200 && !this.gl.getProgramParameter(e.prog, this.par.COMPLETION_STATUS_KHR)) { setTimeout(check, 16); return; }
         try { res(this._finish(e)); } catch (err) { this.progs.delete(name); rej(err); }
       };
       check();

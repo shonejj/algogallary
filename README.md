@@ -85,7 +85,7 @@ To add a style:
 
 ## Deploy
 
-Settings → Pages → Source: **GitHub Actions**. The workflow `.github/workflows/pages.yml` publishes on every push to `main`.
+Pages serves the `main` branch root (static files, `.nojekyll`). Every push to `main` republishes the site at `https://shonejj.github.io/algogallary/`. If you change `js/styles.js`, run `node tools/export-styles.mjs` to update `api/styles.json`.
 
 ## Research
 
