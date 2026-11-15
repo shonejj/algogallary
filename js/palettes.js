@@ -45,6 +45,18 @@ export const PALETTES = {
   citrus:   ['#1e2a14', '#3f7d20', '#a7d129', '#ffd23f', '#fffbea'],
   noir:     ['#000000', '#141414', '#2b2b2b', '#e5e5e5', '#ffffff'],
   poet:     ['#1f1a17', '#4a3b33', '#8a6f5c', '#d8c8b4', '#f7f1e8'],
+  dawnpeach:['#1b1433', '#4b2c5e', '#a8577e', '#f6a37e', '#ffe6c9'],
+  tealdusk: ['#061a24', '#0f3d4a', '#2a7f8a', '#f2a65a', '#fde8c8'],
+  mars:     ['#1a0a0a', '#4a1a12', '#a3401f', '#f08a4b', '#ffd9a8'],
+  jungle:   ['#06140d', '#123524', '#2f6b3f', '#a7d36b', '#f4f9d9'],
+  arctic:   ['#0a1426', '#1f3b63', '#5b8cc0', '#bfe3ff', '#ffffff'],
+  lofi:     ['#0d0b1f', '#2b2050', '#6b4fa0', '#ff9e7a', '#ffe0b5'],
+  emerald:  ['#020d0b', '#08332b', '#13785f', '#7af0c3', '#e9fff6'],
+  magalien: ['#0b0217', '#2c0b45', '#7a1fa2', '#ff6ad5', '#c8fff4'],
+  desert:   ['#2a160c', '#6b3a1d', '#c7773a', '#f2c27b', '#fff3dc'],
+  oceandusk:['#04101f', '#0c2f4f', '#2f6f9f', '#f7b267', '#fff1d6'],
+  storm:    ['#0b0e12', '#20262e', '#46515e', '#9aa8b6', '#e8eef5'],
+  sakura:   ['#1d0f1c', '#4d2442', '#c06c8f', '#f7b8c8', '#fff3f6'],
 };
 
 export const PALETTE_NAMES = Object.keys(PALETTES);

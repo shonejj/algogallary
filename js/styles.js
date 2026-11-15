@@ -1,14 +1,47 @@
 // Style registry: a style = generator + palette set + post-FX stack (+ fixed params).
 // gen: 's:<name>' = shader generator, 'c:<name>' = Canvas2D generator.
 export const CATEGORIES = {
+  world: 'Worlds', character: 'Characters',
   ui: 'Interface', retro: 'Retro & Nostalgia', futurism: 'Futurism', nature: 'Nature & Eco', mood: 'Mood & Core',
   analog: 'Analog & Glitch', print: 'Print', ink: 'Ink & Paint', text: 'Text Art', pixel: 'Pixel & Dither',
   geometry: 'Geometry', math: 'Math Art', shader: 'Shader Art', illustration: 'Illustration', typography: 'Typography', webdesign: 'Web Design',
 };
 
 const S = (id, name, cat, gen, pals, fx = {}, p = null, tags = '') => ({ id, name, cat, gen, pals, fx, p, tags });
+// World styles: biome-constrained scene composer + a pool of art directions picked per seed
+const ART = {
+  clean: { grain: .035, vig: .35, bloom: .25 },
+  film: { grain: .1, vig: .45, leak: .35, bloom: .2 },
+  dreamy: { grain: .05, vig: .5, bloom: .55, leak: .2 },
+  pixel: { pixel: 5, poster: 7, vig: .2 },
+  dither: { pixel: 3, mode: 'bayer', tone: 0, cell: 3 },
+  riso: { mode: 'halftone', tone: 0, cell: 5, grain: .05, paper: .4 },
+  ink: { mode: 'gradient', contrast: 1.15, paper: .7, grain: .05 },
+  vhs: { ca: .55, scan: .25, grain: .08, glitch: .12, vig: .45 },
+  crt: { scan: .45, curve: .1, ca: .3, vig: .5, bloom: .35 },
+  poster: { poster: 5, grain: .05, paper: .35 },
+};
+const A = (...k) => k.map((x) => ART[x]);
+const WS = (id, name, biome, art, tags = '') => ({ id, name, cat: 'world', gen: 's:world', world: biome, pals: [], fx: art, p: null, tags: 'world scene environment ' + tags, rich: true });
+const CH = (id, name, pals, fx) => ({ id, name, cat: 'character', gen: 'c:character', pals, fx, p: null, tags: 'character mascot', rich: true });
 
 export const STYLES = [
+  // Worlds (procedural scene composer)
+  WS('dreamscape', 'Dreamscape', 'dreamscape', A('clean', 'clean', 'film', 'dreamy', 'pixel', 'dither', 'riso', 'ink', 'vhs', 'poster')),
+  WS('alien-world', 'Alien World', 'alien', A('clean', 'dreamy', 'crt', 'film', 'pixel')),
+  WS('solarpunk-world', 'Solarpunk World', 'solarpunk', A('clean', 'dreamy', 'poster', 'film')),
+  WS('neon-city', 'Neon Night City', 'cyberpunk', A('clean', 'vhs', 'crt', 'dreamy', 'dither')),
+  WS('lofi-evening', 'Lo-fi Evening', 'lofi', A('film', 'clean', 'vhs', 'dreamy', 'pixel')),
+  WS('desert-ruins', 'Desert Ruins', 'desert', A('clean', 'film', 'poster', 'riso', 'ink')),
+  WS('floating-isles', 'Floating Isles', 'isles', A('clean', 'dreamy', 'pixel', 'film')),
+  WS('ocean-voyage', 'Ocean Voyage', 'ocean', A('clean', 'film', 'dreamy', 'ink', 'pixel')),
+  WS('frozen-peaks', 'Frozen Peaks', 'frozen', A('clean', 'film', 'ink', 'dreamy')),
+  WS('enchanted-forest', 'Enchanted Forest', 'forest', A('dreamy', 'clean', 'film', 'pixel')),
+  WS('pixel-world', 'Pixel Worlds', 'dreamscape', A('pixel', 'dither')),
+  WS('ink-world', 'Ink Worlds', 'dreamscape', A('ink', 'riso')),
+  // Characters
+  CH('characters', 'Character Cards', ['candy', 'pastel', 'gummy', 'memphis', 'aurora', 'neon', 'sakura', 'citrus', 'lofi', 'random'], [{ grain: .02 }, { grain: .03, vig: .25 }, { mode: 'halftone', tone: 0, cell: 5, paper: .3 }, { pixel: 4, poster: 8 }, { grain: .05, paper: .4 }]),
+  CH('creature-crew', 'Creature Crew', ['brutal', 'memphis', 'synth', 'magalien', 'tealdusk', 'random'], [{ grain: .03 }, { scan: .25, ca: .3, grain: .05 }, { mode: 'bayer', tone: 0, cell: 3 }]),
   // Interface
   S('glassmorphism', 'Glassmorphism', 'ui', 's:glass', ['aurora', 'candy', 'dusk', 'ocean', 'random'], { grain: .035 }),
   S('liquid-glass', 'Liquid Glass', 'ui', 's:liquidglass', ['candy', 'pastel', 'gummy', 'citrus', 'random'], { grain: .03 }),

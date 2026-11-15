@@ -3,6 +3,7 @@ import { STYLES, STYLE_MAP, CATEGORIES, FX_PRESETS } from './styles.js';
 import { PALETTES, PALETTE_NAMES, randomPalette, hexToRgb } from './palettes.js';
 import { makeRng, randSeed, makeNoise } from './rng.js';
 import { CANVAS_GENS } from './gens-2d.js';
+import { worldConfig } from './world.js';
 
 const $ = (s) => document.querySelector(s);
 const app = $('#app'), stage = $('#stage'), ghost = $('#ghost'), gctx = ghost.getContext('2d');
@@ -84,11 +85,13 @@ async function build(id, seed) {
   const seed4 = [rng.next(), rng.next(), rng.next(), rng.next()];
   const p4 = st.p ? st.p.slice() : [rng.next(), rng.next(), rng.next(), rng.next()];
   const preset = S.fx === 'auto' ? null : FX_PRESETS[S.fx];
-  let palName = S.palette !== 'auto' ? S.palette : rng.pick(st.pals);
+  let wc = null;
+  if (st.world) wc = worldConfig(rng, st.world);
+  let palName = S.palette !== 'auto' ? S.palette : rng.pick(wc ? wc.pals : st.pals);
   if (preset && preset.pal && S.palette === 'auto') palName = preset.pal;
   const palHex = palName === 'random' ? randomPalette(rng) : (PALETTES[palName] || PALETTES.aurora);
-  const fx = preset ? { ...preset } : { ...st.fx };
-  const job = { st, id, seed, seed4, p4, palName, palHex, pal: new Float32Array(palHex.flatMap(hexToRgb)), fx, phase0: rng.next() };
+  const fx = preset ? { ...preset } : { ...(Array.isArray(st.fx) ? rng.pick(st.fx) : st.fx) };
+  const job = { st, id, seed, seed4, p4, palName, palHex, pal: new Float32Array(palHex.flatMap(hexToRgb)), fx, phase0: rng.next(), w: wc ? new Float32Array(wc.W) : null, desc: wc ? wc.desc : '' };
   if (st.gen.startsWith('s:')) job.prog = await R.load(st.gen.slice(2));
   return job;
 }
@@ -100,7 +103,7 @@ function makePainter(job) {
 function frame(phase, time) {
   if (!cur) return;
   if (!cur.prog && (!cur.painter || cur.pw !== R.w || cur.ph !== R.h)) makePainter(cur);
-  R.draw({ prog: cur.prog, painter: cur.painter, phase, time, seed: cur.seed4, p: cur.p4, pal: cur.pal, fx: cur.fx });
+  R.draw({ prog: cur.prog, painter: cur.painter, phase, time, seed: cur.seed4, p: cur.p4, pal: cur.pal, fx: cur.fx, w: cur.w });
 }
 const animating = () => S.mode === 'video' || landing;
 function renderStill() { if (cur && !animating()) frame(cur.phase0, cur.phase0 * 10); }
@@ -169,7 +172,11 @@ function pick() {
   const p = pool(), recent = hist.slice(-Math.min(6, p.length - 1)).map((h) => h.id);
   const cand = p.filter((id) => !recent.includes(id));
   const list = cand.length ? cand : p;
-  return { id: list[Math.floor(Math.random() * list.length)], seed: randSeed() };
+  // scene/character styles carry far more structural variety, so they come up more often
+  const wt = (id) => (STYLE_MAP[id].rich ? 6 : 1);
+  let tot = list.reduce((a, id) => a + wt(id), 0), r = Math.random() * tot;
+  for (const id of list) { r -= wt(id); if (r <= 0) return { id, seed: randSeed() }; }
+  return { id: list[0], seed: randSeed() };
 }
 function prefetch() {
   upcoming = pick();
@@ -190,7 +197,7 @@ function meta() {
   metaIn.classList.add('swap');
   setTimeout(() => {
     $('#styleName').textContent = cur.st.name;
-    $('#styleSub').textContent = `${CATEGORIES[cur.st.cat]} · ${cur.palName} · #${cur.seed}`;
+    $('#styleSub').textContent = `${cur.desc || CATEGORIES[cur.st.cat]} · ${cur.palName} · #${cur.seed}`;
     metaIn.classList.remove('swap');
   }, reduceMotion ? 0 : 180);
 }

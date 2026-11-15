@@ -2,7 +2,8 @@ import { GEN_HEADER, GEN_MAIN, VERT, FX_FRAG } from './glsl.js';
 import { SHADER_GENS } from './gens-shader.js';
 
 export const FX_MODES = { none: 0, bayer: 1, halftone: 2, ascii: 3, matrix: 4, stipple: 5, gradient: 6 };
-const GEN_U = ['uRes', 'uTime', 'uPhase', 'uSeed', 'uP', 'uPal'];
+const GEN_U = ['uRes', 'uTime', 'uPhase', 'uSeed', 'uP', 'uPal', 'uW0', 'uW1', 'uW2', 'uW3', 'uW4'];
+const ZW = new Float32Array(20);
 const FX_U = ['uTex', 'uGlyph', 'uRes', 'uPhase', 'uTime', 'uK', 'uA', 'uB', 'uC', 'uD', 'uPal'];
 
 function glyphAtlas() {
@@ -95,6 +96,7 @@ export class Renderer {
       const u = job.prog.u; gl.bindFramebuffer(gl.FRAMEBUFFER, this.fbo); gl.viewport(0, 0, W, H); gl.useProgram(job.prog.prog);
       gl.uniform2f(u.uRes, W, H); gl.uniform1f(u.uTime, job.time); gl.uniform1f(u.uPhase, job.phase);
       gl.uniform4fv(u.uSeed, job.seed); gl.uniform4fv(u.uP, job.p); gl.uniform3fv(u.uPal, job.pal);
+      const w = job.w || ZW; for (let i = 0; i < 5; i++) if (u['uW' + i]) gl.uniform4fv(u['uW' + i], w.subarray(i * 4, i * 4 + 4));
       this._quad(); src = this.genTex;
     } else {
       job.painter.draw(job.phase);

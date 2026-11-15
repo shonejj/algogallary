@@ -1,3 +1,4 @@
+import { character } from './characters.js';
 // Canvas2D generators: create(ctx, W, H, rng, pal, noise) -> { draw(phase) }
 // Cheap to redraw every frame so they animate in video mode.
 const TAU = Math.PI * 2;
@@ -29,6 +30,7 @@ const lum = (hex) => { const n = parseInt(hex.slice(1), 16); return (0.299 * (n 
 const ink = (hex, P) => lum(hex) > 0.55 ? P[0] : P[4];
 
 export const CANVAS_GENS = {
+  character,
 
   brutal(ctx, W, H, rng, P) {
     const U = Math.min(W, H) / 1000, cols = W > H ? 3 : 2, rows = W > H ? 2 : 3;

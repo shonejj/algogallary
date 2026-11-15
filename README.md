@@ -1,6 +1,6 @@
 # AlgoGallery
 
-Endless, free, procedurally generated images and videos in **82 aesthetics** across 16 categories, including glassmorphism, Y2K chrome, Frutiger Aero, vaporwave, risograph, halftone, ASCII, Bayer dither, ink wash, solarpunk, alien-core, bento grids and more.
+Endless, free, procedurally generated images and videos in **96 styles** across 18 categories, including **procedural worlds** and **characters**, including glassmorphism, Y2K chrome, Frutiger Aero, vaporwave, risograph, halftone, ASCII, Bayer dither, ink wash, solarpunk, alien-core, bento grids and more.
 
 - Every pixel is made by an algorithm running on your device.
 - No prompts, no stock images, no AI models, no copyrighted assets.
@@ -35,6 +35,20 @@ index.html?cat=retro,print                                  → viewer limited t
 
 Embedding works as an iframe: `<iframe src="https://<user>.github.io/algogallary/render.html?style=nebula&mode=video">`.
 Once a page has rendered, `window.__algogallery.current` reports `{id, seed, palette}`.
+
+## Worlds and characters
+
+**World composer** (`js/world.js`): a 2.5D parallax scene shader. Each seed makes about 20 independent structural choices:
+- sky and time of day; celestial body (sun, moon, ringed planet, twin suns, gas giant); clouds, streaks or aurora
+- terrain (peaks, dunes, mesas, floating isles, hills, spires) and water with reflections
+- structures (city, sci-fi spires, ruins, pyramids, torii, lighthouse, turbines, megaring) and flora (pines, trees, palms, glowing mushrooms, crystals, grass)
+- creatures (birds, sky whale, jellyfish, airships, fireflies) and a character (wanderer, robot, astronaut, duo, deer)
+- weather (rain, snow, mist, dust, embers, petals) and god rays
+- camera travel speed and art direction (clean, film, dreamy, pixel, dither, riso, ink, VHS, CRT, poster)
+
+Biomes (alien, solarpunk, neon city, lo-fi, desert, isles, ocean, frozen, forest) constrain those choices. In video, the camera travels through a seamlessly looping world while the character walks.
+
+**Character generator** (`js/characters.js`): 8 species × 8 eye types × 8 mouths × 11 accessories × outfits × 6 art styles × 7 backgrounds × solo, duo or trio compositions, with idle animation (blink, wave, bob).
 
 ## How it works
 
