@@ -4,6 +4,7 @@
  "endpoint": "render.html",
  "viewer": "index.html",
  "params": {
+  "note": "see README for the full list (mix, blend, mask, shape, xa, xb, warp, colors, world and creature controls, effects)",
   "mode": "image|video",
   "style": "id or comma list",
   "cat": "category ids",
@@ -17,8 +18,9 @@
   "download": "1 = auto-save file"
  },
  "categories": {
+  "remix": "Remix (infinite)",
   "world": "Worlds",
-  "character": "Characters",
+  "character": "Creatures",
   "ui": "Interface",
   "retro": "Retro & Nostalgia",
   "futurism": "Futurism",
@@ -42,9 +44,13 @@
    "name": "Dreamscape",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
@@ -52,9 +58,13 @@
    "name": "Alien World",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
@@ -62,9 +72,13 @@
    "name": "Solarpunk World",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
@@ -72,9 +86,13 @@
    "name": "Neon Night City",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
@@ -82,9 +100,13 @@
    "name": "Lo-fi Evening",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
@@ -92,9 +114,13 @@
    "name": "Desert Ruins",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
@@ -102,9 +128,13 @@
    "name": "Floating Isles",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
@@ -112,9 +142,13 @@
    "name": "Ocean Voyage",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
@@ -122,9 +156,13 @@
    "name": "Frozen Peaks",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
@@ -132,9 +170,13 @@
    "name": "Enchanted Forest",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
@@ -142,9 +184,13 @@
    "name": "Pixel Worlds",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
@@ -152,47 +198,215 @@
    "name": "Ink Worlds",
    "category": "world",
    "engine": "webgl",
+   "rich": true,
    "palettes": [],
    "tags": [
-    "world scene environment "
+    "world",
+    "scene",
+    "environment",
+    ""
    ]
   },
   {
-   "id": "characters",
-   "name": "Character Cards",
+   "id": "creatures",
+   "name": "Creatures",
    "category": "character",
-   "engine": "canvas2d",
+   "engine": "webgl",
+   "rich": true,
    "palettes": [
     "candy",
     "pastel",
     "gummy",
-    "memphis",
-    "aurora",
-    "neon",
     "sakura",
     "citrus",
+    "mint",
+    "clay",
     "lofi",
+    "dawnpeach",
+    "tealdusk",
+    "memphis",
+    "random",
     "random"
    ],
    "tags": [
-    "character mascot"
+    "character",
+    "creature",
+    "mascot",
+    "cute"
    ]
   },
   {
-   "id": "creature-crew",
-   "name": "Creature Crew",
+   "id": "gummy-critters",
+   "name": "Gummy Critters",
    "category": "character",
-   "engine": "canvas2d",
+   "engine": "webgl",
+   "rich": true,
    "palettes": [
-    "brutal",
-    "memphis",
-    "synth",
-    "magalien",
+    "candy",
+    "pastel",
+    "gummy",
+    "sakura",
+    "citrus",
+    "mint",
+    "clay",
+    "lofi",
+    "dawnpeach",
     "tealdusk",
+    "memphis",
+    "random",
     "random"
    ],
    "tags": [
-    "character mascot"
+    "character",
+    "creature",
+    "mascot",
+    "cute"
+   ]
+  },
+  {
+   "id": "plush-pals",
+   "name": "Plush Pals",
+   "category": "character",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "candy",
+    "pastel",
+    "gummy",
+    "sakura",
+    "citrus",
+    "mint",
+    "clay",
+    "lofi",
+    "dawnpeach",
+    "tealdusk",
+    "memphis",
+    "random",
+    "random"
+   ],
+   "tags": [
+    "character",
+    "creature",
+    "mascot",
+    "cute"
+   ]
+  },
+  {
+   "id": "cel-creatures",
+   "name": "Cel Creatures",
+   "category": "character",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "candy",
+    "pastel",
+    "gummy",
+    "sakura",
+    "citrus",
+    "mint",
+    "clay",
+    "lofi",
+    "dawnpeach",
+    "tealdusk",
+    "memphis",
+    "random",
+    "random"
+   ],
+   "tags": [
+    "character",
+    "creature",
+    "mascot",
+    "cute"
+   ]
+  },
+  {
+   "id": "remix",
+   "name": "Remix",
+   "category": "remix",
+   "engine": "composite",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "remix",
+    "mix",
+    "blend",
+    "fusion",
+    "infinite"
+   ]
+  },
+  {
+   "id": "shape-poster",
+   "name": "Shape Poster",
+   "category": "remix",
+   "engine": "composite",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "remix",
+    "mix",
+    "blend",
+    "fusion",
+    "infinite"
+   ]
+  },
+  {
+   "id": "kaleido-remix",
+   "name": "Kaleido Remix",
+   "category": "remix",
+   "engine": "composite",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "remix",
+    "mix",
+    "blend",
+    "fusion",
+    "infinite"
+   ]
+  },
+  {
+   "id": "displacement",
+   "name": "Displacement Mix",
+   "category": "remix",
+   "engine": "composite",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "remix",
+    "mix",
+    "blend",
+    "fusion",
+    "infinite"
+   ]
+  },
+  {
+   "id": "lumamap",
+   "name": "Gradient Map Mix",
+   "category": "remix",
+   "engine": "composite",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "remix",
+    "mix",
+    "blend",
+    "fusion",
+    "infinite"
+   ]
+  },
+  {
+   "id": "split-world",
+   "name": "Split Dimension",
+   "category": "remix",
+   "engine": "composite",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "remix",
+    "mix",
+    "blend",
+    "fusion",
+    "infinite"
    ]
   },
   {
@@ -200,6 +414,7 @@
    "name": "Glassmorphism",
    "category": "ui",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "aurora",
     "candy",
@@ -214,6 +429,7 @@
    "name": "Liquid Glass",
    "category": "ui",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "candy",
     "pastel",
@@ -228,6 +444,7 @@
    "name": "Aurora Gradient",
    "category": "ui",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "aurora",
     "dusk",
@@ -241,6 +458,7 @@
    "name": "Mesh Gradient",
    "category": "ui",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "candy",
     "sunset",
@@ -255,6 +473,7 @@
    "name": "Grainy Gradient",
    "category": "ui",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "dusk",
     "sunset",
@@ -268,6 +487,7 @@
    "name": "Neumorphism",
    "category": "ui",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "clay",
     "pastel",
@@ -281,6 +501,7 @@
    "name": "Neubrutalism",
    "category": "ui",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "brutal",
     "memphis",
@@ -293,6 +514,7 @@
    "name": "Bento Grid",
    "category": "ui",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "aurora",
     "neon",
@@ -307,6 +529,7 @@
    "name": "Claymorphism",
    "category": "ui",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "clay",
     "pastel",
@@ -319,6 +542,7 @@
    "name": "Gummy Jelly",
    "category": "ui",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "gummy",
     "candy",
@@ -333,6 +557,7 @@
    "name": "Y2K Chrome",
    "category": "retro",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "chrome",
     "ice",
@@ -345,6 +570,7 @@
    "name": "Frutiger Aero",
    "category": "retro",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "aero"
    ],
@@ -355,6 +581,7 @@
    "name": "Dark Aero",
    "category": "retro",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "darkaero"
    ],
@@ -365,6 +592,7 @@
    "name": "Vaporwave",
    "category": "retro",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "vapor",
     "candy"
@@ -376,6 +604,7 @@
    "name": "Synthwave / Outrun",
    "category": "retro",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "synth",
     "neon",
@@ -388,6 +617,7 @@
    "name": "Memphis Design",
    "category": "retro",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "memphis",
     "brutal",
@@ -400,6 +630,7 @@
    "name": "Bauhaus Tiles",
    "category": "retro",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "bauhaus",
     "risoB",
@@ -412,6 +643,7 @@
    "name": "Swiss International",
    "category": "retro",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "bauhaus",
     "mono",
@@ -424,6 +656,7 @@
    "name": "Art Deco",
    "category": "retro",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "deco",
     "goth"
@@ -435,6 +668,7 @@
    "name": "Neo Deco",
    "category": "retro",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "wine",
     "ocean",
@@ -449,6 +683,7 @@
    "name": "70s Sunburst",
    "category": "retro",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "sunset",
     "earth",
@@ -461,6 +696,7 @@
    "name": "Cyberpunk City",
    "category": "futurism",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "neon",
     "synth",
@@ -473,6 +709,7 @@
    "name": "Holographic Foil",
    "category": "futurism",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "opal",
     "candy",
@@ -487,6 +724,7 @@
    "name": "Alien-core",
    "category": "futurism",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "alien",
     "opal",
@@ -501,6 +739,7 @@
    "name": "SDF Sculpture",
    "category": "futurism",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "candy",
     "aurora",
@@ -514,6 +753,7 @@
    "name": "Solarpunk",
    "category": "nature",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "solar",
     "citrus",
@@ -526,6 +766,7 @@
    "name": "Wilderkind Mist",
    "category": "nature",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "forest",
     "earth"
@@ -539,6 +780,7 @@
    "name": "Glacier Crystal",
    "category": "nature",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "glacier",
     "ice"
@@ -552,6 +794,7 @@
    "name": "Bioluminescent Cells",
    "category": "nature",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "alien",
     "neon",
@@ -564,6 +807,7 @@
    "name": "Water Caustics",
    "category": "nature",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "ocean",
     "cyan",
@@ -576,6 +820,7 @@
    "name": "Dreamcore",
    "category": "mood",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "pastel",
     "candy"
@@ -587,6 +832,7 @@
    "name": "Vamp Romantic Lace",
    "category": "mood",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "goth",
     "wine"
@@ -600,6 +846,7 @@
    "name": "Poetcore Card",
    "category": "mood",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "poet",
     "sepia",
@@ -614,6 +861,7 @@
    "name": "VHS Tape",
    "category": "analog",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "vapor",
     "dusk",
@@ -626,6 +874,7 @@
    "name": "CRT Terminal",
    "category": "analog",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "amber",
     "matrix"
@@ -637,6 +886,7 @@
    "name": "Glitch Art",
    "category": "analog",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "neon",
     "synth",
@@ -649,6 +899,7 @@
    "name": "35mm Film",
    "category": "analog",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "sunset",
     "dusk",
@@ -661,6 +912,7 @@
    "name": "Risograph",
    "category": "print",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "riso",
     "risoB"
@@ -672,6 +924,7 @@
    "name": "Pop Art Halftone",
    "category": "print",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "memphis",
     "brutal",
@@ -684,6 +937,7 @@
    "name": "CMYK Halftone",
    "category": "print",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "sunset",
     "candy",
@@ -696,6 +950,7 @@
    "name": "Blueprint",
    "category": "print",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "blueprint"
    ],
@@ -706,6 +961,7 @@
    "name": "Screenprint Landscape",
    "category": "print",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "sunset",
     "citrus",
@@ -719,6 +975,7 @@
    "name": "Ensō Ink",
    "category": "ink",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "ink"
    ],
@@ -729,6 +986,7 @@
    "name": "Ink Wash Mountains",
    "category": "ink",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "ink",
     "sepia"
@@ -740,6 +998,7 @@
    "name": "Paper Marbling",
    "category": "ink",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "ocean",
     "wine",
@@ -754,6 +1013,7 @@
    "name": "Watercolor Wash",
    "category": "ink",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "pastel",
     "clay",
@@ -767,6 +1027,7 @@
    "name": "Stipple Sculpture",
    "category": "ink",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "paper",
     "sepia"
@@ -778,6 +1039,7 @@
    "name": "ASCII Plasma",
    "category": "text",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "matrix",
     "amber",
@@ -791,6 +1053,7 @@
    "name": "ASCII 3D",
    "category": "text",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "mono",
     "amber",
@@ -803,6 +1066,7 @@
    "name": "Digital Rain",
    "category": "text",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "matrix"
    ],
@@ -813,6 +1077,7 @@
    "name": "1-bit Bitmap",
    "category": "pixel",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "mono",
     "paper",
@@ -825,6 +1090,7 @@
    "name": "Bayer Dither",
    "category": "pixel",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "pico",
     "cga",
@@ -837,6 +1103,7 @@
    "name": "Game Boy",
    "category": "pixel",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "gameboy"
    ],
@@ -847,6 +1114,7 @@
    "name": "Pixel Art Landscape",
    "category": "pixel",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "pico",
     "sunset",
@@ -859,6 +1127,7 @@
    "name": "Ordered Colour Dither",
    "category": "pixel",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "aurora",
     "candy",
@@ -871,6 +1140,7 @@
    "name": "Op Art",
    "category": "geometry",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "mono",
     "noir",
@@ -883,6 +1153,7 @@
    "name": "Moiré Interference",
    "category": "geometry",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "noir",
     "mono",
@@ -895,6 +1166,7 @@
    "name": "Line Interference",
    "category": "geometry",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "mono",
     "riso"
@@ -906,6 +1178,7 @@
    "name": "Truchet Weave",
    "category": "geometry",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "candy",
     "deco",
@@ -919,6 +1192,7 @@
    "name": "Truchet Maze",
    "category": "geometry",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "noir",
     "riso",
@@ -931,6 +1205,7 @@
    "name": "Kaleidoscope Mandala",
    "category": "geometry",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "sunset",
     "deco",
@@ -944,6 +1219,7 @@
    "name": "Low Poly",
    "category": "geometry",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "sunset",
     "ocean",
@@ -957,6 +1233,7 @@
    "name": "Stained Glass",
    "category": "geometry",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "sunset",
     "deco",
@@ -970,6 +1247,7 @@
    "name": "Julia Fractal",
    "category": "math",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "aurora",
     "sunset",
@@ -984,6 +1262,7 @@
    "name": "Turing Pattern",
    "category": "math",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "mono",
     "ink",
@@ -997,6 +1276,7 @@
    "name": "Flow Field",
    "category": "math",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "aurora",
     "sunset",
@@ -1010,6 +1290,7 @@
    "name": "Circle Packing",
    "category": "math",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "memphis",
     "bauhaus",
@@ -1023,6 +1304,7 @@
    "name": "Strange Attractor",
    "category": "math",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "aurora",
     "lava",
@@ -1036,6 +1318,7 @@
    "name": "Topographic Lines",
    "category": "math",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "mono",
     "blueprint",
@@ -1048,6 +1331,7 @@
    "name": "Contour Map",
    "category": "math",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "forest",
     "earth",
@@ -1060,6 +1344,7 @@
    "name": "Spirograph",
    "category": "math",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "neon",
     "aurora",
@@ -1072,6 +1357,7 @@
    "name": "Ridgelines",
    "category": "math",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "noir",
     "mono",
@@ -1084,6 +1370,7 @@
    "name": "Domain Warp",
    "category": "shader",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "lava",
     "ocean",
@@ -1097,6 +1384,7 @@
    "name": "Demoscene Plasma",
    "category": "shader",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "synth",
     "neon",
@@ -1109,6 +1397,7 @@
    "name": "Lava Lamp",
    "category": "shader",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "lava",
     "sunset",
@@ -1121,6 +1410,7 @@
    "name": "Nebula",
    "category": "shader",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "aurora",
     "dusk",
@@ -1133,6 +1423,7 @@
    "name": "Flat Landscape",
    "category": "illustration",
    "engine": "webgl",
+   "rich": false,
    "palettes": [
     "sunset",
     "dusk",
@@ -1147,6 +1438,7 @@
    "name": "Kinetic Type",
    "category": "typography",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "noir",
     "brutal",
@@ -1160,6 +1452,7 @@
    "name": "Web Hero Section",
    "category": "webdesign",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "aurora",
     "candy",
@@ -1174,6 +1467,7 @@
    "name": "UI Component Sheet",
    "category": "webdesign",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "candy",
     "aurora",
@@ -1187,6 +1481,7 @@
    "name": "Palette Card",
    "category": "webdesign",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "random"
    ],
@@ -1197,6 +1492,7 @@
    "name": "Seamless Pattern",
    "category": "webdesign",
    "engine": "canvas2d",
+   "rich": false,
    "palettes": [
     "memphis",
     "bauhaus",

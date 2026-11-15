@@ -1,8 +1,10 @@
+import { CREATURE_GLSL } from './creatures.js';
 import { WORLD_GLSL } from './world.js';
 // Fragment-shader generators. Each defines `vec3 gen()`. Uniforms: uRes,uTime,uPhase(0..1 loop),uSeed,uP,uPal[5]
 // T = loop angle (0..TAU), L = (cos T, sin T) for seamless loops.
 export const SHADER_GENS = {
 world: WORLD_GLSL,
+creature: CREATURE_GLSL,
 
 aurora: `
 vec3 gen(){vec2 p=uv0();vec3 c=uPal[0];

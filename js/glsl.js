@@ -52,6 +52,7 @@ uniform vec4 uA; // grain, vignette, scan, ca
 uniform vec4 uB; // glitch, pixel, posterize, curve
 uniform vec4 uC; // leak, paper, mode, cell
 uniform vec4 uD; // tone(0 palette,1 two-tone,2 source), bloom, contrast, -
+uniform sampler2D uPrev; uniform vec4 uTr; // progress, mode
 ${LIB}
 float bayer2(vec2 a){a=floor(a);return fract(a.x/2.+a.y*a.y*.75);}
 float bayer4(vec2 a){return bayer2(.5*a)*.25+bayer2(a);}
@@ -124,5 +125,82 @@ void main(){
   if(uA.z>0.)c*=1.-uA.z*(.5-.5*cos(fc.y*TAU/(3.*max(uK,1.))))*.5;
   if(uA.y>0.){vec2 v=uvo-.5;c*=clamp(1.-uA.y*dot(v,v)*2.4,0.,1.);}
   if(uA.x>0.)c+=(h21(fc+fract(uTime*7.31)*917.)-.5)*uA.x;
+  if(uTr.x<1.){float t=uTr.x;float m=uTr.y;vec2 u=uvo;float asp=uRes.x/uRes.y;
+    if(m<.5){float n=noise(fc/uRes.y*7.)*.65+noise(fc/uRes.y*28.)*.35;float th=t*1.3-.15;
+      c=mix(c,texture2D(uPrev,u).rgb,smoothstep(th,th+.05,n));c+=uPal[4]*smoothstep(.05,0.,abs(n-th))*(1.-t)*.9;}
+    else if(m<1.5){float r=length((u-.5)*vec2(asp,1.));float R=t*(asp*.6+.6);float k=smoothstep(R,R-.03,r);
+      c=mix(texture2D(uPrev,(u-.5)*(1.-t*.15)+.5).rgb,c,k);c+=uPal[4]*smoothstep(.02,0.,abs(r-R))*(1.-t);}
+    else if(m<2.5){float e=t*1.4-.2+.04*sin(u.y*18.+t*6.);float k=smoothstep(e,e+.08,u.x);c=mix(c,texture2D(uPrev,u+vec2(t*.15,0.)).rgb,k);}
+    else if(m<3.5){float px=max(1.,sin(t*PI)*48.)*uK;vec2 q=(floor(fc/px)+.5)*px/uRes;
+      c=t<.5?texture2D(uPrev,q).rgb:mix(texture2D(uTex,q).rgb,c,smoothstep(.6,1.,t));}
+    else if(m<4.5){float band=floor(u.y*24.);float r=h21(vec2(band,floor(t*10.)));float sh=(h21(vec2(band,3.))-.5)*.2*(1.-t);
+      c=r<t?c:texture2D(uPrev,u+vec2(sh,0.)).rgb;c.r=mix(c.r,texture2D(uPrev,u+vec2(.02,0.)).r,(1.-t)*.5*step(.7,r));}
+    else if(m<5.5){vec2 d=u-.5;float w=sin(length(d*vec2(asp,1.))*40.-t*20.)*.012*sin(t*PI);
+      vec3 a=texture2D(uPrev,u+normalize(d+.0001)*w).rgb;c=mix(a,c,smoothstep(.2,.8,t));}
+    else{vec3 a=texture2D(uPrev,(u-.5)*(1.-t*.12)+.5).rgb;c=mix(a,c,smoothstep(0.,1.,t));}
+  }
   gl_FragColor=vec4(clamp(c,0.,1.),1.);
 }`;
+
+// Composite: blend layer B into A through a mask, with UV transforms, displacement and colour grading.
+export const COMP_FRAG = `${PREC}
+uniform sampler2D uA; uniform sampler2D uB; uniform sampler2D uM;
+uniform vec2 uRes; uniform float uPhase; uniform vec4 uS;
+uniform vec4 uC0; // blend, amount, maskMode, threshold
+uniform vec4 uC1; // xformA, xformB, xformAmt, warp
+uniform vec4 uC2; // shape, softness, invert, hueShift
+uniform vec4 uC3; // saturation, shapeScale, shapeRot, hasB
+${LIB}
+vec2 mw(vec2 u){return 1.-abs(1.-mod(u,2.));}
+vec2 xf(vec2 uv,float m,float a){
+ if(m<.5)return uv;
+ float asp=uRes.x/uRes.y;vec2 c=uv-.5;c.x*=asp;
+ if(m<1.5){float n=floor(3.+a*9.);float r=length(c);float an=atan(c.y,c.x)+uPhase*TAU/n;an=mod(an,TAU/n);an=abs(an-PI/n);c=r*vec2(cos(an),sin(an));}
+ else if(m<2.5){c=abs(c)-.25*a;}
+ else if(m<3.5){float n=floor(2.+a*4.);return mw(uv*n+vec2(uPhase*(a>.5?1.:0.),0.));}
+ else if(m<4.5){return mw(vec2(atan(c.y,c.x)/TAU+.5+uPhase,length(c)*(1.2+a)));}
+ else if(m<5.5){float r=length(c);c*=rot((a*5.+.5)*(1.-smoothstep(0.,.8,r))+sin(uPhase*TAU)*.4);}
+ else if(m<6.5){float r=length(c);c*=(1.-a*.5)+a*1.4*r*r;}
+ else{c*=rot(uPhase*TAU*(a>.5?1.:-1.))*(1.+.15*sin(uPhase*TAU));}
+ c.x/=asp;return mw(c+.5);}
+float shape(vec2 q,float k){float r=length(q);float a=atan(q.y,q.x);
+ if(k<.5)return r-.32;
+ if(k<1.5){vec2 b=q-vec2(0.,-.1);float bx=max(abs(b.x)-.24,abs(b.y)-.3);float top=length(q-vec2(0.,.2))-.24;return q.y>.2?top:bx;}
+ if(k<2.5){float st=cos(floor(.5+a/(TAU/5.))*(TAU/5.)-a)*r;return st-.22-.12*cos(a*5.)*0.;}
+ if(k<3.5){vec2 h=q*1.2;h.y-=.08;float d=pow(h.x*h.x+h.y*h.y-.09,3.)-h.x*h.x*h.y*h.y*h.y*1.;return d*12.;}
+ if(k<4.5)return max(r-.32,-(length(q-vec2(.13,.08))-.28));
+ if(k<5.5)return abs(q.x)+abs(q.y)-.36;
+ if(k<6.5)return abs(r-.28)-.07;
+ if(k<7.5)return r-.24-.08*cos(a*6.);
+ if(k<8.5){vec2 h=abs(q);return max(h.x*.866+h.y*.5,h.y)-.3;}
+ if(k<9.5){vec2 g=fract(q*4.)-.5;return (length(g)-.32)/4.;}
+ if(k<10.5)return sin(q.y*28.)*.03;
+ return r-.28-.08*(noise(vec2(a*2.,0.)+uS.xy*20.)-.5)*2.-.03*sin(a*3.+uPhase*TAU);}
+vec3 blend(vec3 a,vec3 b,float m){
+ if(m<.5)return b;if(m<1.5)return a*b;if(m<2.5)return 1.-(1.-a)*(1.-b);
+ if(m<3.5)return mix(2.*a*b,1.-2.*(1.-a)*(1.-b),step(.5,a));
+ if(m<4.5)return abs(a-b);if(m<5.5)return min(a+b,1.);
+ if(m<6.5)return mix(2.*a*b+a*a*(1.-2.*b),sqrt(a)*(2.*b-1.)+2.*a*(1.-b),step(.5,b));
+ if(m<7.5)return min(a/max(1.-b,.02),1.);
+ if(m<8.5){float la=lum(a);float lb=lum(b);return clamp(b+(la-lb),0.,1.);}
+ if(m<9.5)return texture2D(uB,vec2(clamp(lum(a),.01,.99),.5)).rgb;
+ if(m<10.5)return b;
+ return a+b-2.*a*b;}
+vec3 hueRot(vec3 c,float h){const vec3 k=vec3(.57735);float ca=cos(h*TAU);return c*ca+cross(k,c)*sin(h*TAU)+k*dot(k,c)*(1.-ca);}
+void main(){vec2 uv=gl_FragCoord.xy/uRes;float asp=uRes.x/uRes.y;
+ vec2 ua=xf(uv,uC1.x,uC1.z);vec2 ub=xf(uv,uC1.y,1.-uC1.z);
+ if(uC1.w>0.&&uC3.w>.5){vec3 w=texture2D(uB,ub).rgb;ua=mw(ua+(w.rg-.5)*uC1.w*.25);}
+ vec3 a=texture2D(uA,ua).rgb;
+ vec3 b=uC3.w>.5?texture2D(uB,ub).rgb:mix(uPal[0],uPal[1],uv.y);
+ float mm=uC0.z;float m=1.;
+ if(mm>.5&&mm<1.5)m=smoothstep(uC0.w-uC2.y,uC0.w+uC2.y,lum(texture2D(uM,uv).rgb));
+ else if(mm<2.5&&mm>1.5){vec2 q=(uv-.5)*vec2(asp,1.);q=rot(uC3.z)*q/max(uC3.y,.2);m=smoothstep(uC2.y*.5,-uC2.y*.5,shape(q,uC2.x));}
+ else if(mm<3.5&&mm>2.5)m=smoothstep(uC0.w-uC2.y,uC0.w+uC2.y,fbm((uv-.5)*vec2(asp,1.)*2.5+uS.xy*20.+vec2(cos(uPhase*TAU),sin(uPhase*TAU))*.3));
+ else if(mm<4.5&&mm>3.5)m=smoothstep(uC0.w-uC2.y,uC0.w+uC2.y,lum(a));
+ else if(mm<5.5&&mm>4.5){float e=uv.x+.08*sin(uv.y*7.+uS.x*6.+uPhase*TAU)+(uv.y-.5)*(uS.y-.5);m=smoothstep(uC0.w-uC2.y*.3,uC0.w+uC2.y*.3,e);}
+ else if(mm>5.5)m=smoothstep(0.,1.,uv.y*1.2-.1);
+ if(uC2.z>.5)m=1.-m;
+ vec3 c=mix(a,blend(a,b,uC0.x),clamp(m*uC0.y,0.,1.));
+ if(uC2.w!=0.)c=hueRot(c,uC2.w);
+ float l=lum(c);c=mix(vec3(l),c,uC3.x);
+ gl_FragColor=vec4(clamp(c,0.,1.),1.);}`;

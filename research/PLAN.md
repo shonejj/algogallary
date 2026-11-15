@@ -33,3 +33,14 @@ GitHub Pages site with a landing screen offering **Image** or **Video**.
 - Is client-side rendering plus pre-rendered files via Actions acceptable for the "URL as API"? (Pages cannot run server code.)
 - Preferred video format: WebM (native recording) or MP4 (needs Action-side ffmpeg)?
 - Do you want me to continue into Phase 2 next?
+
+## Phase 3 (done): unbounded generation
+- **Remix engine:** any generator × any generator, with 12 blends, masks (a third generator, 12 shapes, noise, self, split, gradient), 7 transforms, displacement and grading.
+- **Creature engine:** a smooth signed-distance body with continuous proportions, replacing the fixed-species Canvas characters.
+- **GPU transitions:** dissolve, iris, wipe, pixelate, glitch, ripple, zoom.
+- **Full URL parameter API,** `embed.js` for img, video and canvas, a static WebP library with a manual GitHub Action to regenerate it, and generated titles.
+
+## Next ideas
+- Lift the shader generators' discrete modes into continuous parameters, especially the original 82 styles.
+- 3D raymarched worlds, typography and poster grammars, and more creature parts (wings, shells, fins).
+- A serverless renderer (for example Cloudflare Workers + WebGPU) for true on-the-fly `<img src>` with arbitrary params.

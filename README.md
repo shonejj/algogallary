@@ -1,109 +1,126 @@
 # AlgoGallery
 
-Endless, free, procedurally generated images and videos in **96 styles** across 18 categories, including **procedural worlds** and **characters**, including glassmorphism, Y2K chrome, Frutiger Aero, vaporwave, risograph, halftone, ASCII, Bayer dither, ink wash, solarpunk, alien-core, bento grids and more.
+**An unbounded generator of free, algorithmic images and videos:** worlds, creatures, remixes, glassmorphism, Y2K, risograph, ASCII, ink, dither and more.
 
-- Every pixel is made by an algorithm running on your device.
-- No prompts, no stock images, no AI models, no copyrighted assets.
-- Output is **CC0**.
+- Every pixel is computed by code in the browser: no prompts, no AI models, no stock images, no scraped references. Output is **CC0**.
+- **Live:** https://shonejj.github.io/algogallary/
+- **Embeds:** https://shonejj.github.io/algogallary/examples.html
 
-Open the site and pick **Image** or **Video**, then press **Next**. The ⚙ icon (top right) lets you choose styles, palette, effects, aspect ratio, loop length, export size and seed.
+## Why it doesn't repeat
+
+Nothing is a fixed list of pictures. Every result is a recipe drawn from continuous parameter spaces:
+
+| Layer | What varies |
+|---|---|
+| **Generators** | 40 WebGL shader generators and 14 Canvas2D generators, each with its own seeded parameters |
+| **Worlds** | A parallax scene composer with about 20 independent choices: sky, celestial body, clouds, terrain, water, structures, flora, creatures, a character, weather, light, camera travel |
+| **Creatures** | One signed-distance body where head, ears, horns, antennae, arms, legs and tail are smoothly fused, with continuous proportions. Eyes, mouth, material (cel, soft, gummy, plush), pattern and background are chosen per seed. There are no fixed species. |
+| **Remix** | Any generator × any generator, combined with: <ul><li>12 blend modes</li><li>a mask: a third generator's brightness, 12 shapes, noise, self, split or gradient</li><li>a transform per layer: kaleidoscope, mirror, tile, polar, swirl, fisheye, spin</li><li>displacement warp, hue rotation, saturation</li></ul> |
+| **Palettes** | 57 curated palettes, a seeded harmony generator, or your own hex colours |
+| **Effects** | Grain, bloom, light leak, paper, vignette, scanlines, CRT, chromatic aberration, glitch, posterize, pixelate, Bayer dither, halftone (mono or CMYK), ASCII, digital rain, stipple, gradient map |
+| **Titles** | Every artwork gets a generated title |
+
+A seed is a 32-bit integer, and many parameters are continuous. Combined with the remix engine, the space has no practical end.
 
 ## URL API
 
-GitHub Pages is static, so the "API" is a URL that renders deterministically in the browser. The same parameters always give the same output.
+The same parameters always give the same output:
+- `index.html?…` opens the viewer.
+- `render.html?…` gives a full-bleed canvas (embed/iframe).
+- `embed.js` turns `<img>`, `<video>` and `<canvas>` tags on any site into renders.
 
 ```
-render.html?style=risograph&seed=42&w=1080&h=1350          → full-bleed canvas
-render.html?mode=video&style=synthwave&seed=7&dur=8         → seamless 8 s loop
-render.html?style=ascii-3d&seed=3&download=1                → auto-downloads the PNG
-index.html?cat=retro,print                                  → viewer limited to categories
+render.html?style=remix&seed=42
+render.html?style=dreamscape&seed=7&sky=night&terrain=isles&hero=astronaut&weather=snow
+render.html?style=creatures&seed=5&material=gummy&eyes=1
+render.html?style=nebula&mix=truchet&blend=screen&mask=shape&shape=star&xa=kaleido
+render.html?style=floating-isles&colors=101820,f2aa4c,ffffff&grain=0.1&dither=bayer&cell=3
+render.html?mode=video&style=neon-city&seed=3&dur=8&download=1
 ```
 
-| param | values |
+| Param | Values |
 |---|---|
-| `mode` | `image` (default), `video` |
-| `style` | a style id, or a comma list to pick randomly from (see [`api/styles.json`](api/styles.json)) |
-| `cat` | category ids: `ui, retro, futurism, nature, mood, analog, print, ink, text, pixel, geometry, math, shader, illustration, typography, webdesign` |
-| `seed` | any uint32 |
-| `palette` | `auto`, `random`, or a palette name (`aurora, vapor, synth, riso, gameboy, …`) |
-| `fx` | `auto, none, film, crt, vhs, glitch, bitmap, dither, gameboy, pixel, halftone, cmyk, ascii, matrix, stipple, duotone, paper` |
-| `w`, `h` | exact render size in px |
-| `aspect` | `1:1, 4:5, 9:16, 16:9` |
-| `dur` | loop length in seconds (video) |
-| `embed` | `1` hides all UI (`render.html` sets this automatically) |
+| `style` | Style id, or a comma list to pick from. Ids are in [`api/styles.json`](api/styles.json). |
+| `cat` | `remix, world, character, ui, retro, futurism, nature, mood, analog, print, ink, text, pixel, geometry, math, shader, illustration, typography, webdesign` |
+| `seed` | uint32 |
+| `mode` | `image`, `video` |
+| `w`, `h`, `aspect` | Size in px, or `1:1, 4:5, 9:16, 16:9` |
+| `dur` | Video loop length in seconds |
+| `time` | 0–1, the moment of the loop to show for a still |
+| **Remix** | |
+| `mix` | Second style id |
+| `blend` | `normal, multiply, screen, overlay, difference, add, softlight, dodge, color, lumamap, displace, exclusion` |
+| `mask` | `none, luma, shape, noise, self, split, gradient`, or a style id to use its brightness |
+| `shape` | `circle, arch, star, heart, moon, diamond, ring, flower, hex, dots, stripes, blob` |
+| `xa`, `xb` | Transform for layer A or B: `kaleido, mirror, tile, polar, swirl, fisheye, spin` |
+| `amount, xamt, warp, thr, soft, inv, hue, sat, scale, rot` | Continuous mix controls |
+| **Colour** | |
+| `palette` | A name, or `random` |
+| `colors` | 1–5 hex colours, e.g. `0b0217,ff6ad5,c8fff4` |
+| `reverse` | `1` flips the palette |
+| **Effects** | |
+| `fx` | Preset: `none, film, crt, vhs, glitch, bitmap, dither, gameboy, pixel, halftone, cmyk, ascii, matrix, stipple, duotone, paper` |
+| `grain, vig, scan, ca, glitch, pixel, poster, curve, leak, paper, bloom, contrast` | Individual effect amounts |
+| `dither`, `cell`, `tone` | Mode `none, bayer, halftone, ascii, matrix, stipple, gradient`, then cell size, then `0` palette, `1` two-tone or `2` source colours |
+| **Worlds** | |
+| `sky` | `night, golden, day, alien` |
+| `body` | `none, sun, moon, planet, twin, giant` |
+| `clouds` | `none, cumulus, streaks, aurora` |
+| `terrain` | `peaks, dunes, mesas, isles, hills, spires` |
+| `water` | `0` or `1` |
+| `build` | `none, city, spires, ruins, pyramids, torii, lighthouse, turbines, megaring` |
+| `flora` | `none, pines, trees, palms, mushrooms, crystals, grass` |
+| `creature` | `none, birds, whale, jellyfish, airships, fireflies` |
+| `hero` | `none, wanderer, robot, astronaut, duo, deer` |
+| `weather` | `clear, rain, snow, mist, dust, embers, petals` |
+| `rays`, `cam`, `haze`, `layers` | Light rays, camera travel speed, haze, number of layers |
+| **Creatures** | |
+| `material` | `cel, soft, gummy, plush` |
+| `eyes` | `1–3` |
+| **Other** | |
+| `transition` | `dissolve, iris, wipe, pixelate, glitch, ripple, zoom` |
 | `download` | `1` auto-saves the PNG (image) or the MP4/WebM loop (video) |
 
-Embedding works as an iframe: `<iframe src="https://<user>.github.io/algogallary/render.html?style=nebula&mode=video">`.
-Once a page has rendered, `window.__algogallery.current` reports `{id, seed, palette}`.
+### Using it on other websites
 
-## Worlds and characters
+1. **embed.js** (live, any params, random per load, no server):
+   ```html
+   <script type="module" src="https://shonejj.github.io/algogallary/embed.js"></script>
+   <img   data-algogallery="style=remix&w=1200&h=750" data-algogallery-click>
+   <video data-algogallery="style=dreamscape&seed=7&dur=8" autoplay muted loop playsinline></video>
+   ```
+2. **Pre-rendered library** for plain `<img src>` with no JavaScript. It lists stable WebP files in [`api/library.json`](api/library.json), for example `https://shonejj.github.io/algogallary/lib/creatures/1009.webp`. Regenerate it with `node tools/render-library.cjs`.
+3. **iframe**: `<iframe src="https://shonejj.github.io/algogallary/render.html?style=remix&mode=video">`.
 
-**World composer** (`js/world.js`): a 2.5D parallax scene shader. Each seed makes about 20 independent structural choices:
-- sky and time of day; celestial body (sun, moon, ringed planet, twin suns, gas giant); clouds, streaks or aurora
-- terrain (peaks, dunes, mesas, floating isles, hills, spires) and water with reflections
-- structures (city, sci-fi spires, ruins, pyramids, torii, lighthouse, turbines, megaring) and flora (pines, trees, palms, glowing mushrooms, crystals, grass)
-- creatures (birds, sky whale, jellyfish, airships, fireflies) and a character (wanderer, robot, astronaut, duo, deer)
-- weather (rain, snow, mist, dust, embers, petals) and god rays
-- camera travel speed and art direction (clean, film, dreamy, pixel, dither, riso, ink, VHS, CRT, poster)
+GitHub Pages is static hosting. A plain `<img src>` therefore can't render brand-new parameters on request; it can only point to a pre-rendered file. The embed script and iframe give you every parameter live.
 
-Biomes (alien, solarpunk, neon city, lo-fi, desert, isles, ocean, frozen, forest) constrain those choices. In video, the camera travels through a seamlessly looping world while the character walks.
+## App
 
-**Character generator** (`js/characters.js`): 8 species × 8 eye types × 8 mouths × 11 accessories × outfits × 6 art styles × 7 backgrounds × solo, duo or trio compositions, with idle animation (blink, wave, bob).
-
-## How it works
-
-A style has three layers. Mixing them is what gives so many distinct looks from a small engine.
-
-1. **Generator**:
-   - 38 WebGL fragment shaders: noise, SDFs, raymarching, Voronoi, Truchet, fractals, metaballs, caustics, and others.
-   - 15 Canvas2D generators for layout, type and simulation: bento, neubrutalism, flow fields, circle packing, strange attractors, UI kits, web heroes, and others.
-2. **Palette**: 45 curated 5-colour palettes plus a seeded harmony generator.
-3. **Post-FX uber-shader**: grain, vignette, scanlines, CRT curvature, chromatic aberration, glitch, bloom, light leaks, paper, posterize, pixelate, and the modes Bayer dither, halftone (mono and CMYK), ASCII, digital rain, stipple, and gradient map.
-
-### Performance on any device
-
-- **Rendering:**
-  - Uses WebGL1 / GLSL ES 1.00 for maximum device coverage.
-  - No build step and no dependencies (about 100 KB of JS).
-- **Speed:**
-  - Shaders compile off the main thread with `KHR_parallel_shader_compile`.
-  - The next style is precompiled while you look at the current one.
-  - Image mode renders a single frame and then idles, so it doesn't drain the battery.
-- **Video:**
-  - The resolution adapts to the measured frame rate.
-  - Device pixel ratio is capped and the pixel budget is bounded.
-  - Loops are seamless: time runs on a circle.
-- **Glass UI:**
-  - Few blurred layers with small radii.
-  - It drops to solid panels on low-end devices, under `prefers-reduced-transparency`, or when FPS collapses.
-  - `prefers-reduced-motion` is respected.
-- **Video export:** `MediaRecorder`, MP4 (H.264) where supported, otherwise WebM.
-
-### Controls
-- `→` / `Space` / swipe left: next
-- `←` / swipe right: previous
-- `D`: download
-- `S`: settings
-- `F` or tap: immersive mode
+- **Image** or **Video**, then **Next** or swipe.
+- GPU transitions between artworks (dissolve, iris, wipe, pixelate, glitch, ripple, zoom).
+- **Settings (⚙):**
+  - style pool
+  - Remix: mix with, blend, mask, transform
+  - transition, palette, effects, aspect, loop length, export size, quality, seed and lock
+- **Exports:** PNG, plus MP4 or WebM loops.
 
 ## Development
 
 ```
-python3 -m http.server   # then open http://localhost:8000
-node tools/export-styles.mjs   # regenerate api/styles.json
+python3 -m http.server 8765       # open http://localhost:8765
+node tools/export-styles.mjs      # regenerate api/styles.json
+node tools/render-library.cjs     # regenerate the static library (needs Playwright)
 ```
 
-To add a style:
-1. Write a generator in `js/gens-shader.js` (a `vec3 gen()`) or `js/gens-2d.js`.
-2. Register it in `js/styles.js` with palettes and an FX stack.
+| File | Contents |
+|---|---|
+| `js/engine.js` | Recipes: seeds and overrides become layers, composite, palette and effects |
+| `js/renderer.js` | WebGL pipeline: layers → composite → post-FX → transition |
+| `js/gens-shader.js`, `js/world.js`, `js/creatures.js` | Shader generators |
+| `js/gens-2d.js` | Canvas2D generators |
+| `js/styles.js` | Style registry |
 
-## Deploy
-
-Pages serves the `main` branch root (static files, `.nojekyll`). Every push to `main` republishes the site at `https://shonejj.github.io/algogallary/`. If you change `js/styles.js`, run `node tools/export-styles.mjs` to update `api/styles.json`.
-
-## Research
-
-`research/` holds the aesthetics catalogue (139 researched styles with techniques) and the build notes. It is the roadmap for adding more styles.
+Pages serves the `main` branch root.
 
 ## License
 

@@ -1,7 +1,7 @@
 // Style registry: a style = generator + palette set + post-FX stack (+ fixed params).
 // gen: 's:<name>' = shader generator, 'c:<name>' = Canvas2D generator.
 export const CATEGORIES = {
-  world: 'Worlds', character: 'Characters',
+  remix: 'Remix (infinite)', world: 'Worlds', character: 'Creatures',
   ui: 'Interface', retro: 'Retro & Nostalgia', futurism: 'Futurism', nature: 'Nature & Eco', mood: 'Mood & Core',
   analog: 'Analog & Glitch', print: 'Print', ink: 'Ink & Paint', text: 'Text Art', pixel: 'Pixel & Dither',
   geometry: 'Geometry', math: 'Math Art', shader: 'Shader Art', illustration: 'Illustration', typography: 'Typography', webdesign: 'Web Design',
@@ -9,7 +9,7 @@ export const CATEGORIES = {
 
 const S = (id, name, cat, gen, pals, fx = {}, p = null, tags = '') => ({ id, name, cat, gen, pals, fx, p, tags });
 // World styles: biome-constrained scene composer + a pool of art directions picked per seed
-const ART = {
+export const ART = {
   clean: { grain: .035, vig: .35, bloom: .25 },
   film: { grain: .1, vig: .45, leak: .35, bloom: .2 },
   dreamy: { grain: .05, vig: .5, bloom: .55, leak: .2 },
@@ -23,7 +23,8 @@ const ART = {
 };
 const A = (...k) => k.map((x) => ART[x]);
 const WS = (id, name, biome, art, tags = '') => ({ id, name, cat: 'world', gen: 's:world', world: biome, pals: [], fx: art, p: null, tags: 'world scene environment ' + tags, rich: true });
-const CH = (id, name, pals, fx) => ({ id, name, cat: 'character', gen: 'c:character', pals, fx, p: null, tags: 'character mascot', rich: true });
+const CR = (id, name, copts) => ({ id, name, cat: 'character', gen: 's:creature', creature: true, copts, pals: ['candy', 'pastel', 'gummy', 'sakura', 'citrus', 'mint', 'clay', 'lofi', 'dawnpeach', 'tealdusk', 'memphis', 'random', 'random'], fx: [{ grain: .02 }, { grain: .03, vig: .2 }, { mode: 'halftone', tone: 0, cell: 4, paper: .3 }, { grain: .04, paper: .35 }, { bloom: .25, grain: .02 }], p: null, tags: 'character creature mascot cute', rich: true });
+const RX = (id, name, force) => ({ id, name, cat: 'remix', gen: 's:aurora', remix: true, force, pals: [], fx: {}, p: null, tags: 'remix mix blend fusion infinite', rich: true, noMix: true });
 
 export const STYLES = [
   // Worlds (procedural scene composer)
@@ -39,9 +40,18 @@ export const STYLES = [
   WS('enchanted-forest', 'Enchanted Forest', 'forest', A('dreamy', 'clean', 'film', 'pixel')),
   WS('pixel-world', 'Pixel Worlds', 'dreamscape', A('pixel', 'dither')),
   WS('ink-world', 'Ink Worlds', 'dreamscape', A('ink', 'riso')),
-  // Characters
-  CH('characters', 'Character Cards', ['candy', 'pastel', 'gummy', 'memphis', 'aurora', 'neon', 'sakura', 'citrus', 'lofi', 'random'], [{ grain: .02 }, { grain: .03, vig: .25 }, { mode: 'halftone', tone: 0, cell: 5, paper: .3 }, { pixel: 4, poster: 8 }, { grain: .05, paper: .4 }]),
-  CH('creature-crew', 'Creature Crew', ['brutal', 'memphis', 'synth', 'magalien', 'tealdusk', 'random'], [{ grain: .03 }, { scan: .25, ca: .3, grain: .05 }, { mode: 'bayer', tone: 0, cell: 3 }]),
+  // Creatures (continuous-parameter SDF characters)
+  CR('creatures', 'Creatures', {}),
+  CR('gummy-critters', 'Gummy Critters', { material: 2 }),
+  CR('plush-pals', 'Plush Pals', { material: 3 }),
+  CR('cel-creatures', 'Cel Creatures', { material: 0 }),
+  // Remix: any generator × any generator × blend × mask × transform × effects (unbounded)
+  RX('remix', 'Remix', {}),
+  RX('shape-poster', 'Shape Poster', { mask: 'shape' }),
+  RX('kaleido-remix', 'Kaleido Remix', { xa: 'kaleido' }),
+  RX('displacement', 'Displacement Mix', { blend: 'displace' }),
+  RX('lumamap', 'Gradient Map Mix', { blend: 'lumamap' }),
+  RX('split-world', 'Split Dimension', { mask: 'split' }),
   // Interface
   S('glassmorphism', 'Glassmorphism', 'ui', 's:glass', ['aurora', 'candy', 'dusk', 'ocean', 'random'], { grain: .035 }),
   S('liquid-glass', 'Liquid Glass', 'ui', 's:liquidglass', ['candy', 'pastel', 'gummy', 'citrus', 'random'], { grain: .03 }),
@@ -164,3 +174,7 @@ export const FX_PRESETS = {
   duotone: { mode: 'gradient', contrast: 1.2 },
   paper: { paper: .8, grain: .05 },
 };
+
+// layout-heavy designs that don't read well as remix layers
+for (const id of ['palette-card', 'ui-kit', 'web-hero', 'poetcore', 'swiss-poster']) STYLE_MAP[id].noMix = true;
+for (const id of ['bento-grid', 'neubrutalism', 'kinetic-type']) STYLE_MAP[id].noMix = true;

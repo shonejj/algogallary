@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AlgoGallery Embeds</title>
+<meta name="description" content="How to use AlgoGallery generated art in img, video and canvas tags on any website.">
+<link rel="stylesheet" href="css/app.css">
+<style>
+  html, body { overflow: auto; height: auto; }
+  body { background: #07070c; padding: 32px 16px 80px; }
+  main { max-width: 1080px; margin: 0 auto; }
+  h1 { font-size: clamp(30px, 5vw, 48px); letter-spacing: -.03em; margin: 8px 0 6px; }
+  h2 { margin: 40px 0 10px; font-size: 20px; }
+  p { color: var(--muted); max-width: 70ch; }
+  pre { background: rgba(255,255,255,.05); border: 1px solid var(--line); border-radius: 14px; padding: 14px; overflow-x: auto; font: 13px/1.5 ui-monospace, Menlo, Consolas, monospace; color: #bfefff; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .grid img, .grid video, .wide img, .wide video { width: 100%; border-radius: 16px; display: block; background: #111; aspect-ratio: 16 / 10; object-fit: cover; }
+  .cap { font-size: 12px; color: var(--muted); margin-top: 6px; }
+  a { color: var(--acc); }
+</style>
+</head>
+<body>
+<main>
+  <a href="./">← AlgoGallery</a>
+  <h1>Use generated art anywhere</h1>
+  <p>Add one script, then mark any <code>&lt;img&gt;</code>, <code>&lt;video&gt;</code> or <code>&lt;canvas&gt;</code>. Everything renders in the visitor's browser, so there's no server, no API key and no copyright: every pixel comes from an algorithm and the output is CC0. Click any image below to reroll it.</p>
+  <pre>&lt;script type="module" src="https://shonejj.github.io/algogallary/embed.js"&gt;&lt;/script&gt;
+
+&lt;img   data-algogallery="style=remix&amp;w=1200&amp;h=750"&gt;
+&lt;img   data-algogallery="style=creatures&amp;seed=42&amp;material=gummy"&gt;
+&lt;video data-algogallery="style=dreamscape&amp;seed=7&amp;dur=8" autoplay muted loop playsinline&gt;&lt;/video&gt;</pre>
+
+  <h2>Images (random every load, click to reroll)</h2>
+  <div class="grid">
+    <figure><img data-algogallery="style=remix&w=800&h=500" data-algogallery-click><figcaption class="cap">style=remix</figcaption></figure>
+    <figure><img data-algogallery="style=creatures&w=800&h=500" data-algogallery-click><figcaption class="cap">style=creatures</figcaption></figure>
+    <figure><img data-algogallery="cat=world&w=800&h=500" data-algogallery-click><figcaption class="cap">cat=world</figcaption></figure>
+    <figure><img data-algogallery="style=shape-poster&w=800&h=500" data-algogallery-click><figcaption class="cap">style=shape-poster</figcaption></figure>
+    <figure><img data-algogallery="style=floating-isles&mix=holographic&mask=shape&shape=circle&w=800&h=500" data-algogallery-click><figcaption class="cap">floating-isles + mix=holographic, circle mask</figcaption></figure>
+    <figure><img data-algogallery="style=nebula&xa=kaleido&colors=0b0217,ff6ad5,c8fff4&w=800&h=500" data-algogallery-click><figcaption class="cap">nebula, kaleido, custom colors</figcaption></figure>
+  </div>
+
+  <h2>Fixed seed (always the same image)</h2>
+  <div class="grid">
+    <figure><img data-algogallery="style=creatures&seed=42&material=gummy&w=800&h=500"><figcaption class="cap">creatures · seed=42 · material=gummy</figcaption></figure>
+    <figure><img data-algogallery="style=dreamscape&seed=7&sky=night&terrain=isles&hero=astronaut&w=800&h=500"><figcaption class="cap">dreamscape · sky=night · terrain=isles · hero=astronaut</figcaption></figure>
+    <figure><img data-algogallery="style=remix&seed=2026&w=800&h=500"><figcaption class="cap">remix · seed=2026</figcaption></figure>
+  </div>
+
+  <h2>Live video loops</h2>
+  <div class="grid">
+    <figure><video data-algogallery="style=dreamscape&seed=11&w=640&h=400" autoplay muted loop playsinline></video><figcaption class="cap">dreamscape · seed=11</figcaption></figure>
+    <figure><video data-algogallery="style=creatures&seed=5&w=640&h=400" autoplay muted loop playsinline></video><figcaption class="cap">creatures · seed=5</figcaption></figure>
+    <figure><video data-algogallery="style=kaleido-remix&seed=9&w=640&h=400" autoplay muted loop playsinline></video><figcaption class="cap">kaleido-remix · seed=9</figcaption></figure>
+  </div>
+
+  <h2>Other ways</h2>
+  <p>A full-bleed iframe: <code>&lt;iframe src="https://shonejj.github.io/algogallary/render.html?style=remix&amp;seed=5"&gt;</code>. For plain <code>&lt;img src&gt;</code> with no JavaScript, use the pre-rendered library listed in <a href="api/library.json">api/library.json</a>. Every parameter is listed in the <a href="https://github.com/shonejj/algogallary#url-api">README</a>.</p>
+</main>
+<script type="module" src="embed.js"></script>
+</body>
+</html>

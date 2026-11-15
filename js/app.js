@@ -1,12 +1,11 @@
 import { Renderer } from './renderer.js';
 import { STYLES, STYLE_MAP, CATEGORIES, FX_PRESETS } from './styles.js';
 import { PALETTES, PALETTE_NAMES, randomPalette, hexToRgb } from './palettes.js';
-import { makeRng, randSeed, makeNoise } from './rng.js';
-import { CANVAS_GENS } from './gens-2d.js';
-import { worldConfig } from './world.js';
+import { makeRng, randSeed } from './rng.js';
+import { makeRecipe, prepare, drawJob, overridesFrom, BLENDS, MASKS, SHAPES, XFORMS, TRANSITIONS } from './engine.js';
 
 const $ = (s) => document.querySelector(s);
-const app = $('#app'), stage = $('#stage'), ghost = $('#ghost'), gctx = ghost.getContext('2d');
+const app = $('#app'), stage = $('#stage');
 const store = {
   get(k, d) { try { const v = localStorage.getItem('ag:' + k); return v == null ? d : JSON.parse(v); } catch { return d; } },
   set(k, v) { try { localStorage.setItem('ag:' + k, JSON.stringify(v)); } catch { /* private mode */ } },
@@ -14,7 +13,7 @@ const store = {
 const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ---------------- settings + URL API ---------------- */
-const DEF = { mode: 'image', pool: null, palette: 'auto', fx: 'auto', aspect: 'screen', size: 'screen', dur: 6, quality: 'auto', lock: false };
+const DEF = { mode: 'image', pool: null, palette: 'auto', fx: 'auto', aspect: 'screen', size: 'screen', dur: 6, quality: 'auto', lock: false, mix: 'off', blend: 'auto', mask: 'auto', xform: 'auto', transition: 'random' };
 const S = { ...DEF, ...store.get('settings', {}) };
 const Q = new URLSearchParams(location.search);
 const embed = Q.get('embed') === '1';
@@ -34,6 +33,8 @@ const forced = forcedW > 0 && forcedH > 0;
 const seedParam = Q.has('seed') ? (parseInt(Q.get('seed'), 10) >>> 0) : null;
 const deepLink = Q.has('style') || Q.has('seed') || Q.has('mode') || Q.has('cat') || embed;
 const save = () => store.set('settings', S);
+const urlO = overridesFrom(Q);
+if (Q.has('transition')) S.transition = Q.get('transition');
 
 /* ---------------- renderer ---------------- */
 let R;
@@ -80,30 +81,29 @@ function fitSize() {
 
 /* ---------------- jobs ---------------- */
 let cur = null, landing = !deepLink;
-async function build(id, seed) {
-  const st = STYLE_MAP[id], rng = makeRng(seed);
-  const seed4 = [rng.next(), rng.next(), rng.next(), rng.next()];
-  const p4 = st.p ? st.p.slice() : [rng.next(), rng.next(), rng.next(), rng.next()];
-  const preset = S.fx === 'auto' ? null : FX_PRESETS[S.fx];
-  let wc = null;
-  if (st.world) wc = worldConfig(rng, st.world);
-  let palName = S.palette !== 'auto' ? S.palette : rng.pick(wc ? wc.pals : st.pals);
-  if (preset && preset.pal && S.palette === 'auto') palName = preset.pal;
-  const palHex = palName === 'random' ? randomPalette(rng) : (PALETTES[palName] || PALETTES.aurora);
-  const fx = preset ? { ...preset } : { ...(Array.isArray(st.fx) ? rng.pick(st.fx) : st.fx) };
-  const job = { st, id, seed, seed4, p4, palName, palHex, pal: new Float32Array(palHex.flatMap(hexToRgb)), fx, phase0: rng.next(), w: wc ? new Float32Array(wc.W) : null, desc: wc ? wc.desc : '' };
-  if (st.gen.startsWith('s:')) job.prog = await R.load(st.gen.slice(2));
-  return job;
+function settingOverrides(seed) {
+  const O = {}, r = makeRng((seed ^ 0xabcdef) >>> 0);
+  if (S.mix !== 'off') { const list = STYLES.filter((x) => !x.noMix && !x.remix); O.mix = S.mix === 'random' ? r.pick(list).id : S.mix; }
+  if (S.blend !== 'auto') O.blend = S.blend;
+  if (S.mask !== 'auto') { if (S.mask.startsWith('shape:')) { O.mask = 'shape'; O.shape = S.mask.slice(6); } else O.mask = S.mask; }
+  if (S.xform !== 'auto') O.xa = S.xform;
+  return O;
 }
-function makePainter(job) {
-  const c = R.ctx; c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 1; c.globalCompositeOperation = 'source-over'; c.filter = 'none';
-  job.painter = CANVAS_GENS[job.st.gen.slice(2)](c, R.w, R.h, makeRng(job.seed ^ 0x9e3779b9), job.palHex, makeNoise(makeRng(job.seed + 7)), { video: S.mode === 'video' || landing });
-  job.pw = R.w; job.ph = R.h;
+async function build(id, seed, O = {}) {
+  const recipe = makeRecipe(id, seed, { ...settingOverrides(seed), ...O }, { palette: S.palette, fx: S.fx });
+  const job = await prepare(R, recipe);
+  return Object.assign(job, { id, seed, O, st: STYLE_MAP[id], palName: recipe.palName, desc: recipe.desc, phase0: recipe.phase0 });
+}
+let trans = null;
+function trState() {
+  if (!trans) return null;
+  const t = (performance.now() - trans.start) / trans.dur;
+  if (t >= 1) { trans = null; return null; }
+  return { t: t * t * (3 - 2 * t), mode: trans.mode };
 }
 function frame(phase, time) {
   if (!cur) return;
-  if (!cur.prog && (!cur.painter || cur.pw !== R.w || cur.ph !== R.h)) makePainter(cur);
-  R.draw({ prog: cur.prog, painter: cur.painter, phase, time, seed: cur.seed4, p: cur.p4, pal: cur.pal, fx: cur.fx, w: cur.w });
+  drawJob(R, cur, phase, time, trState(), animating());
 }
 const animating = () => S.mode === 'video' || landing;
 function renderStill() { if (cur && !animating()) frame(cur.phase0, cur.phase0 * 10); }
@@ -113,10 +113,11 @@ let raf = 0, t0 = performance.now(), paused = false, pauseAt = 0, recording = fa
 let lastTs = 0, acc = 0, n = 0, good = 0;
 function loop(ts) {
   raf = requestAnimationFrame(loop);
-  if (!cur || paused) return;
+  if (!cur || paused && !trans) return;
+  if (!animating()) { frame(cur.phase0, cur.phase0 * 10); if (!trans) { frame(cur.phase0, cur.phase0 * 10); stopLoop(); } return; }
   const el = (ts - t0) / 1000;
   frame((el / S.dur) % 1, el);
-  if (lastTs && !recording && S.quality === 'auto' && cur.prog) {
+  if (lastTs && !recording && S.quality === 'auto' && cur.layers.every((l) => l.prog)) {
     const dt = ts - lastTs; if (dt < 250) { acc += dt; n++; }
     if (n >= 24) {
       const avg = acc / n; acc = n = 0;
@@ -136,10 +137,10 @@ const loaderEl = $('#loader');
 function loader(on, text) { if (text) $('#loaderText').textContent = text; loaderEl.classList.toggle('show', on); }
 
 async function show(id, seed, opts = {}) {
-  const my = ++token, st = STYLE_MAP[id];
+  const my = ++token, st = STYLE_MAP[id], O = opts.O || {};
   const lt = setTimeout(() => loader(true, 'Generating · ' + st.name), 140);
   let job;
-  try { job = await Promise.race([build(id, seed), new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 8000))]); } catch (e) {
+  try { job = await Promise.race([build(id, seed, O), new Promise((_, rej) => setTimeout(() => rej(new Error('timeout')), 8000))]); } catch (e) {
     clearTimeout(lt); loader(false); console.error(e);
     if (my === token) { toast('Skipped ' + st.name + ' (not supported here)'); if (!opts.noRetry) return next(); }
     return;
@@ -147,18 +148,18 @@ async function show(id, seed, opts = {}) {
   clearTimeout(lt);
   if (my !== token) return;
   const withFx = !!cur && !opts.instant && !embed;
-  if (withFx) { ghost.width = stage.width; ghost.height = stage.height; gctx.drawImage(stage, 0, 0); ghost.className = 'show'; }
+  if (withFx) {
+    R.capturePrev();
+    const tm = S.transition === 'random' ? job.recipe.transition : Math.max(0, TRANSITIONS.indexOf(S.transition));
+    trans = { start: performance.now(), mode: reduceMotion ? 6 : tm, dur: reduceMotion ? 250 : 950 };
+  }
   cur = job; fitSize();
   t0 = performance.now();
-  if (animating()) { frame(0, 0); startLoop(); } else renderStill();
-  if (withFx) {
-    requestAnimationFrame(() => requestAnimationFrame(() => { ghost.className = 'show out'; }));
-    setTimeout(() => { if (ghost.className === 'show out') ghost.className = ''; }, 820);
-    stage.classList.remove('enter'); void stage.offsetWidth; stage.classList.add('enter');
-  }
+  if (animating()) frame(0, 0); else renderStill();
+  startLoop();
   loader(false);
   if (!landing) meta();
-  if (opts.push !== false) { hist = hist.slice(0, hi + 1); hist.push({ id, seed }); if (hist.length > 200) hist.shift(); hi = hist.length - 1; }
+  if (opts.push !== false) { hist = hist.slice(0, hi + 1); hist.push({ id, seed, O }); if (hist.length > 200) hist.shift(); hi = hist.length - 1; }
   syncUrl();
   prefetch();
 }
@@ -180,31 +181,32 @@ function pick() {
 }
 function prefetch() {
   upcoming = pick();
-  const st = STYLE_MAP[upcoming.id];
-  if (st.gen.startsWith('s:')) (window.requestIdleCallback || setTimeout)(() => R.load(st.gen.slice(2)).catch(() => {}), { timeout: 600 });
+  const u = upcoming;
+  (window.requestIdleCallback || setTimeout)(() => { try { makeRecipe(u.id, u.seed, settingOverrides(u.seed), { palette: S.palette, fx: S.fx }).layers.forEach((l) => l.gen.startsWith('s:') && R.load(l.gen.slice(2)).catch(() => {})); } catch { /* ignore */ } }, { timeout: 600 });
 }
 function next() {
-  if (hi < hist.length - 1) { hi++; const h = hist[hi]; return show(h.id, h.seed, { push: false }); }
+  if (hi < hist.length - 1) { hi++; const h = hist[hi]; return show(h.id, h.seed, { push: false, O: h.O }); }
   const u = upcoming && (!S.lock || (cur && upcoming.id === cur.id)) && pool().includes(upcoming.id) ? upcoming : pick();
   upcoming = null; return show(u.id, u.seed);
 }
-function prev() { if (hi > 0) { hi--; const h = hist[hi]; show(h.id, h.seed, { push: false }); } else toast('This is the first one'); }
-const rerender = () => cur && show(cur.id, cur.seed, { push: false });
+function prev() { if (hi > 0) { hi--; const h = hist[hi]; show(h.id, h.seed, { push: false, O: h.O }); } else toast('This is the first one'); }
+const rerender = () => cur && show(cur.id, cur.seed, { push: false, O: cur.O });
 
 /* ---------------- meta / url ---------------- */
 const metaIn = $('.metaIn');
 function meta() {
   metaIn.classList.add('swap');
   setTimeout(() => {
-    $('#styleName').textContent = cur.st.name;
-    $('#styleSub').textContent = `${cur.desc || CATEGORIES[cur.st.cat]} · ${cur.palName} · #${cur.seed}`;
+    $('#styleName').textContent = cur.recipe.title;
+    $('#styleSub').textContent = `${cur.recipe.name} · ${cur.desc ? cur.desc + ' · ' : ''}${cur.palName} · #${cur.seed}`;
     metaIn.classList.remove('swap');
   }, reduceMotion ? 0 : 180);
 }
 function params(full) {
   const q = new URLSearchParams();
   q.set('mode', S.mode); if (cur) { q.set('style', cur.id); q.set('seed', cur.seed); }
-  if (S.palette !== 'auto') q.set('palette', S.palette);
+  if (cur) { const O = { ...settingOverrides(cur.seed), ...cur.O }; for (const [k, v] of Object.entries(O)) q.set(k, v); }
+  if (S.palette !== 'auto' && !q.has('palette')) q.set('palette', S.palette);
   if (S.fx !== 'auto') q.set('fx', S.fx);
   if (forced) { q.set('w', forcedW); q.set('h', forcedH); } else if (S.aspect !== 'screen') q.set('aspect', S.aspect);
   if (S.mode === 'video' && (full || S.dur !== 6)) q.set('dur', S.dur);
@@ -236,7 +238,7 @@ async function downloadImage() {
   const [w, h] = exportSize(), pw = R.w, ph = R.h;
   R.setSize(w, h);
   const phase = animating() ? ((performance.now() - t0) / 1000 / S.dur) % 1 : cur.phase0;
-  stopLoop(); frame(phase, phase * 10);
+  stopLoop(); trans = null; frame(phase, phase * 10);
   const blob = await new Promise((r) => stage.toBlob(r, 'image/png'));
   R.setSize(pw, ph); if (animating()) startLoop(); else renderStill();
   loader(false);
@@ -357,6 +359,15 @@ function buildFx() {
     box.appendChild(b);
   });
 }
+function buildRemix() {
+  const fill = (el, opts, key) => { el.innerHTML = opts.map(([v, l]) => `<option value="${v}">${l}</option>`).join(''); el.value = S[key]; el.onchange = () => { S[key] = el.value; save(); upcoming = null; rerender(); }; };
+  const cap = (x) => x[0].toUpperCase() + x.slice(1);
+  fill($('#mixSel'), [['off', 'Off'], ['random', 'Random style'], ...STYLES.filter((x) => !x.noMix && !x.remix).map((x) => [x.id, x.name])], 'mix');
+  fill($('#blendSel'), [['auto', 'Auto'], ...BLENDS.map((b) => [b, cap(b)])], 'blend');
+  fill($('#maskSel'), [['auto', 'Auto'], ...MASKS.filter((m) => m !== 'shape' && m !== 'luma').map((m) => [m, cap(m)]), ...SHAPES.map((x) => ['shape:' + x, 'Shape · ' + x])], 'mask');
+  fill($('#xfSel'), [['auto', 'Auto'], ...XFORMS.map((x) => [x, cap(x)])], 'xform');
+  fill($('#trSel'), [['random', 'Random each time'], ...TRANSITIONS.map((x) => [x, cap(x)])], 'transition');
+}
 async function copy(text, msg) {
   try { await navigator.clipboard.writeText(text); toast(msg); } catch { prompt('Copy this link:', text); }
 }
@@ -408,7 +419,7 @@ let rz;
 addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { fitSize(); renderStill(); }, 120); });
 
 /* ---------------- boot ---------------- */
-buildStyleList(); buildPalettes(); buildFx(); segs();
+buildStyleList(); buildPalettes(); buildFx(); buildRemix(); segs();
 if (embed) app.classList.add('embed');
 app.classList.toggle('landing', landing);
 app.classList.toggle('video', S.mode === 'video');
@@ -420,14 +431,15 @@ app.classList.toggle('video', S.mode === 'video');
   } else {
     const p = pool();
     const id = urlPool.length ? urlPool[Math.floor(Math.random() * urlPool.length)] : p[Math.floor(Math.random() * p.length)];
-    await show(id, seedParam ?? randSeed(), { instant: true });
+    await show(id, seedParam ?? randSeed(), { instant: true, O: urlO });
     if (autoDl) setTimeout(download, 300);
   }
   requestAnimationFrame(() => app.classList.remove('boot'));
   // warm every shader in the background, one at a time, so Next is instant
   const gens = [...new Set(STYLES.filter((s) => s.gen.startsWith('s:')).map((s) => s.gen.slice(2)))];
   const idle = window.requestIdleCallback || ((f) => setTimeout(f, 50));
-  const warm = () => { const g = gens.shift(); if (!g) return; R.load(g).catch(() => {}).finally(() => idle(warm)); };
-  setTimeout(() => idle(warm), 400);
-  window.__algogallery = { ready: true, get current() { return cur && { id: cur.id, seed: cur.seed, palette: cur.palName }; }, show, next, styles: STYLES.map((s) => s.id) };
+  // only warm once the viewer is open, and pace it so the landing animation stays smooth
+  const warm = () => { if (landing) return setTimeout(warm, 1000); const g = gens.shift(); if (!g) return; R.load(g).catch(() => {}).finally(() => setTimeout(() => idle(warm), 250)); };
+  setTimeout(() => idle(warm), 1500);
+  window.__algogallery = { ready: true, get current() { return cur && { id: cur.id, seed: cur.seed, palette: cur.palName, title: cur.recipe.title, name: cur.recipe.name, desc: cur.desc }; }, show, next, styles: STYLES.map((s) => s.id) };
 })();
