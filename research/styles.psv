@@ -1,0 +1,140 @@
+# id|name|category|kind|core technique (how to generate in canvas/WebGL/SVG)|palette|signature traits|video motion idea
+glassmorphism|Glassmorphism|ui|both|blurred translucent panels over colorful gradient blobs; 1px light border; soft shadow|violet,cyan,pink on dark|frosted blur, white 10-20% fill, rounded corners|blobs drift behind static glass cards
+neumorphism|Neumorphism / Soft UI|ui|both|dual light+dark drop shadows on same-color surface|pastel grey-blue|extruded soft buttons, low contrast|buttons press in/out
+neubrutalism|Neubrutalism|ui|both|flat saturated fills, thick black borders, hard offset shadows|yellow,pink,mint,black|chunky type, no blur, sticker feel|cards jitter and snap
+tactile-brutalism|Tactile Brutalism (2026)|ui|both|1px borders, mono type, raw grid plus grain layer|off-white,black,one accent|stark geometry, visible grid|grid lines reveal
+bento-grid|Bento Grid|ui|both|modular rounded tiles of varied span filled with mini generative visuals|dark neutral+accent|Apple-style card mosaic|tiles animate in sequence
+aurora-ui|Aurora Gradient|ui|both|blurred multi-stop radial blobs with blend modes + noise|teal,magenta,indigo|soft glowing northern-lights mesh|blobs orbit slowly
+mesh-gradient|Mesh Gradient|ui|both|bilinear-interpolated colour grid points warped by noise|any 4-6 harmonious|smooth organic colour field|control points wander
+grainy-gradient|Grainy Gradient|ui|both|gradient plus film-grain noise and contrast boost|warm sunset or cool dusk|gritty banded glow, risograph-lite|grain flickers per frame
+claymorphism|Claymorphism / 3D Clay|ui|image|inner+outer shadows on puffy rounded SDF shapes|candy pastels|inflated toy-like forms|shapes squash and bounce
+gummy-jelly|Jelly / Gummy Bright|ui|both|glossy translucent SDF blobs with subsurface fake and specular|gummy red,orange,lime,blue|wobbly refractive candy (Pinterest 2026)|jiggle physics
+dark-mode-neon|Dark Mode Neon UI|ui|both|dark bg, neon strokes with bloom|neon cyan,magenta,lime|glow outlines|pulse glow
+skeuo-revival|Skeuomorphic Revival|ui|image|bevels, gloss, textured materials via gradients|chrome,leather,wood|realistic buttons/knobs|knobs rotate
+liquid-glass|Liquid Glass|ui|both|refraction/lens displacement of background by rounded SDF lens|clear with tint|bending, specular rim|lens drifts over content
+bubble-ui|Bubble / Y2K UI|ui|both|translucent spheres with fresnel rim and highlight|aqua,white|soap-bubble iridescence|bubbles float up
+y2k|Y2K Futurism|retro|both|chrome gradients, stars, swooshes, metallic blobs|silver,baby blue,hot pink|optimistic millennium tech|spinning chrome star
+frutiger-aero|Frutiger Aero|retro|both|sky gradients, glossy orbs, bokeh, bubbles, lens flare|sky blue,leaf green,white|2004-2013 glossy nature-tech|bubbles and light rays drift
+dark-aero|Dark Aero|retro|both|frutiger aero with deep navy palette and glow|navy,teal,cyan|moody glossy tech|glow breathing
+vaporwave|Vaporwave|retro|both|sunset gradient, perspective grid, Greek bust placeholder shapes, palm silhouettes, katakana text|purple,pink,teal|dated CG, mall nostalgia|grid scrolls toward horizon
+synthwave|Synthwave / Outrun|retro|both|striped sun, perspective grid, mountain wireframe, chromatic title|magenta,orange,deep blue|80s neon horizon|endless drive grid
+retrowave-neon|Retro Neon Sign|retro|both|glowing tube strokes with bloom and flicker|hot pink,cyan|signage glow|tube flicker
+memphis|Memphis Design|retro|both|scattered squiggles, triangles, dots on clashing patterns|primary+pastel clash|80s playful geometry|shapes tumble
+eighties-airbrush|80s Airbrush / Miami|retro|image|soft gradient shapes, palm and sunset flat vectors|coral,teal,peach|Miami Vice pastel|sun sets
+90s-web|90s Web / Geocities|retro|both|tiled backgrounds, marquee text, bevel buttons, visitor counter|web-safe colours|chaotic homepages|marquee scroll
+neoretro|Neo-Retro / Retrofuturism|retro|both|rounded 60s-70s atomic shapes with modern gradients|mustard,teal,burnt orange|space-age optimism|orbit shapes
+seventies-groovy|70s Groovy|retro|both|concentric wavy bands, sunburst, flower shapes|orange,brown,mustard,avocado|warm psychedelic stripes|bands undulate
+mid-century|Mid-Century Modern|retro|image|flat organic shapes, boomerang, limited palette, paper texture|teal,mustard,rust|atomic-age print|-
+art-deco|Art Deco|retro|both|radial fans, symmetric geometric ornaments with gold lines|black,gold,emerald|luxury symmetry|fans rotate/reveal
+bauhaus|Bauhaus|retro|image|circle-square-triangle compositions, primary colours|red,yellow,blue,black|geometric constructivism|shapes reassemble
+constructivism|Constructivist Poster|retro|image|diagonal composition, bold bars, circles, halftone|red,black,cream|propaganda poster geometry|diagonals sweep
+swiss-international|Swiss / International Style|retro|image|strict grid, big type, asymmetry, whitespace|white,black,red|Helvetica grid posters|grid shifts
+swiss-punk|Swiss Punk|retro|image|swiss grid broken with distortion, overprint, rotated type|black,red,fluoro|rule-breaking posters|type warps
+cyberpunk|Cyberpunk|futurism|both|neon city silhouettes, rain, glitch, HUD overlays|magenta,cyan,yellow|high-tech low-life|rain and sign flicker
+cyber-y2k|Cyber Y2K / Cybercore|futurism|both|chrome tribal, barbed shapes, blue-black, glitch|blue,black,silver|dark millennium cyber|rotating chrome shapes
+hud-sci-fi|Sci-Fi HUD|futurism|both|thin vector rings, ticks, readouts, radar sweep|cyan,amber|FUI interface|radar rotation
+holographic|Holographic / Iridescent|futurism|both|thin-film interference palette over normals, angle-based hue shift|opal rainbow|foil and opalescent (Pinterest +115%)|hue shifts with tilt
+alien-core|Extra Celestial / Alien-core|futurism|both|bioluminescent orbs, ethereal ribbons, opal gradients|opal,violet,mint|Pinterest 2026 alien-core +80%|orbs hover
+solarpunk|Solarpunk|nature|both|layered plants, sun rays, rounded greenery, wind turbines, stained-glass leaves|green,gold,sky blue|optimistic eco-future|leaves sway, sun rays rotate
+biopunk|Biopunk / Bioluminescent|nature|both|cell structures, glowing tendrils, voronoi membranes|teal,green,magenta on black|organic tech|cells pulse
+cottagecore-flat|Cottagecore Botanical|nature|image|botanical L-system plants, soft paper texture|sage,cream,rose|pastoral calm|sway
+dark-academia|Dark Academia|mood|image|vignette, serif type, parchment, candle light grain|brown,forest green,gold|moody study|candle flicker
+goth-glossy|Glossy Goth|mood|both|black, chrome, lace-pattern geometry, red accents|black,burgundy,silver|Pinterest 2026 goth update|lace pattern drift
+cool-blue-glacier|Glacier / Cool Blue|mood|both|frost crystals, ice noise, frosted-glass gradient|ice blue,white,silver|Pinterest 2026 cool blue|snow and shimmer
+dreamcore|Dreamcore / Weirdcore|mood|both|soft pastel gradients, low-res stock-like shapes, odd text, eyes, clouds|pastel with dark corners|surreal nostalgia|slow zoom, text flicker
+liminal|Liminal Space|mood|image|one-point perspective empty corridors via raycast, flat lighting|yellow-beige,fluorescent white|empty uncanny|camera drift
+vhs|VHS / Analog Horror|analog|both|chroma shift, tracking lines, noise, timecode overlay, scanlines|desaturated, red-cyan fringing|camcorder decay|tracking glitches
+crt|CRT Monitor|analog|both|scanlines, barrel distortion, phosphor mask, bloom, flicker|green or amber phosphor|old terminal glow|rolling bar
+glitch|Glitch Art|analog|both|slice displacement, RGB split, pixel sort, data-mosh blocks|RGB channel colours|corrupted signal|bursts of corruption
+pixel-sort|Pixel Sorting|analog|image|sort rows/cols by luminance thresholds on a generated base|source-dependent|streaked smears|sort threshold animates
+datamosh|Datamosh|analog|video|motion-vector smearing between generated frames|any|melting transitions|continuous smear
+film-grain|35mm Film / Kodak|analog|image|grain, halation, light leaks, vignette, colour grade|warm Kodak tones|photo-chemical|leak flashes
+polaroid|Polaroid / Instant Photo|analog|image|white frame, faded colour, light leak, slight blur|faded warm|snapshot nostalgia|photo develops
+lomo|Lomography|analog|image|heavy vignette, saturation, cross-process|saturated shifted|toy-camera|-
+risograph|Risograph|print|image|2-3 spot-ink layers, halftone, misregistration, grain|fluoro pink,blue,yellow|offset-printed zine|layers jitter
+halftone|Halftone / Newsprint|print|both|dot grid sized by luminance at screen angle; CMYK rosette|CMYK|comic/pop-art dots|dot size breathes
+pop-art|Pop Art|print|image|ben-day dots, thick outlines, flat primaries, speech bubbles|primary+yellow|Lichtenstein-like|-
+screenprint|Screen Print / Serigraph|print|image|posterised flat colour layers with overprint multiply|limited 3-5 inks|bold flat posters|layers slide
+woodcut-linocut|Woodcut / Linocut|print|image|threshold + carved hatch lines, gouge marks|black on paper|carved relief|-
+engraving|Engraving / Etching|print|image|contour hatching following form, banknote guilloche|black/sepia|fine line shading|lines flow
+guilloche|Guilloche|print|both|spirograph rosettes (epi/hypotrochoid) in layered line sets|currency green/blue|security patterns|rotation
+blueprint|Blueprint / Technical Drawing|print|image|white lines on blue, grid, dimension marks, construction geometry|cyanotype blue,white|schematic|lines draw on
+cyanotype|Cyanotype|print|image|blue monotone with botanical silhouettes and uneven coating|prussian blue,white|sun print|-
+ukiyo-e|Ukiyo-e Wave|print|image|flat colour bands, curling wave strokes, paper grain|indigo,cream,red|Japanese woodblock|waves roll
+sumi-e-ink|Sumi-e / Ink Wash|ink|both|bleeding brush strokes via diffusion, paper fibres|black,grey on rice paper|zen minimal|ink blooms
+ink-bleed|Ink Bleed / Marbling|ink|both|fluid advection of dye (curl noise) on paper; Suminagashi/ebru|multi-ink|marbled swirls|ink flows
+ink-splatter|Ink Splatter|ink|image|random radial blobs, droplets, spray with satellites|black or fluoro|expressive splash|splash expands
+ink-hatching|Pen & Ink Hatching|ink|image|cross-hatch tone from generated light field|black on cream|illustration shading|-
+watercolor|Watercolor Wash|ink|both|layered translucent polygons with edge darkening and pigment granulation|soft pastels|wet-on-wet|blooms spread
+charcoal|Charcoal / Pencil|ink|image|noise-directional strokes, smudge, paper tooth|greys|sketch|-
+comic-ink|Comic / Manga Ink|ink|image|speed lines, screentone, thick inking, panel borders|b/w|manga|speed lines streak
+ascii|ASCII Art|text|both|luminance to character ramp over generated field|green on black or mono|text as pixels|field animates char flicker
+ansi-blocks|ANSI / Block Art|text|both|half-block and box drawing glyphs with 16 colours|ANSI 16|BBS art|scroll
+matrix-rain|Matrix Rain|text|video|falling katakana columns with fading trail|green on black|digital rain|rain
+braille-art|Braille Art|text|image|2x4 dot braille unicode rendering|mono|ultra-dense text|-
+bitmap-1bit|1-bit Bitmap|pixel|both|threshold on shape field, hard black/white|b/w|Mac Classic|-
+dither-floyd|Floyd-Steinberg Dither|pixel|both|error-diffusion quantisation of gradient field|any 2-4 colours|organic grain|-
+dither-bayer|Ordered / Bayer Dither|pixel|both|Bayer matrix threshold, 8x8, with palette limit|1-bit or Gameboy palette|retro crisp pattern|threshold sweeps
+dither-blue-noise|Blue-noise Dither|pixel|image|blue-noise mask threshold|b/w|smooth stipple|-
+stipple|Stipple / Pointillism|pixel|image|weighted voronoi stippling, dots by tone|black on cream|dot illustration|dots migrate
+pixel-art|Pixel Art Scene|pixel|both|low-res canvas upscaled nearest; palette-limited procedural landscapes/cities|PICO-8, Gameboy, NES|8/16-bit|parallax scroll
+gameboy|Game Boy|pixel|both|4 green shades, 160x144|#0f380f..#9bbc0f|handheld|-
+c64-ega|C64 / EGA / CGA Palettes|pixel|both|fixed palette quantisation|retro palettes|home-computer|-
+isometric-pixel|Isometric Pixel City|pixel|both|iso-projected block cities, palette limited|sunset or night|tiny-world diorama|day-night cycle
+voxel|Voxel Art|pixel|image|3D cubes ray-marched on grid|any|Minecraft-ish|rotate
+low-poly|Low Poly|geometry|both|delaunay triangulation of noise field with flat shading|gradient set|faceted landscapes|facets shimmer
+isometric-geo|Isometric Geometry|geometry|image|iso cubes, stairs, Escher-ish|2-3 tones|impossible shapes|cubes shift
+op-art|Op Art / Moire|geometry|both|interfering line gratings, checker warps|b/w|optical vibration|gratings rotate
+moire|Moire Patterns|geometry|both|overlaid rotated grids/circles|b/w or single hue|interference|slow rotation
+truchet|Truchet Tiles|geometry|both|grid tiles with random rotation arcs/diagonals|any 2-3|maze-like weave|tiles rotate
+voronoi|Voronoi Cells|geometry|both|distance-field cells with edge lines or colour|any|cellular mosaics|seeds drift
+delaunay-mesh|Delaunay / Constellation|geometry|both|points with connections within radius|dark+white|network graphs|points float
+sacred-geometry|Sacred Geometry|geometry|both|flower of life, metatron cubes, polygons circles|gold on dark|mystic symmetry|rotation
+spirograph|Spirograph / Harmonograph|geometry|both|parametric hypotrochoids/Lissajous with fading|multi gradient|pendulum art|draws on
+mandala|Mandala / Kaleidoscope|geometry|both|polar symmetry fold of noise or shapes|jewel tones|radial symmetry|rotate/morph
+tessellation|Tessellation / Islamic Pattern|geometry|image|girih star polygon tiling|teal,gold,white|ornamental|-
+penrose|Penrose / Quasi-crystal|geometry|image|aperiodic tiling via subdivision|2-3 tones|nonrepeating|-
+fractal-julia|Fractal (Mandelbrot/Julia)|math|both|escape-time on GPU/worker with smooth colouring|cosine palettes|zoom spirals|continuous zoom
+fractal-ifs|IFS / Flame Fractals|math|image|chaos-game with log density|fiery gradients|nebula-like|-
+strange-attractor|Strange Attractors|math|both|Lorenz/Clifford/De Jong point accumulation|hot-cool ramp|chaos density|params morph
+l-system|L-systems / Fractal Plants|math|both|rewriting grammar drawn turtle-style|green,earth|trees, ferns|grows
+reaction-diffusion|Reaction-Diffusion|math|both|Gray-Scott on GPU/canvas|two-tone to gradient|coral, fingerprints|evolves
+cellular-automata|Cellular Automata|math|both|Conway, rule 30/110, Lenia|binary or palette|emergent patterns|runs
+perlin-flow|Flow Fields|math|both|particles along curl/perlin vectors with trails|duotone/ gradient|silky hair-like lines|trails flow
+particle-swarm|Particles / Boids|math|both|thousands of agents with trails|neon on dark|murmuration|swarm
+physarum|Slime Mould (Physarum)|math|both|agent trail deposition + diffuse|yellow,green on dark|vein networks|grows
+circle-packing|Circle Packing|math|image|collision-free random circle fill|palette dots|bubbly mosaic|grows
+quadtree|Quadtree / Mondrian|math|image|recursive subdivision with coloured cells|primaries or pastel|Mondrian-like|splits
+dla-lightning|DLA / Lightning|math|both|diffusion-limited aggregation|white on dark|frost, lightning|grows
+domain-warp|Domain-Warped Noise|shader|both|fbm(fbm(p)) warping|cosine palette|marble, smoke|flows
+plasma|Plasma / Demoscene|shader|both|sum of sines and radial functions|rainbow cycle|classic effect|palette cycles
+metaballs|Metaballs|shader|both|smooth-union SDF blobs|gradient|lava lamp|blobs merge
+sdf-raymarch|SDF Raymarched Forms|shader|both|raymarching with soft shadows, AO, smooth CSG|any|3D abstract|camera orbit
+fluid-sim|Fluid Smoke|shader|both|stable-fluids Navier-Stokes|dye colours|swirling smoke|stirs
+nebula|Nebula / Space|shader|both|layered fbm, stars, dust lanes|deep purple,teal,orange|cosmic|slow drift
+caustics|Water Caustics|shader|both|animated voronoi/sine caustics|aqua|pool light|ripples
+gradient-orbs|Gradient Orbs / Blobs|shader|both|large soft circles with film grain|duotone|Pinterest-wallpaper vibe|float
+topographic|Topographic Contours|shader|both|isolines of noise height field|monochrome|map lines|height evolves
+wireframe-terrain|Wireframe Terrain|shader|both|heightfield as perspective line mesh (Joy Division style)|white on black|pulsar plot|scroll
+vector-field-lines|Poster Lines / Ridgeline|shader|image|stacked displaced lines|b/w|Unknown Pleasures|-
+chrome-liquid|Liquid Chrome|shader|both|env-mapped metaball surface|silver,blue|Y2K metal|morph
+glass-prism|Prism / Chromatic Dispersion|shader|both|spectral split on edges|rainbow|light refraction|rotating prism
+lens-flare|Lens Flare / Bokeh|shader|both|hexagon discs, streaks, additive|warm|photographic|bokeh drifts
+paper-cut|Paper Cutout Layers|illustration|both|stacked layered silhouettes with drop shadows|palette of 4-6|depth diorama|parallax
+duotone|Duotone Gradient Map|illustration|image|luminance mapped to two colours|spotify-like|bold monochrome|-
+flat-vector|Flat Vector Landscape|illustration|both|layered hills, sun, clouds in flat shapes|sunset palettes|minimal scenery|clouds drift
+lofi-scene|Lo-fi Scene|illustration|both|night window, rain, warm lamp, pixel or vector|purple,orange|chill|rain and flicker
+retro-comic-sun|Sunburst / Radial Rays|illustration|both|rotating wedges|2 tone|graphic burst|rotates
+cutout-collage|Collage / Cutout Zine|illustration|image|torn paper edges, halftone, tape, mixed shapes|beige+red+black|punk zine|-
+sticker-sheet|Sticker Sheet|illustration|image|die-cut white outline shapes with gloss|bright|emoji-like|stickers wiggle
+cursive-y2k-text|Y2K Chrome Text|typography|image|extruded gradient chrome type with stars|chrome|WordArt energy|shine sweep
+kinetic-type|Kinetic Typography|typography|video|per-letter transforms along easing|bold|animated words|text wave/scramble
+variable-type|Variable Font Poster|typography|both|font weight/width axes driven by noise|b/w+accent|expressive type|axes oscillate
+type-glitch|Text Scramble / Decode|typography|video|random-character reveal to words|mono|hacker|decode
+big-type-poster|Giant Type Poster|typography|image|oversized overlapping words, blend modes|2-3 colours|editorial|-
+poetry-card|Poetcore Quote Card|typography|image|serif lines, margin notes, paper|cream,ink|Pinterest 2026 poetcore|-
+lorem-web|Random Web Section|webdesign|image|layout generator composes hero/nav/cards/pricing from a style token set|any theme|generated site mockups|-
+palette-card|Palette Swatch Card|webdesign|image|generated harmonious palettes with names and hex|any|colour inspiration|swatches slide
+pattern-tile|Seamless Pattern|webdesign|image|tileable motif repeat (dots, waves, plus, zigzag)|any|CSS-style backgrounds|offset scroll
+ui-component|UI Component Showcase|webdesign|image|random buttons/toggles/cards in the active style|style tokens|design-system sheet|toggles animate
+logo-mark|Generative Logomark|webdesign|image|primitive combos with symmetry|2 colours|brand-like marks|morph

@@ -1,0 +1,1392 @@
+[
+ {
+  "id": "glassmorphism",
+  "name": "Glassmorphism",
+  "category": "ui",
+  "kind": "both",
+  "technique": "blurred translucent panels over colorful gradient blobs; 1px light border; soft shadow",
+  "palette": "violet,cyan,pink on dark",
+  "traits": "frosted blur, white 10-20% fill, rounded corners",
+  "video_motion": "blobs drift behind static glass cards"
+ },
+ {
+  "id": "neumorphism",
+  "name": "Neumorphism / Soft UI",
+  "category": "ui",
+  "kind": "both",
+  "technique": "dual light+dark drop shadows on same-color surface",
+  "palette": "pastel grey-blue",
+  "traits": "extruded soft buttons, low contrast",
+  "video_motion": "buttons press in/out"
+ },
+ {
+  "id": "neubrutalism",
+  "name": "Neubrutalism",
+  "category": "ui",
+  "kind": "both",
+  "technique": "flat saturated fills, thick black borders, hard offset shadows",
+  "palette": "yellow,pink,mint,black",
+  "traits": "chunky type, no blur, sticker feel",
+  "video_motion": "cards jitter and snap"
+ },
+ {
+  "id": "tactile-brutalism",
+  "name": "Tactile Brutalism (2026)",
+  "category": "ui",
+  "kind": "both",
+  "technique": "1px borders, mono type, raw grid plus grain layer",
+  "palette": "off-white,black,one accent",
+  "traits": "stark geometry, visible grid",
+  "video_motion": "grid lines reveal"
+ },
+ {
+  "id": "bento-grid",
+  "name": "Bento Grid",
+  "category": "ui",
+  "kind": "both",
+  "technique": "modular rounded tiles of varied span filled with mini generative visuals",
+  "palette": "dark neutral+accent",
+  "traits": "Apple-style card mosaic",
+  "video_motion": "tiles animate in sequence"
+ },
+ {
+  "id": "aurora-ui",
+  "name": "Aurora Gradient",
+  "category": "ui",
+  "kind": "both",
+  "technique": "blurred multi-stop radial blobs with blend modes + noise",
+  "palette": "teal,magenta,indigo",
+  "traits": "soft glowing northern-lights mesh",
+  "video_motion": "blobs orbit slowly"
+ },
+ {
+  "id": "mesh-gradient",
+  "name": "Mesh Gradient",
+  "category": "ui",
+  "kind": "both",
+  "technique": "bilinear-interpolated colour grid points warped by noise",
+  "palette": "any 4-6 harmonious",
+  "traits": "smooth organic colour field",
+  "video_motion": "control points wander"
+ },
+ {
+  "id": "grainy-gradient",
+  "name": "Grainy Gradient",
+  "category": "ui",
+  "kind": "both",
+  "technique": "gradient plus film-grain noise and contrast boost",
+  "palette": "warm sunset or cool dusk",
+  "traits": "gritty banded glow, risograph-lite",
+  "video_motion": "grain flickers per frame"
+ },
+ {
+  "id": "claymorphism",
+  "name": "Claymorphism / 3D Clay",
+  "category": "ui",
+  "kind": "image",
+  "technique": "inner+outer shadows on puffy rounded SDF shapes",
+  "palette": "candy pastels",
+  "traits": "inflated toy-like forms",
+  "video_motion": "shapes squash and bounce"
+ },
+ {
+  "id": "gummy-jelly",
+  "name": "Jelly / Gummy Bright",
+  "category": "ui",
+  "kind": "both",
+  "technique": "glossy translucent SDF blobs with subsurface fake and specular",
+  "palette": "gummy red,orange,lime,blue",
+  "traits": "wobbly refractive candy (Pinterest 2026)",
+  "video_motion": "jiggle physics"
+ },
+ {
+  "id": "dark-mode-neon",
+  "name": "Dark Mode Neon UI",
+  "category": "ui",
+  "kind": "both",
+  "technique": "dark bg, neon strokes with bloom",
+  "palette": "neon cyan,magenta,lime",
+  "traits": "glow outlines",
+  "video_motion": "pulse glow"
+ },
+ {
+  "id": "skeuo-revival",
+  "name": "Skeuomorphic Revival",
+  "category": "ui",
+  "kind": "image",
+  "technique": "bevels, gloss, textured materials via gradients",
+  "palette": "chrome,leather,wood",
+  "traits": "realistic buttons/knobs",
+  "video_motion": "knobs rotate"
+ },
+ {
+  "id": "liquid-glass",
+  "name": "Liquid Glass",
+  "category": "ui",
+  "kind": "both",
+  "technique": "refraction/lens displacement of background by rounded SDF lens",
+  "palette": "clear with tint",
+  "traits": "bending, specular rim",
+  "video_motion": "lens drifts over content"
+ },
+ {
+  "id": "bubble-ui",
+  "name": "Bubble / Y2K UI",
+  "category": "ui",
+  "kind": "both",
+  "technique": "translucent spheres with fresnel rim and highlight",
+  "palette": "aqua,white",
+  "traits": "soap-bubble iridescence",
+  "video_motion": "bubbles float up"
+ },
+ {
+  "id": "y2k",
+  "name": "Y2K Futurism",
+  "category": "retro",
+  "kind": "both",
+  "technique": "chrome gradients, stars, swooshes, metallic blobs",
+  "palette": "silver,baby blue,hot pink",
+  "traits": "optimistic millennium tech",
+  "video_motion": "spinning chrome star"
+ },
+ {
+  "id": "frutiger-aero",
+  "name": "Frutiger Aero",
+  "category": "retro",
+  "kind": "both",
+  "technique": "sky gradients, glossy orbs, bokeh, bubbles, lens flare",
+  "palette": "sky blue,leaf green,white",
+  "traits": "2004-2013 glossy nature-tech",
+  "video_motion": "bubbles and light rays drift"
+ },
+ {
+  "id": "dark-aero",
+  "name": "Dark Aero",
+  "category": "retro",
+  "kind": "both",
+  "technique": "frutiger aero with deep navy palette and glow",
+  "palette": "navy,teal,cyan",
+  "traits": "moody glossy tech",
+  "video_motion": "glow breathing"
+ },
+ {
+  "id": "vaporwave",
+  "name": "Vaporwave",
+  "category": "retro",
+  "kind": "both",
+  "technique": "sunset gradient, perspective grid, Greek bust placeholder shapes, palm silhouettes, katakana text",
+  "palette": "purple,pink,teal",
+  "traits": "dated CG, mall nostalgia",
+  "video_motion": "grid scrolls toward horizon"
+ },
+ {
+  "id": "synthwave",
+  "name": "Synthwave / Outrun",
+  "category": "retro",
+  "kind": "both",
+  "technique": "striped sun, perspective grid, mountain wireframe, chromatic title",
+  "palette": "magenta,orange,deep blue",
+  "traits": "80s neon horizon",
+  "video_motion": "endless drive grid"
+ },
+ {
+  "id": "retrowave-neon",
+  "name": "Retro Neon Sign",
+  "category": "retro",
+  "kind": "both",
+  "technique": "glowing tube strokes with bloom and flicker",
+  "palette": "hot pink,cyan",
+  "traits": "signage glow",
+  "video_motion": "tube flicker"
+ },
+ {
+  "id": "memphis",
+  "name": "Memphis Design",
+  "category": "retro",
+  "kind": "both",
+  "technique": "scattered squiggles, triangles, dots on clashing patterns",
+  "palette": "primary+pastel clash",
+  "traits": "80s playful geometry",
+  "video_motion": "shapes tumble"
+ },
+ {
+  "id": "eighties-airbrush",
+  "name": "80s Airbrush / Miami",
+  "category": "retro",
+  "kind": "image",
+  "technique": "soft gradient shapes, palm and sunset flat vectors",
+  "palette": "coral,teal,peach",
+  "traits": "Miami Vice pastel",
+  "video_motion": "sun sets"
+ },
+ {
+  "id": "90s-web",
+  "name": "90s Web / Geocities",
+  "category": "retro",
+  "kind": "both",
+  "technique": "tiled backgrounds, marquee text, bevel buttons, visitor counter",
+  "palette": "web-safe colours",
+  "traits": "chaotic homepages",
+  "video_motion": "marquee scroll"
+ },
+ {
+  "id": "neoretro",
+  "name": "Neo-Retro / Retrofuturism",
+  "category": "retro",
+  "kind": "both",
+  "technique": "rounded 60s-70s atomic shapes with modern gradients",
+  "palette": "mustard,teal,burnt orange",
+  "traits": "space-age optimism",
+  "video_motion": "orbit shapes"
+ },
+ {
+  "id": "seventies-groovy",
+  "name": "70s Groovy",
+  "category": "retro",
+  "kind": "both",
+  "technique": "concentric wavy bands, sunburst, flower shapes",
+  "palette": "orange,brown,mustard,avocado",
+  "traits": "warm psychedelic stripes",
+  "video_motion": "bands undulate"
+ },
+ {
+  "id": "mid-century",
+  "name": "Mid-Century Modern",
+  "category": "retro",
+  "kind": "image",
+  "technique": "flat organic shapes, boomerang, limited palette, paper texture",
+  "palette": "teal,mustard,rust",
+  "traits": "atomic-age print",
+  "video_motion": "-"
+ },
+ {
+  "id": "art-deco",
+  "name": "Art Deco",
+  "category": "retro",
+  "kind": "both",
+  "technique": "radial fans, symmetric geometric ornaments with gold lines",
+  "palette": "black,gold,emerald",
+  "traits": "luxury symmetry",
+  "video_motion": "fans rotate/reveal"
+ },
+ {
+  "id": "bauhaus",
+  "name": "Bauhaus",
+  "category": "retro",
+  "kind": "image",
+  "technique": "circle-square-triangle compositions, primary colours",
+  "palette": "red,yellow,blue,black",
+  "traits": "geometric constructivism",
+  "video_motion": "shapes reassemble"
+ },
+ {
+  "id": "constructivism",
+  "name": "Constructivist Poster",
+  "category": "retro",
+  "kind": "image",
+  "technique": "diagonal composition, bold bars, circles, halftone",
+  "palette": "red,black,cream",
+  "traits": "propaganda poster geometry",
+  "video_motion": "diagonals sweep"
+ },
+ {
+  "id": "swiss-international",
+  "name": "Swiss / International Style",
+  "category": "retro",
+  "kind": "image",
+  "technique": "strict grid, big type, asymmetry, whitespace",
+  "palette": "white,black,red",
+  "traits": "Helvetica grid posters",
+  "video_motion": "grid shifts"
+ },
+ {
+  "id": "swiss-punk",
+  "name": "Swiss Punk",
+  "category": "retro",
+  "kind": "image",
+  "technique": "swiss grid broken with distortion, overprint, rotated type",
+  "palette": "black,red,fluoro",
+  "traits": "rule-breaking posters",
+  "video_motion": "type warps"
+ },
+ {
+  "id": "cyberpunk",
+  "name": "Cyberpunk",
+  "category": "futurism",
+  "kind": "both",
+  "technique": "neon city silhouettes, rain, glitch, HUD overlays",
+  "palette": "magenta,cyan,yellow",
+  "traits": "high-tech low-life",
+  "video_motion": "rain and sign flicker"
+ },
+ {
+  "id": "cyber-y2k",
+  "name": "Cyber Y2K / Cybercore",
+  "category": "futurism",
+  "kind": "both",
+  "technique": "chrome tribal, barbed shapes, blue-black, glitch",
+  "palette": "blue,black,silver",
+  "traits": "dark millennium cyber",
+  "video_motion": "rotating chrome shapes"
+ },
+ {
+  "id": "hud-sci-fi",
+  "name": "Sci-Fi HUD",
+  "category": "futurism",
+  "kind": "both",
+  "technique": "thin vector rings, ticks, readouts, radar sweep",
+  "palette": "cyan,amber",
+  "traits": "FUI interface",
+  "video_motion": "radar rotation"
+ },
+ {
+  "id": "holographic",
+  "name": "Holographic / Iridescent",
+  "category": "futurism",
+  "kind": "both",
+  "technique": "thin-film interference palette over normals, angle-based hue shift",
+  "palette": "opal rainbow",
+  "traits": "foil and opalescent (Pinterest +115%)",
+  "video_motion": "hue shifts with tilt"
+ },
+ {
+  "id": "alien-core",
+  "name": "Extra Celestial / Alien-core",
+  "category": "futurism",
+  "kind": "both",
+  "technique": "bioluminescent orbs, ethereal ribbons, opal gradients",
+  "palette": "opal,violet,mint",
+  "traits": "Pinterest 2026 alien-core +80%",
+  "video_motion": "orbs hover"
+ },
+ {
+  "id": "solarpunk",
+  "name": "Solarpunk",
+  "category": "nature",
+  "kind": "both",
+  "technique": "layered plants, sun rays, rounded greenery, wind turbines, stained-glass leaves",
+  "palette": "green,gold,sky blue",
+  "traits": "optimistic eco-future",
+  "video_motion": "leaves sway, sun rays rotate"
+ },
+ {
+  "id": "biopunk",
+  "name": "Biopunk / Bioluminescent",
+  "category": "nature",
+  "kind": "both",
+  "technique": "cell structures, glowing tendrils, voronoi membranes",
+  "palette": "teal,green,magenta on black",
+  "traits": "organic tech",
+  "video_motion": "cells pulse"
+ },
+ {
+  "id": "cottagecore-flat",
+  "name": "Cottagecore Botanical",
+  "category": "nature",
+  "kind": "image",
+  "technique": "botanical L-system plants, soft paper texture",
+  "palette": "sage,cream,rose",
+  "traits": "pastoral calm",
+  "video_motion": "sway"
+ },
+ {
+  "id": "dark-academia",
+  "name": "Dark Academia",
+  "category": "mood",
+  "kind": "image",
+  "technique": "vignette, serif type, parchment, candle light grain",
+  "palette": "brown,forest green,gold",
+  "traits": "moody study",
+  "video_motion": "candle flicker"
+ },
+ {
+  "id": "goth-glossy",
+  "name": "Glossy Goth",
+  "category": "mood",
+  "kind": "both",
+  "technique": "black, chrome, lace-pattern geometry, red accents",
+  "palette": "black,burgundy,silver",
+  "traits": "Pinterest 2026 goth update",
+  "video_motion": "lace pattern drift"
+ },
+ {
+  "id": "cool-blue-glacier",
+  "name": "Glacier / Cool Blue",
+  "category": "mood",
+  "kind": "both",
+  "technique": "frost crystals, ice noise, frosted-glass gradient",
+  "palette": "ice blue,white,silver",
+  "traits": "Pinterest 2026 cool blue",
+  "video_motion": "snow and shimmer"
+ },
+ {
+  "id": "dreamcore",
+  "name": "Dreamcore / Weirdcore",
+  "category": "mood",
+  "kind": "both",
+  "technique": "soft pastel gradients, low-res stock-like shapes, odd text, eyes, clouds",
+  "palette": "pastel with dark corners",
+  "traits": "surreal nostalgia",
+  "video_motion": "slow zoom, text flicker"
+ },
+ {
+  "id": "liminal",
+  "name": "Liminal Space",
+  "category": "mood",
+  "kind": "image",
+  "technique": "one-point perspective empty corridors via raycast, flat lighting",
+  "palette": "yellow-beige,fluorescent white",
+  "traits": "empty uncanny",
+  "video_motion": "camera drift"
+ },
+ {
+  "id": "vhs",
+  "name": "VHS / Analog Horror",
+  "category": "analog",
+  "kind": "both",
+  "technique": "chroma shift, tracking lines, noise, timecode overlay, scanlines",
+  "palette": "desaturated, red-cyan fringing",
+  "traits": "camcorder decay",
+  "video_motion": "tracking glitches"
+ },
+ {
+  "id": "crt",
+  "name": "CRT Monitor",
+  "category": "analog",
+  "kind": "both",
+  "technique": "scanlines, barrel distortion, phosphor mask, bloom, flicker",
+  "palette": "green or amber phosphor",
+  "traits": "old terminal glow",
+  "video_motion": "rolling bar"
+ },
+ {
+  "id": "glitch",
+  "name": "Glitch Art",
+  "category": "analog",
+  "kind": "both",
+  "technique": "slice displacement, RGB split, pixel sort, data-mosh blocks",
+  "palette": "RGB channel colours",
+  "traits": "corrupted signal",
+  "video_motion": "bursts of corruption"
+ },
+ {
+  "id": "pixel-sort",
+  "name": "Pixel Sorting",
+  "category": "analog",
+  "kind": "image",
+  "technique": "sort rows/cols by luminance thresholds on a generated base",
+  "palette": "source-dependent",
+  "traits": "streaked smears",
+  "video_motion": "sort threshold animates"
+ },
+ {
+  "id": "datamosh",
+  "name": "Datamosh",
+  "category": "analog",
+  "kind": "video",
+  "technique": "motion-vector smearing between generated frames",
+  "palette": "any",
+  "traits": "melting transitions",
+  "video_motion": "continuous smear"
+ },
+ {
+  "id": "film-grain",
+  "name": "35mm Film / Kodak",
+  "category": "analog",
+  "kind": "image",
+  "technique": "grain, halation, light leaks, vignette, colour grade",
+  "palette": "warm Kodak tones",
+  "traits": "photo-chemical",
+  "video_motion": "leak flashes"
+ },
+ {
+  "id": "polaroid",
+  "name": "Polaroid / Instant Photo",
+  "category": "analog",
+  "kind": "image",
+  "technique": "white frame, faded colour, light leak, slight blur",
+  "palette": "faded warm",
+  "traits": "snapshot nostalgia",
+  "video_motion": "photo develops"
+ },
+ {
+  "id": "lomo",
+  "name": "Lomography",
+  "category": "analog",
+  "kind": "image",
+  "technique": "heavy vignette, saturation, cross-process",
+  "palette": "saturated shifted",
+  "traits": "toy-camera",
+  "video_motion": "-"
+ },
+ {
+  "id": "risograph",
+  "name": "Risograph",
+  "category": "print",
+  "kind": "image",
+  "technique": "2-3 spot-ink layers, halftone, misregistration, grain",
+  "palette": "fluoro pink,blue,yellow",
+  "traits": "offset-printed zine",
+  "video_motion": "layers jitter"
+ },
+ {
+  "id": "halftone",
+  "name": "Halftone / Newsprint",
+  "category": "print",
+  "kind": "both",
+  "technique": "dot grid sized by luminance at screen angle; CMYK rosette",
+  "palette": "CMYK",
+  "traits": "comic/pop-art dots",
+  "video_motion": "dot size breathes"
+ },
+ {
+  "id": "pop-art",
+  "name": "Pop Art",
+  "category": "print",
+  "kind": "image",
+  "technique": "ben-day dots, thick outlines, flat primaries, speech bubbles",
+  "palette": "primary+yellow",
+  "traits": "Lichtenstein-like",
+  "video_motion": "-"
+ },
+ {
+  "id": "screenprint",
+  "name": "Screen Print / Serigraph",
+  "category": "print",
+  "kind": "image",
+  "technique": "posterised flat colour layers with overprint multiply",
+  "palette": "limited 3-5 inks",
+  "traits": "bold flat posters",
+  "video_motion": "layers slide"
+ },
+ {
+  "id": "woodcut-linocut",
+  "name": "Woodcut / Linocut",
+  "category": "print",
+  "kind": "image",
+  "technique": "threshold + carved hatch lines, gouge marks",
+  "palette": "black on paper",
+  "traits": "carved relief",
+  "video_motion": "-"
+ },
+ {
+  "id": "engraving",
+  "name": "Engraving / Etching",
+  "category": "print",
+  "kind": "image",
+  "technique": "contour hatching following form, banknote guilloche",
+  "palette": "black/sepia",
+  "traits": "fine line shading",
+  "video_motion": "lines flow"
+ },
+ {
+  "id": "guilloche",
+  "name": "Guilloche",
+  "category": "print",
+  "kind": "both",
+  "technique": "spirograph rosettes (epi/hypotrochoid) in layered line sets",
+  "palette": "currency green/blue",
+  "traits": "security patterns",
+  "video_motion": "rotation"
+ },
+ {
+  "id": "blueprint",
+  "name": "Blueprint / Technical Drawing",
+  "category": "print",
+  "kind": "image",
+  "technique": "white lines on blue, grid, dimension marks, construction geometry",
+  "palette": "cyanotype blue,white",
+  "traits": "schematic",
+  "video_motion": "lines draw on"
+ },
+ {
+  "id": "cyanotype",
+  "name": "Cyanotype",
+  "category": "print",
+  "kind": "image",
+  "technique": "blue monotone with botanical silhouettes and uneven coating",
+  "palette": "prussian blue,white",
+  "traits": "sun print",
+  "video_motion": "-"
+ },
+ {
+  "id": "ukiyo-e",
+  "name": "Ukiyo-e Wave",
+  "category": "print",
+  "kind": "image",
+  "technique": "flat colour bands, curling wave strokes, paper grain",
+  "palette": "indigo,cream,red",
+  "traits": "Japanese woodblock",
+  "video_motion": "waves roll"
+ },
+ {
+  "id": "sumi-e-ink",
+  "name": "Sumi-e / Ink Wash",
+  "category": "ink",
+  "kind": "both",
+  "technique": "bleeding brush strokes via diffusion, paper fibres",
+  "palette": "black,grey on rice paper",
+  "traits": "zen minimal",
+  "video_motion": "ink blooms"
+ },
+ {
+  "id": "ink-bleed",
+  "name": "Ink Bleed / Marbling",
+  "category": "ink",
+  "kind": "both",
+  "technique": "fluid advection of dye (curl noise) on paper; Suminagashi/ebru",
+  "palette": "multi-ink",
+  "traits": "marbled swirls",
+  "video_motion": "ink flows"
+ },
+ {
+  "id": "ink-splatter",
+  "name": "Ink Splatter",
+  "category": "ink",
+  "kind": "image",
+  "technique": "random radial blobs, droplets, spray with satellites",
+  "palette": "black or fluoro",
+  "traits": "expressive splash",
+  "video_motion": "splash expands"
+ },
+ {
+  "id": "ink-hatching",
+  "name": "Pen & Ink Hatching",
+  "category": "ink",
+  "kind": "image",
+  "technique": "cross-hatch tone from generated light field",
+  "palette": "black on cream",
+  "traits": "illustration shading",
+  "video_motion": "-"
+ },
+ {
+  "id": "watercolor",
+  "name": "Watercolor Wash",
+  "category": "ink",
+  "kind": "both",
+  "technique": "layered translucent polygons with edge darkening and pigment granulation",
+  "palette": "soft pastels",
+  "traits": "wet-on-wet",
+  "video_motion": "blooms spread"
+ },
+ {
+  "id": "charcoal",
+  "name": "Charcoal / Pencil",
+  "category": "ink",
+  "kind": "image",
+  "technique": "noise-directional strokes, smudge, paper tooth",
+  "palette": "greys",
+  "traits": "sketch",
+  "video_motion": "-"
+ },
+ {
+  "id": "comic-ink",
+  "name": "Comic / Manga Ink",
+  "category": "ink",
+  "kind": "image",
+  "technique": "speed lines, screentone, thick inking, panel borders",
+  "palette": "b/w",
+  "traits": "manga",
+  "video_motion": "speed lines streak"
+ },
+ {
+  "id": "ascii",
+  "name": "ASCII Art",
+  "category": "text",
+  "kind": "both",
+  "technique": "luminance to character ramp over generated field",
+  "palette": "green on black or mono",
+  "traits": "text as pixels",
+  "video_motion": "field animates char flicker"
+ },
+ {
+  "id": "ansi-blocks",
+  "name": "ANSI / Block Art",
+  "category": "text",
+  "kind": "both",
+  "technique": "half-block and box drawing glyphs with 16 colours",
+  "palette": "ANSI 16",
+  "traits": "BBS art",
+  "video_motion": "scroll"
+ },
+ {
+  "id": "matrix-rain",
+  "name": "Matrix Rain",
+  "category": "text",
+  "kind": "video",
+  "technique": "falling katakana columns with fading trail",
+  "palette": "green on black",
+  "traits": "digital rain",
+  "video_motion": "rain"
+ },
+ {
+  "id": "braille-art",
+  "name": "Braille Art",
+  "category": "text",
+  "kind": "image",
+  "technique": "2x4 dot braille unicode rendering",
+  "palette": "mono",
+  "traits": "ultra-dense text",
+  "video_motion": "-"
+ },
+ {
+  "id": "bitmap-1bit",
+  "name": "1-bit Bitmap",
+  "category": "pixel",
+  "kind": "both",
+  "technique": "threshold on shape field, hard black/white",
+  "palette": "b/w",
+  "traits": "Mac Classic",
+  "video_motion": "-"
+ },
+ {
+  "id": "dither-floyd",
+  "name": "Floyd-Steinberg Dither",
+  "category": "pixel",
+  "kind": "both",
+  "technique": "error-diffusion quantisation of gradient field",
+  "palette": "any 2-4 colours",
+  "traits": "organic grain",
+  "video_motion": "-"
+ },
+ {
+  "id": "dither-bayer",
+  "name": "Ordered / Bayer Dither",
+  "category": "pixel",
+  "kind": "both",
+  "technique": "Bayer matrix threshold, 8x8, with palette limit",
+  "palette": "1-bit or Gameboy palette",
+  "traits": "retro crisp pattern",
+  "video_motion": "threshold sweeps"
+ },
+ {
+  "id": "dither-blue-noise",
+  "name": "Blue-noise Dither",
+  "category": "pixel",
+  "kind": "image",
+  "technique": "blue-noise mask threshold",
+  "palette": "b/w",
+  "traits": "smooth stipple",
+  "video_motion": "-"
+ },
+ {
+  "id": "stipple",
+  "name": "Stipple / Pointillism",
+  "category": "pixel",
+  "kind": "image",
+  "technique": "weighted voronoi stippling, dots by tone",
+  "palette": "black on cream",
+  "traits": "dot illustration",
+  "video_motion": "dots migrate"
+ },
+ {
+  "id": "pixel-art",
+  "name": "Pixel Art Scene",
+  "category": "pixel",
+  "kind": "both",
+  "technique": "low-res canvas upscaled nearest; palette-limited procedural landscapes/cities",
+  "palette": "PICO-8, Gameboy, NES",
+  "traits": "8/16-bit",
+  "video_motion": "parallax scroll"
+ },
+ {
+  "id": "gameboy",
+  "name": "Game Boy",
+  "category": "pixel",
+  "kind": "both",
+  "technique": "4 green shades, 160x144",
+  "palette": "#0f380f..#9bbc0f",
+  "traits": "handheld",
+  "video_motion": "-"
+ },
+ {
+  "id": "c64-ega",
+  "name": "C64 / EGA / CGA Palettes",
+  "category": "pixel",
+  "kind": "both",
+  "technique": "fixed palette quantisation",
+  "palette": "retro palettes",
+  "traits": "home-computer",
+  "video_motion": "-"
+ },
+ {
+  "id": "isometric-pixel",
+  "name": "Isometric Pixel City",
+  "category": "pixel",
+  "kind": "both",
+  "technique": "iso-projected block cities, palette limited",
+  "palette": "sunset or night",
+  "traits": "tiny-world diorama",
+  "video_motion": "day-night cycle"
+ },
+ {
+  "id": "voxel",
+  "name": "Voxel Art",
+  "category": "pixel",
+  "kind": "image",
+  "technique": "3D cubes ray-marched on grid",
+  "palette": "any",
+  "traits": "Minecraft-ish",
+  "video_motion": "rotate"
+ },
+ {
+  "id": "low-poly",
+  "name": "Low Poly",
+  "category": "geometry",
+  "kind": "both",
+  "technique": "delaunay triangulation of noise field with flat shading",
+  "palette": "gradient set",
+  "traits": "faceted landscapes",
+  "video_motion": "facets shimmer"
+ },
+ {
+  "id": "isometric-geo",
+  "name": "Isometric Geometry",
+  "category": "geometry",
+  "kind": "image",
+  "technique": "iso cubes, stairs, Escher-ish",
+  "palette": "2-3 tones",
+  "traits": "impossible shapes",
+  "video_motion": "cubes shift"
+ },
+ {
+  "id": "op-art",
+  "name": "Op Art / Moire",
+  "category": "geometry",
+  "kind": "both",
+  "technique": "interfering line gratings, checker warps",
+  "palette": "b/w",
+  "traits": "optical vibration",
+  "video_motion": "gratings rotate"
+ },
+ {
+  "id": "moire",
+  "name": "Moire Patterns",
+  "category": "geometry",
+  "kind": "both",
+  "technique": "overlaid rotated grids/circles",
+  "palette": "b/w or single hue",
+  "traits": "interference",
+  "video_motion": "slow rotation"
+ },
+ {
+  "id": "truchet",
+  "name": "Truchet Tiles",
+  "category": "geometry",
+  "kind": "both",
+  "technique": "grid tiles with random rotation arcs/diagonals",
+  "palette": "any 2-3",
+  "traits": "maze-like weave",
+  "video_motion": "tiles rotate"
+ },
+ {
+  "id": "voronoi",
+  "name": "Voronoi Cells",
+  "category": "geometry",
+  "kind": "both",
+  "technique": "distance-field cells with edge lines or colour",
+  "palette": "any",
+  "traits": "cellular mosaics",
+  "video_motion": "seeds drift"
+ },
+ {
+  "id": "delaunay-mesh",
+  "name": "Delaunay / Constellation",
+  "category": "geometry",
+  "kind": "both",
+  "technique": "points with connections within radius",
+  "palette": "dark+white",
+  "traits": "network graphs",
+  "video_motion": "points float"
+ },
+ {
+  "id": "sacred-geometry",
+  "name": "Sacred Geometry",
+  "category": "geometry",
+  "kind": "both",
+  "technique": "flower of life, metatron cubes, polygons circles",
+  "palette": "gold on dark",
+  "traits": "mystic symmetry",
+  "video_motion": "rotation"
+ },
+ {
+  "id": "spirograph",
+  "name": "Spirograph / Harmonograph",
+  "category": "geometry",
+  "kind": "both",
+  "technique": "parametric hypotrochoids/Lissajous with fading",
+  "palette": "multi gradient",
+  "traits": "pendulum art",
+  "video_motion": "draws on"
+ },
+ {
+  "id": "mandala",
+  "name": "Mandala / Kaleidoscope",
+  "category": "geometry",
+  "kind": "both",
+  "technique": "polar symmetry fold of noise or shapes",
+  "palette": "jewel tones",
+  "traits": "radial symmetry",
+  "video_motion": "rotate/morph"
+ },
+ {
+  "id": "tessellation",
+  "name": "Tessellation / Islamic Pattern",
+  "category": "geometry",
+  "kind": "image",
+  "technique": "girih star polygon tiling",
+  "palette": "teal,gold,white",
+  "traits": "ornamental",
+  "video_motion": "-"
+ },
+ {
+  "id": "penrose",
+  "name": "Penrose / Quasi-crystal",
+  "category": "geometry",
+  "kind": "image",
+  "technique": "aperiodic tiling via subdivision",
+  "palette": "2-3 tones",
+  "traits": "nonrepeating",
+  "video_motion": "-"
+ },
+ {
+  "id": "fractal-julia",
+  "name": "Fractal (Mandelbrot/Julia)",
+  "category": "math",
+  "kind": "both",
+  "technique": "escape-time on GPU/worker with smooth colouring",
+  "palette": "cosine palettes",
+  "traits": "zoom spirals",
+  "video_motion": "continuous zoom"
+ },
+ {
+  "id": "fractal-ifs",
+  "name": "IFS / Flame Fractals",
+  "category": "math",
+  "kind": "image",
+  "technique": "chaos-game with log density",
+  "palette": "fiery gradients",
+  "traits": "nebula-like",
+  "video_motion": "-"
+ },
+ {
+  "id": "strange-attractor",
+  "name": "Strange Attractors",
+  "category": "math",
+  "kind": "both",
+  "technique": "Lorenz/Clifford/De Jong point accumulation",
+  "palette": "hot-cool ramp",
+  "traits": "chaos density",
+  "video_motion": "params morph"
+ },
+ {
+  "id": "l-system",
+  "name": "L-systems / Fractal Plants",
+  "category": "math",
+  "kind": "both",
+  "technique": "rewriting grammar drawn turtle-style",
+  "palette": "green,earth",
+  "traits": "trees, ferns",
+  "video_motion": "grows"
+ },
+ {
+  "id": "reaction-diffusion",
+  "name": "Reaction-Diffusion",
+  "category": "math",
+  "kind": "both",
+  "technique": "Gray-Scott on GPU/canvas",
+  "palette": "two-tone to gradient",
+  "traits": "coral, fingerprints",
+  "video_motion": "evolves"
+ },
+ {
+  "id": "cellular-automata",
+  "name": "Cellular Automata",
+  "category": "math",
+  "kind": "both",
+  "technique": "Conway, rule 30/110, Lenia",
+  "palette": "binary or palette",
+  "traits": "emergent patterns",
+  "video_motion": "runs"
+ },
+ {
+  "id": "perlin-flow",
+  "name": "Flow Fields",
+  "category": "math",
+  "kind": "both",
+  "technique": "particles along curl/perlin vectors with trails",
+  "palette": "duotone/ gradient",
+  "traits": "silky hair-like lines",
+  "video_motion": "trails flow"
+ },
+ {
+  "id": "particle-swarm",
+  "name": "Particles / Boids",
+  "category": "math",
+  "kind": "both",
+  "technique": "thousands of agents with trails",
+  "palette": "neon on dark",
+  "traits": "murmuration",
+  "video_motion": "swarm"
+ },
+ {
+  "id": "physarum",
+  "name": "Slime Mould (Physarum)",
+  "category": "math",
+  "kind": "both",
+  "technique": "agent trail deposition + diffuse",
+  "palette": "yellow,green on dark",
+  "traits": "vein networks",
+  "video_motion": "grows"
+ },
+ {
+  "id": "circle-packing",
+  "name": "Circle Packing",
+  "category": "math",
+  "kind": "image",
+  "technique": "collision-free random circle fill",
+  "palette": "palette dots",
+  "traits": "bubbly mosaic",
+  "video_motion": "grows"
+ },
+ {
+  "id": "quadtree",
+  "name": "Quadtree / Mondrian",
+  "category": "math",
+  "kind": "image",
+  "technique": "recursive subdivision with coloured cells",
+  "palette": "primaries or pastel",
+  "traits": "Mondrian-like",
+  "video_motion": "splits"
+ },
+ {
+  "id": "dla-lightning",
+  "name": "DLA / Lightning",
+  "category": "math",
+  "kind": "both",
+  "technique": "diffusion-limited aggregation",
+  "palette": "white on dark",
+  "traits": "frost, lightning",
+  "video_motion": "grows"
+ },
+ {
+  "id": "domain-warp",
+  "name": "Domain-Warped Noise",
+  "category": "shader",
+  "kind": "both",
+  "technique": "fbm(fbm(p)) warping",
+  "palette": "cosine palette",
+  "traits": "marble, smoke",
+  "video_motion": "flows"
+ },
+ {
+  "id": "plasma",
+  "name": "Plasma / Demoscene",
+  "category": "shader",
+  "kind": "both",
+  "technique": "sum of sines and radial functions",
+  "palette": "rainbow cycle",
+  "traits": "classic effect",
+  "video_motion": "palette cycles"
+ },
+ {
+  "id": "metaballs",
+  "name": "Metaballs",
+  "category": "shader",
+  "kind": "both",
+  "technique": "smooth-union SDF blobs",
+  "palette": "gradient",
+  "traits": "lava lamp",
+  "video_motion": "blobs merge"
+ },
+ {
+  "id": "sdf-raymarch",
+  "name": "SDF Raymarched Forms",
+  "category": "shader",
+  "kind": "both",
+  "technique": "raymarching with soft shadows, AO, smooth CSG",
+  "palette": "any",
+  "traits": "3D abstract",
+  "video_motion": "camera orbit"
+ },
+ {
+  "id": "fluid-sim",
+  "name": "Fluid Smoke",
+  "category": "shader",
+  "kind": "both",
+  "technique": "stable-fluids Navier-Stokes",
+  "palette": "dye colours",
+  "traits": "swirling smoke",
+  "video_motion": "stirs"
+ },
+ {
+  "id": "nebula",
+  "name": "Nebula / Space",
+  "category": "shader",
+  "kind": "both",
+  "technique": "layered fbm, stars, dust lanes",
+  "palette": "deep purple,teal,orange",
+  "traits": "cosmic",
+  "video_motion": "slow drift"
+ },
+ {
+  "id": "caustics",
+  "name": "Water Caustics",
+  "category": "shader",
+  "kind": "both",
+  "technique": "animated voronoi/sine caustics",
+  "palette": "aqua",
+  "traits": "pool light",
+  "video_motion": "ripples"
+ },
+ {
+  "id": "gradient-orbs",
+  "name": "Gradient Orbs / Blobs",
+  "category": "shader",
+  "kind": "both",
+  "technique": "large soft circles with film grain",
+  "palette": "duotone",
+  "traits": "Pinterest-wallpaper vibe",
+  "video_motion": "float"
+ },
+ {
+  "id": "topographic",
+  "name": "Topographic Contours",
+  "category": "shader",
+  "kind": "both",
+  "technique": "isolines of noise height field",
+  "palette": "monochrome",
+  "traits": "map lines",
+  "video_motion": "height evolves"
+ },
+ {
+  "id": "wireframe-terrain",
+  "name": "Wireframe Terrain",
+  "category": "shader",
+  "kind": "both",
+  "technique": "heightfield as perspective line mesh (Joy Division style)",
+  "palette": "white on black",
+  "traits": "pulsar plot",
+  "video_motion": "scroll"
+ },
+ {
+  "id": "vector-field-lines",
+  "name": "Poster Lines / Ridgeline",
+  "category": "shader",
+  "kind": "image",
+  "technique": "stacked displaced lines",
+  "palette": "b/w",
+  "traits": "Unknown Pleasures",
+  "video_motion": "-"
+ },
+ {
+  "id": "chrome-liquid",
+  "name": "Liquid Chrome",
+  "category": "shader",
+  "kind": "both",
+  "technique": "env-mapped metaball surface",
+  "palette": "silver,blue",
+  "traits": "Y2K metal",
+  "video_motion": "morph"
+ },
+ {
+  "id": "glass-prism",
+  "name": "Prism / Chromatic Dispersion",
+  "category": "shader",
+  "kind": "both",
+  "technique": "spectral split on edges",
+  "palette": "rainbow",
+  "traits": "light refraction",
+  "video_motion": "rotating prism"
+ },
+ {
+  "id": "lens-flare",
+  "name": "Lens Flare / Bokeh",
+  "category": "shader",
+  "kind": "both",
+  "technique": "hexagon discs, streaks, additive",
+  "palette": "warm",
+  "traits": "photographic",
+  "video_motion": "bokeh drifts"
+ },
+ {
+  "id": "paper-cut",
+  "name": "Paper Cutout Layers",
+  "category": "illustration",
+  "kind": "both",
+  "technique": "stacked layered silhouettes with drop shadows",
+  "palette": "palette of 4-6",
+  "traits": "depth diorama",
+  "video_motion": "parallax"
+ },
+ {
+  "id": "duotone",
+  "name": "Duotone Gradient Map",
+  "category": "illustration",
+  "kind": "image",
+  "technique": "luminance mapped to two colours",
+  "palette": "spotify-like",
+  "traits": "bold monochrome",
+  "video_motion": "-"
+ },
+ {
+  "id": "flat-vector",
+  "name": "Flat Vector Landscape",
+  "category": "illustration",
+  "kind": "both",
+  "technique": "layered hills, sun, clouds in flat shapes",
+  "palette": "sunset palettes",
+  "traits": "minimal scenery",
+  "video_motion": "clouds drift"
+ },
+ {
+  "id": "lofi-scene",
+  "name": "Lo-fi Scene",
+  "category": "illustration",
+  "kind": "both",
+  "technique": "night window, rain, warm lamp, pixel or vector",
+  "palette": "purple,orange",
+  "traits": "chill",
+  "video_motion": "rain and flicker"
+ },
+ {
+  "id": "retro-comic-sun",
+  "name": "Sunburst / Radial Rays",
+  "category": "illustration",
+  "kind": "both",
+  "technique": "rotating wedges",
+  "palette": "2 tone",
+  "traits": "graphic burst",
+  "video_motion": "rotates"
+ },
+ {
+  "id": "cutout-collage",
+  "name": "Collage / Cutout Zine",
+  "category": "illustration",
+  "kind": "image",
+  "technique": "torn paper edges, halftone, tape, mixed shapes",
+  "palette": "beige+red+black",
+  "traits": "punk zine",
+  "video_motion": "-"
+ },
+ {
+  "id": "sticker-sheet",
+  "name": "Sticker Sheet",
+  "category": "illustration",
+  "kind": "image",
+  "technique": "die-cut white outline shapes with gloss",
+  "palette": "bright",
+  "traits": "emoji-like",
+  "video_motion": "stickers wiggle"
+ },
+ {
+  "id": "cursive-y2k-text",
+  "name": "Y2K Chrome Text",
+  "category": "typography",
+  "kind": "image",
+  "technique": "extruded gradient chrome type with stars",
+  "palette": "chrome",
+  "traits": "WordArt energy",
+  "video_motion": "shine sweep"
+ },
+ {
+  "id": "kinetic-type",
+  "name": "Kinetic Typography",
+  "category": "typography",
+  "kind": "video",
+  "technique": "per-letter transforms along easing",
+  "palette": "bold",
+  "traits": "animated words",
+  "video_motion": "text wave/scramble"
+ },
+ {
+  "id": "variable-type",
+  "name": "Variable Font Poster",
+  "category": "typography",
+  "kind": "both",
+  "technique": "font weight/width axes driven by noise",
+  "palette": "b/w+accent",
+  "traits": "expressive type",
+  "video_motion": "axes oscillate"
+ },
+ {
+  "id": "type-glitch",
+  "name": "Text Scramble / Decode",
+  "category": "typography",
+  "kind": "video",
+  "technique": "random-character reveal to words",
+  "palette": "mono",
+  "traits": "hacker",
+  "video_motion": "decode"
+ },
+ {
+  "id": "big-type-poster",
+  "name": "Giant Type Poster",
+  "category": "typography",
+  "kind": "image",
+  "technique": "oversized overlapping words, blend modes",
+  "palette": "2-3 colours",
+  "traits": "editorial",
+  "video_motion": "-"
+ },
+ {
+  "id": "poetry-card",
+  "name": "Poetcore Quote Card",
+  "category": "typography",
+  "kind": "image",
+  "technique": "serif lines, margin notes, paper",
+  "palette": "cream,ink",
+  "traits": "Pinterest 2026 poetcore",
+  "video_motion": "-"
+ },
+ {
+  "id": "lorem-web",
+  "name": "Random Web Section",
+  "category": "webdesign",
+  "kind": "image",
+  "technique": "layout generator composes hero/nav/cards/pricing from a style token set",
+  "palette": "any theme",
+  "traits": "generated site mockups",
+  "video_motion": "-"
+ },
+ {
+  "id": "palette-card",
+  "name": "Palette Swatch Card",
+  "category": "webdesign",
+  "kind": "image",
+  "technique": "generated harmonious palettes with names and hex",
+  "palette": "any",
+  "traits": "colour inspiration",
+  "video_motion": "swatches slide"
+ },
+ {
+  "id": "pattern-tile",
+  "name": "Seamless Pattern",
+  "category": "webdesign",
+  "kind": "image",
+  "technique": "tileable motif repeat (dots, waves, plus, zigzag)",
+  "palette": "any",
+  "traits": "CSS-style backgrounds",
+  "video_motion": "offset scroll"
+ },
+ {
+  "id": "ui-component",
+  "name": "UI Component Showcase",
+  "category": "webdesign",
+  "kind": "image",
+  "technique": "random buttons/toggles/cards in the active style",
+  "palette": "style tokens",
+  "traits": "design-system sheet",
+  "video_motion": "toggles animate"
+ },
+ {
+  "id": "logo-mark",
+  "name": "Generative Logomark",
+  "category": "webdesign",
+  "kind": "image",
+  "technique": "primitive combos with symmetry",
+  "palette": "2 colours",
+  "traits": "brand-like marks",
+  "video_motion": "morph"
+ }
+]
