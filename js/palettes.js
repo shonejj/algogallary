@@ -57,6 +57,9 @@ export const PALETTES = {
   oceandusk:['#04101f', '#0c2f4f', '#2f6f9f', '#f7b267', '#fff1d6'],
   storm:    ['#0b0e12', '#20262e', '#46515e', '#9aa8b6', '#e8eef5'],
   sakura:   ['#1d0f1c', '#4d2442', '#c06c8f', '#f7b8c8', '#fff3f6'],
+  alpine:   ['#1d2b3a', '#3d5a6c', '#6f9fc4', '#e6b980', '#f5f7fa'],
+  verdant:  ['#0f1f17', '#2e5a3a', '#7fb3d5', '#e8c27a', '#f8f4e8'],
+  dusky:    ['#120f24', '#3a2f5b', '#8a6fb0', '#f2a07b', '#fde9d9'],
 };
 
 export const PALETTE_NAMES = Object.keys(PALETTES);

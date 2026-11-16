@@ -6,6 +6,9 @@ import { makeRng, makeNoise } from './rng.js';
 import { CANVAS_GENS } from './gens-2d.js';
 import { worldConfig } from './world.js';
 import { creatureConfig } from './creatures.js';
+import { terraConfig } from './terra.js';
+import { megaConfig } from './mega.js';
+import { planetConfig } from './planet.js';
 import { makeTitle } from './titles.js';
 
 export const BLENDS = ['normal', 'multiply', 'screen', 'overlay', 'difference', 'add', 'softlight', 'dodge', 'color', 'lumamap', 'displace', 'exclusion'];
@@ -43,6 +46,12 @@ function layerSpec(st, rng, O, isMain) {
   if (st.world) {
     const wc = worldConfig(rng, st.world); L.w = wc.W; L.pals = wc.pals; L.desc = wc.desc;
     if (isMain) for (const [k, [i, names]] of Object.entries(WORLD_KEYS)) if (O[k] != null) L.w[i] = names ? idx(names, O[k], L.w[i]) : num(O[k], L.w[i]);
+  } else if (st.terra) {
+    const tc = terraConfig(rng, st.terra, isMain ? O : {}); L.w = tc.W; L.pals = [...tc.pals, 'alpine', 'verdant', 'dusky']; L.desc = tc.desc;
+  } else if (st.gen === 's:mega') {
+    const mc = megaConfig(rng, st.mega); L.w = mc.W; L.desc = mc.desc;
+  } else if (st.gen === 's:planet') {
+    const pc = planetConfig(rng, st.planet); L.w = pc.W; L.pals = pc.pals; L.desc = pc.desc;
   } else if (st.creature) {
     const cc = creatureConfig(rng, isMain ? { ...st.copts, material: O.material != null ? idx(['cel', 'soft', 'gummy', 'plush'], O.material, null) : (st.copts && st.copts.material), eyes: O.eyes ? +O.eyes : null } : { ...st.copts });
     L.w = cc.W; L.p = cc.p; L.desc = cc.desc;

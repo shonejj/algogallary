@@ -12,7 +12,11 @@ Nothing is a fixed list of pictures. Every result is a recipe drawn from continu
 
 | Layer | What varies |
 |---|---|
-| **Generators** | 40 WebGL shader generators and 14 Canvas2D generators, each with its own seeded parameters |
+| **Terra (3D)** | Raymarched terrain worlds. Ridged, terraced, dune and canyon terrain blend continuously, with water, snow lines, instanced pines, trees, crystals, spires or glowing mushrooms, a sky (sun, moon, alien planet, aurora, dust, storm), clouds, fog, soft shadows and four camera rigs. Video flies a closed orbit through the infinite terrain. |
+| **Megastructures (3D)** | Infinite repeated signed-distance architecture: colonnade halls, arch corridors, endless cities, Menger-fractal temples, monolith fields, spiral towers. Each has AO, soft shadows, glossy floors and glowing windows at night. Video travels through them. |
+| **Planets (3D)** | 3D-noise continents, oceans, ice caps, lava rivers, gas-giant bands with storms, rotating cloud decks, atmosphere rim, night-side city lights, rings with planet shadow, orbiting moons. |
+| **3D creatures** | The same continuous creature grammar, raymarched in a lit diorama with soft shadows and AO, where the camera orbits. |
+| **Generators** | 44 WebGL shader generators and 14 Canvas2D generators, each with its own seeded parameters |
 | **Worlds** | A parallax scene composer with about 20 independent choices: sky, celestial body, clouds, terrain, water, structures, flora, creatures, a character, weather, light, camera travel |
 | **Creatures** | One signed-distance body where head, ears, horns, antennae, arms, legs and tail are smoothly fused, with continuous proportions. Eyes, mouth, material (cel, soft, gummy, plush), pattern and background are chosen per seed. There are no fixed species. |
 | **Remix** | Any generator × any generator, combined with: <ul><li>12 blend modes</li><li>a mask: a third generator's brightness, 12 shapes, noise, self, split or gradient</li><li>a transform per layer: kaleidoscope, mirror, tile, polar, swirl, fisheye, spin</li><li>displacement warp, hue rotation, saturation</li></ul> |
@@ -21,6 +25,8 @@ Nothing is a fixed list of pictures. Every result is a recipe drawn from continu
 | **Titles** | Every artwork gets a generated title |
 
 A seed is a 32-bit integer, and many parameters are continuous. Combined with the remix engine, the space has no practical end.
+
+The random **Next** picker first chooses an *engine family* (3D worlds, megastructures, planets, 3D creatures, 2D creatures, story worlds, remix, classic textures), and never picks the same family twice in a row. Consecutive results therefore come from different systems.
 
 ## URL API
 
@@ -41,7 +47,7 @@ render.html?mode=video&style=neon-city&seed=3&dur=8&download=1
 | Param | Values |
 |---|---|
 | `style` | Style id, or a comma list to pick from. Ids are in [`api/styles.json`](api/styles.json). |
-| `cat` | `remix, world, character, ui, retro, futurism, nature, mood, analog, print, ink, text, pixel, geometry, math, shader, illustration, typography, webdesign` |
+| `cat` | `terra, mega, space, remix, world, character, ui, retro, futurism, nature, mood, analog, print, ink, text, pixel, geometry, math, shader, illustration, typography, webdesign` |
 | `seed` | uint32 |
 | `mode` | `image`, `video` |
 | `w`, `h`, `aspect` | Size in px, or `1:1, 4:5, 9:16, 16:9` |
@@ -73,7 +79,7 @@ render.html?mode=video&style=neon-city&seed=3&dur=8&download=1
 | `creature` | `none, birds, whale, jellyfish, airships, fireflies` |
 | `hero` | `none, wanderer, robot, astronaut, duo, deer` |
 | `weather` | `clear, rain, snow, mist, dust, embers, petals` |
-| `rays`, `cam`, `haze`, `layers` | Light rays, camera travel speed, haze, number of layers |
+| `rays`, `cam`, `haze`, `layers` | Light rays, camera travel speed, haze, number of layers (2D story worlds). For Terra, `cam` = `0` low flight, `1` aerial, `2` ground, `3` top-down. |
 | **Creatures** | |
 | `material` | `cel, soft, gummy, plush` |
 | `eyes` | `1–3` |

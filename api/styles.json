@@ -18,8 +18,11 @@
   "download": "1 = auto-save file"
  },
  "categories": {
+  "terra": "3D Worlds",
+  "mega": "Megastructures",
+  "space": "Planets",
   "remix": "Remix (infinite)",
-  "world": "Worlds",
+  "world": "Story Worlds",
   "character": "Creatures",
   "ui": "Interface",
   "retro": "Retro & Nostalgia",
@@ -205,6 +208,487 @@
     "scene",
     "environment",
     ""
+   ]
+  },
+  {
+   "id": "terra",
+   "name": "Terra",
+   "category": "terra",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "3d",
+    "terrain",
+    "landscape",
+    "world",
+    "environment",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "terra-alpine",
+   "name": "Alpine Worlds",
+   "category": "terra",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "3d",
+    "terrain",
+    "landscape",
+    "world",
+    "environment",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "terra-desert",
+   "name": "Desert Worlds",
+   "category": "terra",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "3d",
+    "terrain",
+    "landscape",
+    "world",
+    "environment",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "terra-alien",
+   "name": "Alien Terrains",
+   "category": "terra",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "3d",
+    "terrain",
+    "landscape",
+    "world",
+    "environment",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "terra-archipelago",
+   "name": "Archipelago",
+   "category": "terra",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "3d",
+    "terrain",
+    "landscape",
+    "world",
+    "environment",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "terra-canyon",
+   "name": "Canyonlands",
+   "category": "terra",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "3d",
+    "terrain",
+    "landscape",
+    "world",
+    "environment",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "terra-frozen",
+   "name": "Frozen Worlds",
+   "category": "terra",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "3d",
+    "terrain",
+    "landscape",
+    "world",
+    "environment",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "terra-night",
+   "name": "Night Terrains",
+   "category": "terra",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "3d",
+    "terrain",
+    "landscape",
+    "world",
+    "environment",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "terra-pixel",
+   "name": "Pixel Terrains",
+   "category": "terra",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "3d",
+    "terrain",
+    "landscape",
+    "world",
+    "environment",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "megastructure",
+   "name": "Megastructures",
+   "category": "mega",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "alpine",
+    "dawnpeach",
+    "tealdusk",
+    "mars",
+    "lofi",
+    "magalien",
+    "emerald",
+    "desert",
+    "storm",
+    "sakura",
+    "mono",
+    "random"
+   ],
+   "tags": [
+    "3d",
+    "architecture",
+    "structure",
+    "city",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "mega-colonnade",
+   "name": "Infinite Colonnade",
+   "category": "mega",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "alpine",
+    "dawnpeach",
+    "tealdusk",
+    "mars",
+    "lofi",
+    "magalien",
+    "emerald",
+    "desert",
+    "storm",
+    "sakura",
+    "mono",
+    "random"
+   ],
+   "tags": [
+    "3d",
+    "architecture",
+    "structure",
+    "city",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "mega-arches",
+   "name": "Arch Corridors",
+   "category": "mega",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "alpine",
+    "dawnpeach",
+    "tealdusk",
+    "mars",
+    "lofi",
+    "magalien",
+    "emerald",
+    "desert",
+    "storm",
+    "sakura",
+    "mono",
+    "random"
+   ],
+   "tags": [
+    "3d",
+    "architecture",
+    "structure",
+    "city",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "mega-city",
+   "name": "Endless City",
+   "category": "mega",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "alpine",
+    "dawnpeach",
+    "tealdusk",
+    "mars",
+    "lofi",
+    "magalien",
+    "emerald",
+    "desert",
+    "storm",
+    "sakura",
+    "mono",
+    "random"
+   ],
+   "tags": [
+    "3d",
+    "architecture",
+    "structure",
+    "city",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "mega-fractal",
+   "name": "Fractal Temple",
+   "category": "mega",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "alpine",
+    "dawnpeach",
+    "tealdusk",
+    "mars",
+    "lofi",
+    "magalien",
+    "emerald",
+    "desert",
+    "storm",
+    "sakura",
+    "mono",
+    "random"
+   ],
+   "tags": [
+    "3d",
+    "architecture",
+    "structure",
+    "city",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "mega-monoliths",
+   "name": "Monolith Field",
+   "category": "mega",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "alpine",
+    "dawnpeach",
+    "tealdusk",
+    "mars",
+    "lofi",
+    "magalien",
+    "emerald",
+    "desert",
+    "storm",
+    "sakura",
+    "mono",
+    "random"
+   ],
+   "tags": [
+    "3d",
+    "architecture",
+    "structure",
+    "city",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "mega-spirals",
+   "name": "Spiral Towers",
+   "category": "mega",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "alpine",
+    "dawnpeach",
+    "tealdusk",
+    "mars",
+    "lofi",
+    "magalien",
+    "emerald",
+    "desert",
+    "storm",
+    "sakura",
+    "mono",
+    "random"
+   ],
+   "tags": [
+    "3d",
+    "architecture",
+    "structure",
+    "city",
+    "raymarched"
+   ]
+  },
+  {
+   "id": "planets",
+   "name": "Planets",
+   "category": "space",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "planet",
+    "space",
+    "orbit",
+    "cosmos"
+   ]
+  },
+  {
+   "id": "gas-giants",
+   "name": "Gas Giants",
+   "category": "space",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "planet",
+    "space",
+    "orbit",
+    "cosmos"
+   ]
+  },
+  {
+   "id": "ice-worlds",
+   "name": "Ice Worlds",
+   "category": "space",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "planet",
+    "space",
+    "orbit",
+    "cosmos"
+   ]
+  },
+  {
+   "id": "lava-worlds",
+   "name": "Lava Worlds",
+   "category": "space",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [],
+   "tags": [
+    "planet",
+    "space",
+    "orbit",
+    "cosmos"
+   ]
+  },
+  {
+   "id": "creatures-3d",
+   "name": "Creatures 3D",
+   "category": "character",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "candy",
+    "pastel",
+    "gummy",
+    "sakura",
+    "citrus",
+    "mint",
+    "clay",
+    "lofi",
+    "dawnpeach",
+    "tealdusk",
+    "memphis",
+    "random",
+    "random"
+   ],
+   "tags": [
+    "character",
+    "creature",
+    "3d",
+    "diorama",
+    "cute"
+   ]
+  },
+  {
+   "id": "gummy-3d",
+   "name": "Gummy 3D",
+   "category": "character",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "candy",
+    "pastel",
+    "gummy",
+    "sakura",
+    "citrus",
+    "mint",
+    "clay",
+    "lofi",
+    "dawnpeach",
+    "tealdusk",
+    "memphis",
+    "random",
+    "random"
+   ],
+   "tags": [
+    "character",
+    "creature",
+    "3d",
+    "gummy"
+   ]
+  },
+  {
+   "id": "plush-3d",
+   "name": "Plush 3D",
+   "category": "character",
+   "engine": "webgl",
+   "rich": true,
+   "palettes": [
+    "candy",
+    "pastel",
+    "gummy",
+    "sakura",
+    "citrus",
+    "mint",
+    "clay",
+    "lofi",
+    "dawnpeach",
+    "tealdusk",
+    "memphis",
+    "random",
+    "random"
+   ],
+   "tags": [
+    "character",
+    "creature",
+    "3d",
+    "plush"
    ]
   },
   {
@@ -1901,6 +2385,27 @@
    "#c06c8f",
    "#f7b8c8",
    "#fff3f6"
+  ],
+  "alpine": [
+   "#1d2b3a",
+   "#3d5a6c",
+   "#6f9fc4",
+   "#e6b980",
+   "#f5f7fa"
+  ],
+  "verdant": [
+   "#0f1f17",
+   "#2e5a3a",
+   "#7fb3d5",
+   "#e8c27a",
+   "#f8f4e8"
+  ],
+  "dusky": [
+   "#120f24",
+   "#3a2f5b",
+   "#8a6fb0",
+   "#f2a07b",
+   "#fde9d9"
   ]
  },
  "fx": [

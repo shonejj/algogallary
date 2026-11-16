@@ -10,8 +10,11 @@ const BASE = process.env.BASE || 'http://localhost:8765';
   await p.goto(BASE + '/index.html?embed=1&mode=image&w=960&h=600&style=aurora-gradient&seed=1');
   await p.waitForFunction(() => window.__algogallery && window.__algogallery.ready, null, { timeout: 120000 });
   const styles = JSON.parse(fs.readFileSync(path.join(ROOT, 'api/styles.json'), 'utf8')).styles;
-  const items = [];
+  const libPath = path.join(ROOT, 'api/library.json');
+  const items = process.env.APPEND && fs.existsSync(libPath) ? JSON.parse(fs.readFileSync(libPath, 'utf8')).items.filter((x) => styles.some((s) => s.id === x.style)) : [];
+  const done = new Set(items.map((x) => x.style));
   for (const st of styles) {
+    if (done.has(st.id)) continue;
     const n = PER + (st.rich ? EXTRA : 0);
     for (let k = 1; k <= n; k++) {
       const seed = k * 1009;

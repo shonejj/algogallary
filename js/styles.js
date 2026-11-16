@@ -1,7 +1,7 @@
 // Style registry: a style = generator + palette set + post-FX stack (+ fixed params).
 // gen: 's:<name>' = shader generator, 'c:<name>' = Canvas2D generator.
 export const CATEGORIES = {
-  remix: 'Remix (infinite)', world: 'Worlds', character: 'Creatures',
+  terra: '3D Worlds', mega: 'Megastructures', space: 'Planets', remix: 'Remix (infinite)', world: 'Story Worlds', character: 'Creatures',
   ui: 'Interface', retro: 'Retro & Nostalgia', futurism: 'Futurism', nature: 'Nature & Eco', mood: 'Mood & Core',
   analog: 'Analog & Glitch', print: 'Print', ink: 'Ink & Paint', text: 'Text Art', pixel: 'Pixel & Dither',
   geometry: 'Geometry', math: 'Math Art', shader: 'Shader Art', illustration: 'Illustration', typography: 'Typography', webdesign: 'Web Design',
@@ -24,6 +24,9 @@ export const ART = {
 const A = (...k) => k.map((x) => ART[x]);
 const WS = (id, name, biome, art, tags = '') => ({ id, name, cat: 'world', gen: 's:world', world: biome, pals: [], fx: art, p: null, tags: 'world scene environment ' + tags, rich: true });
 const CR = (id, name, copts) => ({ id, name, cat: 'character', gen: 's:creature', creature: true, copts, pals: ['candy', 'pastel', 'gummy', 'sakura', 'citrus', 'mint', 'clay', 'lofi', 'dawnpeach', 'tealdusk', 'memphis', 'random', 'random'], fx: [{ grain: .02 }, { grain: .03, vig: .2 }, { mode: 'halftone', tone: 0, cell: 4, paper: .3 }, { grain: .04, paper: .35 }, { bloom: .25, grain: .02 }], p: null, tags: 'character creature mascot cute', rich: true });
+const T3 = (id, name, biome, art) => ({ id, name, cat: 'terra', gen: 's:terra', terra: biome, family: 'terra', pals: [], fx: art, p: null, tags: '3d terrain landscape world environment raymarched', rich: true });
+const MG = (id, name, mode, art) => ({ id, name, cat: 'mega', gen: 's:mega', mega: mode, family: 'mega', pals: ['alpine', 'dawnpeach', 'tealdusk', 'mars', 'lofi', 'magalien', 'emerald', 'desert', 'storm', 'sakura', 'mono', 'random'], fx: art, p: null, tags: '3d architecture structure city raymarched', rich: true });
+const PL = (id, name, kind, art) => ({ id, name, cat: 'space', gen: 's:planet', planet: kind, family: 'planet', pals: [], fx: art, p: null, tags: 'planet space orbit cosmos', rich: true });
 const RX = (id, name, force) => ({ id, name, cat: 'remix', gen: 's:aurora', remix: true, force, pals: [], fx: {}, p: null, tags: 'remix mix blend fusion infinite', rich: true, noMix: true });
 
 export const STYLES = [
@@ -40,6 +43,33 @@ export const STYLES = [
   WS('enchanted-forest', 'Enchanted Forest', 'forest', A('dreamy', 'clean', 'film', 'pixel')),
   WS('pixel-world', 'Pixel Worlds', 'dreamscape', A('pixel', 'dither')),
   WS('ink-world', 'Ink Worlds', 'dreamscape', A('ink', 'riso')),
+  // 3D terrain worlds (raymarched)
+  T3('terra', 'Terra', 'any', A('clean', 'clean', 'film', 'dreamy', 'poster', 'pixel', 'ink')),
+  T3('terra-alpine', 'Alpine Worlds', 'alpine', A('clean', 'film', 'dreamy')),
+  T3('terra-desert', 'Desert Worlds', 'desert', A('clean', 'film', 'poster', 'riso')),
+  T3('terra-alien', 'Alien Terrains', 'alien', A('clean', 'dreamy', 'crt')),
+  T3('terra-archipelago', 'Archipelago', 'archipelago', A('clean', 'dreamy', 'film')),
+  T3('terra-canyon', 'Canyonlands', 'canyon', A('clean', 'film', 'poster')),
+  T3('terra-frozen', 'Frozen Worlds', 'frozen', A('clean', 'dreamy', 'ink')),
+  T3('terra-night', 'Night Terrains', 'night', A('dreamy', 'clean', 'vhs')),
+  T3('terra-pixel', 'Pixel Terrains', 'any', A('pixel', 'dither')),
+  // Megastructures (raymarched architecture)
+  MG('megastructure', 'Megastructures', null, A('clean', 'film', 'dreamy', 'poster', 'ink')),
+  MG('mega-colonnade', 'Infinite Colonnade', 0, A('clean', 'film', 'dreamy')),
+  MG('mega-arches', 'Arch Corridors', 1, A('clean', 'film', 'poster')),
+  MG('mega-city', 'Endless City', 2, A('clean', 'dreamy', 'vhs', 'crt')),
+  MG('mega-fractal', 'Fractal Temple', 3, A('clean', 'ink', 'dreamy')),
+  MG('mega-monoliths', 'Monolith Field', 4, A('clean', 'film', 'poster')),
+  MG('mega-spirals', 'Spiral Towers', 5, A('clean', 'dreamy', 'crt')),
+  // Planets
+  PL('planets', 'Planets', null, A('clean', 'clean', 'dreamy', 'film')),
+  PL('gas-giants', 'Gas Giants', 1, A('clean', 'dreamy')),
+  PL('ice-worlds', 'Ice Worlds', 2, A('clean', 'dreamy')),
+  PL('lava-worlds', 'Lava Worlds', 3, A('clean', 'dreamy', 'film')),
+  // 3D creatures
+  { ...CR('creatures-3d', 'Creatures 3D', {}), gen: 's:creature3d', family: 'creature3d', tags: 'character creature 3d diorama cute' },
+  { ...CR('gummy-3d', 'Gummy 3D', { material: 2 }), gen: 's:creature3d', family: 'creature3d', tags: 'character creature 3d gummy' },
+  { ...CR('plush-3d', 'Plush 3D', { material: 3 }), gen: 's:creature3d', family: 'creature3d', tags: 'character creature 3d plush' },
   // Creatures (continuous-parameter SDF characters)
   CR('creatures', 'Creatures', {}),
   CR('gummy-critters', 'Gummy Critters', { material: 2 }),
@@ -178,3 +208,9 @@ export const FX_PRESETS = {
 // layout-heavy designs that don't read well as remix layers
 for (const id of ['palette-card', 'ui-kit', 'web-hero', 'poetcore', 'swiss-poster']) STYLE_MAP[id].noMix = true;
 for (const id of ['bento-grid', 'neubrutalism', 'kinetic-type']) STYLE_MAP[id].noMix = true;
+
+// engine families: the random picker chooses a family first so consecutive results come from different systems
+for (const st of STYLES) {
+  if (!st.family) st.family = st.world ? 'world2d' : st.creature ? 'creature2d' : st.remix ? 'remix' : 'classic';
+}
+export const FAMILY_WEIGHT = { terra: 3, mega: 2.4, planet: 1.6, creature3d: 2, creature2d: 1, world2d: 1.4, remix: 2, classic: 2.2 };

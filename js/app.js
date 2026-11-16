@@ -1,5 +1,5 @@
 import { Renderer } from './renderer.js';
-import { STYLES, STYLE_MAP, CATEGORIES, FX_PRESETS } from './styles.js';
+import { STYLES, STYLE_MAP, CATEGORIES, FX_PRESETS, FAMILY_WEIGHT } from './styles.js';
 import { PALETTES, PALETTE_NAMES, randomPalette, hexToRgb } from './palettes.js';
 import { makeRng, randSeed } from './rng.js';
 import { makeRecipe, prepare, drawJob, overridesFrom, BLENDS, MASKS, SHAPES, XFORMS, TRANSITIONS } from './engine.js';
@@ -15,6 +15,7 @@ const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 /* ---------------- settings + URL API ---------------- */
 const DEF = { mode: 'image', pool: null, palette: 'auto', fx: 'auto', aspect: 'screen', size: 'screen', dur: 6, quality: 'auto', lock: false, mix: 'off', blend: 'auto', mask: 'auto', xform: 'auto', transition: 'random' };
 const S = { ...DEF, ...store.get('settings', {}) };
+if (S.pool && S.pool.length <= 1) S.pool = null; // undo a pool accidentally narrowed to one style by an old link
 const Q = new URLSearchParams(location.search);
 const embed = Q.get('embed') === '1';
 const autoDl = Q.get('download') === '1';
@@ -23,7 +24,8 @@ if (Q.has('mode')) S.mode = Q.get('mode') === 'video' ? 'video' : 'image';
 let urlPool = [];
 if (Q.has('style')) urlPool = Q.get('style').split(',').filter((id) => STYLE_MAP[id]);
 if (Q.has('cat')) { const cats = Q.get('cat').split(','); urlPool = urlPool.concat(STYLES.filter((s) => cats.includes(s.cat)).map((s) => s.id)); }
-if (urlPool.length) S.pool = [...new Set(urlPool)];
+// one style= only picks the first artwork; cat= or a comma list narrows the mix for this visit (never saved)
+const sessionPool = (Q.has('cat') || urlPool.length > 1) && urlPool.length ? [...new Set(urlPool)] : null;
 if (Q.has('palette')) { const p = Q.get('palette'); if (p === 'auto' || p === 'random' || PALETTES[p]) S.palette = p; }
 if (Q.has('fx') && Q.get('fx') in FX_PRESETS) S.fx = Q.get('fx');
 if (Q.has('aspect') && ASPECTS.includes(Q.get('aspect'))) S.aspect = Q.get('aspect');
@@ -165,7 +167,7 @@ async function show(id, seed, opts = {}) {
 }
 
 function pool() {
-  const list = (S.pool || []).filter((id) => STYLE_MAP[id]);
+  const list = (sessionPool || S.pool || []).filter((id) => STYLE_MAP[id]);
   return list.length ? list : STYLES.map((s) => s.id);
 }
 function pick() {
@@ -173,11 +175,14 @@ function pick() {
   const p = pool(), recent = hist.slice(-Math.min(6, p.length - 1)).map((h) => h.id);
   const cand = p.filter((id) => !recent.includes(id));
   const list = cand.length ? cand : p;
-  // scene/character styles carry far more structural variety, so they come up more often
-  const wt = (id) => (STYLE_MAP[id].rich ? 6 : 1);
-  let tot = list.reduce((a, id) => a + wt(id), 0), r = Math.random() * tot;
-  for (const id of list) { r -= wt(id); if (r <= 0) return { id, seed: randSeed() }; }
-  return { id: list[0], seed: randSeed() };
+  // pick an engine family first (never the same family twice in a row), then a style inside it
+  const recentFam = hist.slice(-2).map((h) => STYLE_MAP[h.id].family);
+  const fams = {}; for (const id of list) (fams[STYLE_MAP[id].family] ||= []).push(id);
+  let keys = Object.keys(fams).filter((f) => !recentFam.includes(f)); if (!keys.length) keys = Object.keys(fams);
+  let tot = keys.reduce((a, f) => a + (FAMILY_WEIGHT[f] || 1), 0), r = Math.random() * tot, fam = keys[0];
+  for (const f of keys) { r -= FAMILY_WEIGHT[f] || 1; if (r <= 0) { fam = f; break; } }
+  const members = fams[fam];
+  return { id: members[Math.floor(Math.random() * members.length)], seed: randSeed() };
 }
 function prefetch() {
   upcoming = pick();

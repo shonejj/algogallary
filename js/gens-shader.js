@@ -1,3 +1,7 @@
+import { TERRA_GLSL } from './terra.js';
+import { MEGA_GLSL } from './mega.js';
+import { PLANET_GLSL } from './planet.js';
+import { CREATURE3D_GLSL } from './creature3d.js';
 import { CREATURE_GLSL } from './creatures.js';
 import { WORLD_GLSL } from './world.js';
 // Fragment-shader generators. Each defines `vec3 gen()`. Uniforms: uRes,uTime,uPhase(0..1 loop),uSeed,uP,uPal[5]
@@ -5,6 +9,10 @@ import { WORLD_GLSL } from './world.js';
 export const SHADER_GENS = {
 world: WORLD_GLSL,
 creature: CREATURE_GLSL,
+terra: TERRA_GLSL,
+mega: MEGA_GLSL,
+planet: PLANET_GLSL,
+creature3d: CREATURE3D_GLSL,
 
 aurora: `
 vec3 gen(){vec2 p=uv0();vec3 c=uPal[0];
